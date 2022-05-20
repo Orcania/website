@@ -2,8 +2,9 @@
 /* eslint-disable jsx-a11y/interactive-supports-focus */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import Image from 'next/image';
+// import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import { DisconnectButton, useCelesteSelector, ConnectedWrapper, SwitchNetworkButton } from '@celeste-js/react';
 // import { providers } from '@celeste-js/core/dist/constants';
@@ -40,7 +41,7 @@ const Navbar = () => {
     const [burgerActive, setBurgerActive] = useState(false);
     const [bgColor, setBgColor] = useState(false);
     const [scrollingDown, setScrollingDown] = useState(false);
-
+    const router = useRouter();
     const { walletReducer } = useCelesteSelector(state => state);
 
     const dispatch = useDispatch();
@@ -105,42 +106,78 @@ const Navbar = () => {
                 </div>
 
                 <div className={`navbar-menu ${mobileActive ? 'is-active animate__animated animate__fadeInLeft' : ''}`}>
-                    <div className="navbar-start">
-                        <div className="navbar-item has-dropdown is-hoverable">
-                            <a className="navbar-link ">
-                                <i className="far fa-exchange" /> &nbsp; Exchange
+                    <div className="navbar-end">
+                        <Link
+                            href="/"
+                            className={`navbar-item has-text-light  ${router.pathname === '/' ? 'is-active' : ''}`}
+                            passHref
+                        >
+                            <a className="is-flex">
+                                <span className="icon">
+                                    <i className="fas fa-home" />
+                                </span>
+                                &nbsp;
+                                <h1>Home</h1>
                             </a>
+                        </Link>
 
-                            <div className="navbar-dropdown has-background-transparent">
-                                <Link href="/swap">
-                                    <a className="navbar-item has-text-white">Swap</a>
-                                </Link>
+                        <Link
+                            href="/token"
+                            className={`navbar-item has-text-light  ${router.pathname === '/token' ? 'is-active' : ''}`}
+                            passHref
+                        >
+                            <a className="is-flex">
+                                <span className="icon">
+                                    <i className="fas fa-coin" />
+                                </span>
+                                &nbsp;
+                                <h1>Coin</h1>
+                            </a>
+                        </Link>
 
-                                <Link href="/liquidity">
-                                    <a className="navbar-item has-text-white">Liquidity</a>
-                                </Link>
+                        <Link
+                            href="/multichain"
+                            className={`navbar-item has-text-light  ${
+                                router.pathname === '/multichain' ? 'is-active' : ''
+                            }`}
+                            passHref
+                        >
+                            <a className="is-flex">
+                                <span className="icon">
+                                    <i className="fa-solid fa-link-horizontal" />
+                                </span>
+                                &nbsp;
+                                <h1>Multichain</h1>
+                            </a>
+                        </Link>
 
-                                {/* <Link href="/liquidity/add">
-                                <a className="navbar-item has-text-white">liquidity - add</a>
-                            </Link>
+                        <Link
+                            href="/dex"
+                            className={`navbar-item has-text-light ${router.pathname === '/dex' ? 'is-active' : ''}`}
+                            passHref
+                        >
+                            <a className="is-flex">
+                                <span className="icon">
+                                    <i className="fas fa-exchange-alt" />
+                                </span>
+                                &nbsp;
+                                <h1>DEX</h1>
+                            </a>
+                        </Link>
 
-                            <Link href="/liquidity/remove">
-                                <a className="navbar-item has-text-white">liquidity - remove (Cooming Soon)</a>
-                            </Link>  */}
-                            </div>
-                        </div>
-
-                        {/* <Link href="/dex">
-                        <a className="navbar-item has-text-white">
-                            <i className="fas fa-tractor" /> &nbsp; Farms (Cooming Soon)
-                        </a>
-                    </Link>
-
-                    <Link href="/faucet">
-                        <a className="navbar-item has-text-white">
-                            <i className="fas fa-faucet" /> &nbsp; Faucet
-                        </a>
-                    </Link> */}
+                        <Link
+                            href="/mint"
+                            className={`navbar-item has-text-light  ${router.pathname === '/mint' ? 'is-active' : ''}`}
+                            passHref
+                        >
+                            <a className="is-flex">
+                                <span className="icon">
+                                    <i className="fa-solid fa-coins" />
+                                </span>
+                                &nbsp;
+                                <h1>Mint</h1>
+                            </a>
+                        </Link>
                     </div>
 
                     <div className="navbar-end">
@@ -164,7 +201,10 @@ const Navbar = () => {
                                             );
                                         }}
                                     >
-                                        Connect
+                                        <span className="icon">
+                                            <i className="fas fa-wallet" />
+                                        </span>
+                                        <span>Choose Wallet</span>
                                     </button>
                                 </div>
                             }

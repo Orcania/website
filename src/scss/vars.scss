@@ -10,9 +10,10 @@ $hsatpink: #ff00aa;
 $hsatblue: #00b2ff;
 
 $hgra2: linear-gradient(135deg, $hsatpink 0%, rgba($hsatpink, 0) 25%, rgba($hsatblue, 0) 75%, $hsatblue 100%);
-$primary2dark: radial-gradient(88.89% 88.89% at 50% 50%, #633778 0%, #100f1e 100%);
+$primary2dark: radial-gradient(88.89% 88.89% at 50% 50%, $primary 0%, #100f1e 100%);
+$dark2primary-v: linear-gradient(180deg, $dark 0%, $primary 250.85%);
+$primary2dark-v: linear-gradient(180deg, $primary 0%, $dark 250.85%);
 $d2p2d: linear-gradient(270deg, #23213b 0%, #432f4d 48.85%, #23213b 100%);
-$dark2primary-v: linear-gradient(180deg, #23213b 0%, #633778 250.85%);
 
 $hcolors: (
     primary: $primary,
@@ -30,6 +31,7 @@ $hgras: (
     primary2dark: $primary2dark,
     d2p2d: $d2p2d,
     dark2primary-v: $dark2primary-v,
+    primary2dark-v: $primary2dark-v,
 );
 
 $z-index-glasspanel: 100;
