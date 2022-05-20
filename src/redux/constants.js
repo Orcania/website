@@ -6,3 +6,6 @@ export const SET_VAR = 'SET_VAR';
 export const OPEN_MODAL = 'OPEN_MODAL';
 export const PLAY_CLOSE_ANIMATION = 'PLAY_CLOSE_ANIMATION';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
+
+/* *~~*~~*~~*~~*~~* MINT REDUCER *~~*~~*~~*~~*~~* */
+export const SET_MINT_TYPE = 'SET_MINT_TYPE';

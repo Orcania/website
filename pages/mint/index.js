@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+/* eslint-disable @next/next/no-img-element */
+import { useEffect, useState } from 'react';
 
 import { getLayout as getPageTitleLayout } from 'src/layouts/page-title';
 import { getLayout as getMainLayout } from 'src/layouts/main';
@@ -7,12 +8,34 @@ import { useDispatch } from 'react-redux';
 
 import useCountdown from 'src/hooks/useCountdown';
 
+import PriceComponent from './price';
 import MintButton from './mint-button';
 
 // console.log(useCeleste);
 
 const MintPage = () => {
     const { days, hours, minutes: mins, seconds: secs } = useCountdown(1653120000);
+
+    const [amount, setAmount] = useState(1);
+
+    const handleIncreaseClick = () => {
+        setAmount(+amount + 1);
+    };
+
+    const handleDecreaseClick = () => {
+        if (+amount > 1) {
+            setAmount(+amount - 1);
+        }
+    };
+
+    const handleAmountChange = e => {
+        const { value } = e.target;
+
+        // check value does not include decimls or symbols and allow empty string
+        if (value === '' || value.match(/^[0-9]*$/)) {
+            setAmount(value);
+        }
+    };
 
     return (
         <div className="has-background-primary2dark mb-0">
@@ -38,12 +61,7 @@ const MintPage = () => {
                                 </section>
                                 <section className="mb-6">
                                     <div style={{ display: 'grid', placeItems: 'center' }}>
-                                        <div>
-                                            <h1 className="subtitle has-text-white is-3 has-font-pt-mono mb-0">$0.1</h1>
-                                            <h1 className="subtitle has-text-white is-6 has-text-centered">
-                                                Mint Price
-                                            </h1>
-                                        </div>
+                                        <PriceComponent />
                                     </div>
                                 </section>
                                 <section className="mb-6">
@@ -93,16 +111,29 @@ const MintPage = () => {
                                     </div>
                                 </section>
 
-                                <section className="mb-6 is-hidden">
+                                <section className="mb-6 ">
                                     <div className="is-flex is-flex-direction-row">
-                                        <div className="button symbol-button">-</div>
-                                        <input className="input mint-input" type="text" />
-                                        <div className="button symbol-button">+</div>
+                                        <div
+                                            className="button symbol-button"
+                                            onClick={handleDecreaseClick}
+                                            disabled={+amount <= 1}
+                                        >
+                                            -
+                                        </div>
+                                        <input
+                                            className="input mint-input has-font-pt-mono"
+                                            type="text"
+                                            value={amount}
+                                            onChange={handleAmountChange}
+                                        />
+                                        <div className="button symbol-button" onClick={handleIncreaseClick}>
+                                            +
+                                        </div>
                                     </div>
                                 </section>
 
                                 <section className="mb-6">
-                                    <MintButton />
+                                    <MintButton amount={amount} disabled={amount === '' || amount < 1} />
                                 </section>
 
                                 {/* <div className="is-flex is-flex-direction-row is-align-items-flex-start is-justify-content-space-between">

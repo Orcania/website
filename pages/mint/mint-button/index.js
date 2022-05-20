@@ -1,93 +1,106 @@
-import {
-    useCeleste,
-    ConnectedWrapper,
-    ConnectButton,
-    NetworkWrapper,
-    useCelesteSelector,
-    useCelesteStore,
-} from '@celeste-js/react';
-import { useDispatch } from 'react-redux';
-import { open_modal } from 'src/redux/actions';
+import { ConnectedWrapper, NetworkWrapper, useCelesteSelector } from '@celeste-js/react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { rpcs } from 'celeste.config.js';
+
+import { open_modal, set_mint_type } from 'src/redux/actions';
 
 import OcaMintProxy from 'src/classes/ocamint-proxy';
-import erc721Proxy from 'src/classes/erc721-proxy';
-import { useEffect } from 'react';
+import TrafProxy from 'src/classes/traf-proxy';
+import { useEffect, useState } from 'react';
 
-import { Store as NotificationsStore } from 'react-notifications-component';
-import { errorNotification } from 'src/static/notifications';
+import defaultMint from './default-mint';
+import wlMint from './wl-mint';
+import trafMint from './traf-mint';
 
-const MintButton = () => {
-    const celesteStore = useCelesteStore();
-    const { walletReducer } = useCelesteSelector(state => state);
+const MintButton = props => {
+    const { walletReducer, web3Reducer } = useCelesteSelector(state => state);
 
     const dispatch = useDispatch();
+    const { mintReducer } = useSelector(state => state);
+
+    const { amount, disabled } = props;
+
+    const [mintType, setMintType] = useState('default');
+    const [loadingType, setLoadingType] = useState(true);
 
     const onMintClick = async () => {
-        const oca_mint_proxy = new OcaMintProxy();
+        switch (mintType) {
+            case 'regular':
+                await defaultMint(amount);
+                break;
 
-        const { chainId } = walletReducer;
+            case 'wl':
+                await wlMint(amount);
+                break;
 
-        const oca_mint_proxy_read = oca_mint_proxy.read(chainId);
+            case 'traf':
+                await trafMint(amount);
+                break;
 
-        const price = await oca_mint_proxy_read.price();
-
-        const oca_mint = oca_mint_proxy.write(chainId);
-
-        await oca_mint.mint({ amount: price }, { from: walletReducer.address });
-    };
-
-    const onWlMintClick = async () => {
-        const oca_mint_proxy = new OcaMintProxy();
-
-        const { chainId } = walletReducer;
-
-        const oca_mint_proxy_read = oca_mint_proxy.read(chainId);
-
-        const userIsWhiteListed = await oca_mint_proxy_read.whiteListed(walletReducer.address);
-
-        if (!userIsWhiteListed) {
-            NotificationsStore.addNotification(errorNotification('Error', 'You are not white listed'));
-            return;
+            default:
+                break;
         }
-
-        const wlPrice = await oca_mint_proxy_read.wlPrice();
-
-        const oca_mint = oca_mint_proxy.write(chainId);
-
-        await oca_mint.mint({ amount: wlPrice }, { from: walletReducer.address });
     };
 
-    const onTrafMintClick = async () => {
-        const oca_mint_proxy = new OcaMintProxy();
-        const erc721Proxy = new erc721Proxy();
+    // useEffect(() => {
+    //     window.addEventListener('keydown', e => {
+    //         if (e.key === 'h') {
+    //             console.log(celesteStore.getState());
+    //         }
+    //     });
+    // }, []);
 
-        const erc721read = await erc721Proxy.read();
+    /* *~~*~~*~~*~~* CONSULT STATE *~~*~~*~~*~~* */
 
-        const isHolder = (await erc721read.balanceOf(walletReducer.address)) > 0;
-
-        if (!isHolder) {
-            NotificationsStore.addNotification(errorNotification('Error', 'You are not a traf holder'));
-            return;
-        }
-
-        // const { chainId } = walletReducer;
-
-        // const userIsWhiteListed = await oca_mint_proxy_read.whiteListed(walletReducer.address);
-
-        // const trafPrice = await oca_mint_proxy_read.trafPrice();
-
-        // const oca_mint = oca_mint_proxy.write(chainId);
-
-        // await oca_mint.mint({ amount: trafPrice }, { from: walletReducer.address });
-    };
+    // console.log(mintType);
 
     useEffect(() => {
-        window.addEventListener('keydown', e => {
-            if (e.key === 'h') {
-                console.log(celesteStore.getState());
+        if (walletReducer.address === null || !web3Reducer.initialized) return;
+
+        if (
+            !Object.values(rpcs)
+                .map(rpc => rpc.chainId)
+                .includes(walletReducer.chainId)
+        )
+            return;
+
+        (async () => {
+            // 1. check if network is eth mainnet
+            if (+walletReducer.chainId === 97) {
+                // 1.2 check if user is traf holder
+                const trafRead = new TrafProxy().read();
+
+                const balance = await trafRead.balanceOf(walletReducer.address);
+
+                if (balance > 0) {
+                    setMintType('traf');
+                    dispatch(set_mint_type('traf'));
+                    return;
+                }
             }
-        });
-    }, []);
+
+            // 2. check if user is wl
+            const oca_mint_proxy = new OcaMintProxy();
+
+            const { chainId } = walletReducer;
+
+            const oca_mint_proxy_read = oca_mint_proxy.read(chainId);
+
+            const isWl = await oca_mint_proxy_read.whiteListed(walletReducer.address);
+
+            if (isWl) {
+                setMintType('wl');
+                dispatch(set_mint_type('wl'));
+            } else {
+                setMintType('regular');
+                dispatch(set_mint_type('regular'));
+            }
+        })();
+
+        setLoadingType(false);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [walletReducer.address, web3Reducer.initialized, walletReducer.chainId]);
 
     return (
         <ConnectedWrapper
@@ -111,20 +124,23 @@ const MintButton = () => {
                 }
             >
                 <button
-                    className="button is-fullwidth mint-button has-text-weight-bold"
+                    className={`button is-fullwidth mint-button has-text-weight-bold ${
+                        loadingType ? 'is-loading' : ''
+                    }`}
                     type="button"
                     onClick={onMintClick}
+                    disabled={disabled}
                 >
                     Mint
                 </button>
 
-                <button
+                {/* <button
                     className="button is-fullwidth mint-button has-text-weight-bold"
                     type="button"
                     onClick={onWlMintClick}
                 >
                     WL Mint
-                </button>
+                </button> */}
             </NetworkWrapper>
         </ConnectedWrapper>
     );

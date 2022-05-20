@@ -51,6 +51,30 @@ const OcaMintProxy = () => {
                         }
                     });
                 },
+                wlMint: async ({ amount }, { from }) => {
+                    const tx = await OCAMINT.methods.wlMint();
+
+                    return new Promise((res, rej) => {
+                        try {
+                            const txRes = tx.send({ from, value: amount });
+                            res(txRes);
+                        } catch (e) {
+                            rej(e);
+                        }
+                    });
+                },
+                trafMint: async ({ amount }, { from }) => {
+                    const tx = await OCAMINT.methods.trafMint();
+
+                    return new Promise((res, rej) => {
+                        try {
+                            const txRes = tx.send({ from, value: amount });
+                            res(txRes);
+                        } catch (e) {
+                            rej(e);
+                        }
+                    });
+                },
             };
         },
     };
