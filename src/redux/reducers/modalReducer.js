@@ -7,6 +7,7 @@ const defaultModaStructure = {
 
 const defaultState = {
     exampleModal: { ...defaultModaStructure },
+    walletsModal: { ...defaultModaStructure },
     currentModal: '',
     animation: '',
 };

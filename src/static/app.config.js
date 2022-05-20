@@ -1,5 +1,5 @@
 const appConfig = {
-    appName: 'Template',
+    appName: 'Orcania',
     appVersion: '1.0.0',
 };
 

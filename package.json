@@ -12,6 +12,9 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@celeste-js/core": "^1.2.1",
+    "@celeste-js/react": "^1.0.5",
+    "@celeste-js/store": "^2.2.0",
     "animate.css": "^4.1.1",
     "bulma": "^0.9.3",
     "next": "^12.1.5",
@@ -39,5 +42,5 @@
     "husky": "^7.0.4",
     "jest": "^27.4.7",
     "prettier": "2.5.1"
-}
+  }
 }

@@ -1,13 +1,17 @@
 @import './vars.scss';
 
+/* *~~*~~*~~*~~*~~* NAVBAR *~~*~~*~~*~~*~~* */
+
+$navbar-item-img-max-height: 3.5rem;
+$navbar-height: 5rem;
 
 /* *~~*~~*~~*~~*~~* INPUT *~~*~~*~~*~~*~~* */
 
-$input-focus-border-color: $hpurple;
-$input-focus-box-shadow-color: rgba($hpurple, 0.25);
+$input-focus-border-color: $light-purple;
+$input-focus-box-shadow-color: rgba($light-purple, 0.25);
 
 /* *~~*~~*~~*~~*~~* BUTTONS *~~*~~*~~*~~*~~* */
 
-$button-focus-color: $hpurple;
-$button-focus-border-color: $hpurple;
-$button-focus-box-shadow-color: rgba($hpurple, 0.25);
+$button-focus-color: $light-purple;
+$button-focus-border-color: $light-purple;
+$button-focus-box-shadow-color: rgba($light-purple, 0.25);

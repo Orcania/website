@@ -1,0 +1,74 @@
+@import 'src/scss/vars';
+
+.custom-navbar {
+    transition: 0.5s;
+    // border-bottom: 1px solid rgba($light-purple, 0.1);
+    background: transparent !important;
+
+    .navbar-menu {
+        .navbar-item {
+            &:hover {
+                background: rgba(0, 0, 0, 0) !important;
+                color: $light-purple !important;
+                h1 {
+                    color: $light-purple !important;
+                }
+            }
+
+            &.is-active {
+                color: $light-purple !important;
+            }
+
+            &:focus {
+                background: rgba($dark, 0) !important;
+            }
+        }
+    }
+
+    &.has-navbar-bg-color {
+        background: $primary !important;
+        border-bottom: none !important;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    &.is-hidden-up {
+        transform: translateY(-100%);
+    }
+}
+
+.navbar-dropdown {
+    background: $primary !important;
+    border: none;
+}
+
+.navbar-link {
+    background: transparent !important;
+    color: white;
+
+    &::after {
+        border-color: $light-purple !important;
+    }
+
+    &:hover {
+        color: $light-purple !important;
+    }
+}
+
+.navbar-item.has-dropdown {
+    &:hover .navbar-link {
+        color: $light-purple !important;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .navbar-menu {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100vh !important;
+        background: $dark;
+        padding-top: 4rem;
+
+        z-index: -1;
+    }
+}
