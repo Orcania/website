@@ -2,12 +2,14 @@
 import { useEffect, useState } from 'react';
 import { getLayout as getPageTitleLayout } from 'src/layouts/page-title';
 import { getLayout as getMainLayout } from 'src/layouts/main';
-
+import { useRouter } from 'next/router';
 const style = {
     // height: '100%'
 };
 
 const Token = props => {
+    const router = useRouter();
+
     const [showData, setShowData] = useState({
         title: 'ICO',
         body: () => (
@@ -41,13 +43,18 @@ const Token = props => {
                                 <h1 className="subtitle has-text-white is-4">
                                     The multichain technologically driven asset of Orcania
                                 </h1>
-
-                                <h1
-                                    className="subtitle has-text-white is-4 has-text-weight-bold"
-                                    style={{ paddingTop: '9rem' }}
-                                >
-                                    Token Not Yet Released
-                                </h1>
+                                <div className="columns pt-4">
+                                    <div className="column is-4">
+                                        <button
+                                            className="button is-fullwidth is-rounded has-text-light-purple has-background-primary-o-5 has-border-2-light-purple-o-10 is-shadowless"
+                                            onClick={() => {
+                                                router.push('/mint');
+                                            }}
+                                        >
+                                            Mint
+                                        </button>
+                                    </div>
+                                </div>
                                 {/* }<button className="button is-light-purple" style={{width: '150px'}}>Node sales</button>&nbsp;&nbsp;
                                 <button className="button is-light-purple" style={{width: '150px'}}>Presale</button> */}
                             </div>

@@ -31,7 +31,7 @@ const addTokenToWallet = () => {
                     className="subtitle has-text-light-purple is-6 has-text-centered  is-clickable"
                     onClick={handleAddTokenClick}
                 >
-                    <u>add OCA token to your wallet</u>
+                    <u>Add OCA token to your wallet</u>
                 </h1>
             </NetworkWrapper>
         </ConnectedWrapper>

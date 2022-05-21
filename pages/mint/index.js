@@ -112,7 +112,7 @@ const MintPage = () => {
                                     </div>
                                 </section>
 
-                                <section className="mb-6 ">
+                                <section className="mb-5">
                                     <div className="is-flex is-flex-direction-row">
                                         <div
                                             className="button symbol-button"
@@ -134,6 +134,11 @@ const MintPage = () => {
                                 </section>
 
                                 <section className="mb-6">
+                                    <div className="columns has-text-centered">
+                                        <div className="column">
+                                            <h1 className="subtitle has-text-light-purple is-4">Total: </h1>
+                                        </div>
+                                    </div>
                                     <MintButton amount={amount} disabled={amount === '' || amount < 1} />
                                     <br />
                                     <AddTokenToWallet />
