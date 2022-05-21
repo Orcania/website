@@ -15,8 +15,6 @@
 @import './bulma-custom-vars';
 @import '~bulma';
 
-@import '~aos/dist/aos.css';
-
 html,
 body,
 #__next {
@@ -25,9 +23,14 @@ body,
     margin: 0;
     padding: 0;
 
+    // @extend .coolscroll;
+    // scroll-behavior: smooth;
+    // overflow: auto;
+}
+
+body {
     @extend .coolscroll;
     scroll-behavior: smooth;
-    overflow: auto;
 }
 
 #__next {

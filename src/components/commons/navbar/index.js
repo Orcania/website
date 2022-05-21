@@ -63,16 +63,16 @@ const Navbar = () => {
     };
 
     useEffect(() => {
-        const elmnt = document.getElementById('__next');
+        // const elmnt = document.getElementById('__next');
         let oldScroll = 0;
-        elmnt.addEventListener('scroll', () => {
-            if (elmnt.scrollTop > 50) setBgColor(true);
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) setBgColor(true);
             else setBgColor(false);
 
-            if (oldScroll && oldScroll > elmnt.scrollTop) setScrollingDown(false);
+            if (oldScroll && oldScroll > window.scrollY) setScrollingDown(false);
             else setScrollingDown(true);
 
-            oldScroll = elmnt.scrollTop;
+            oldScroll = window.scrollY;
         });
     }, []);
 
@@ -107,7 +107,7 @@ const Navbar = () => {
 
                 <div className={`navbar-menu ${mobileActive ? 'is-active animate__animated animate__fadeInLeft' : ''}`}>
                     <div className="navbar-end">
-                        <Link href="/" passHref>
+                        <Link href="/home" passHref>
                             <a
                                 className={`navbar-item has-text-light  ${
                                     router.pathname === '/home' ? 'is-active' : ''

@@ -217,7 +217,7 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className="has-background-d2p2d">
+            {/* <section className="has-background-d2p2d">
                 <div className="head pt-6">
                     <h1 className="title has-lina-text contrast is-3 has-text-contrast has-text-centered mb-6">
                         Ecosystem and Partners
@@ -262,7 +262,7 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             <section className="has-background-light">
                 <div className="head pt-6 mb-6">
