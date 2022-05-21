@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import brandLogos from 'src/static/home/brand-logos';
-import { Link } from 'next/link';
+import Link from 'next/link';
 import { partnerSection, partnerSectionSecondDivision } from 'src/static/home/partners-section';
 import TeamCard from 'src/components/base/team-card';
 
@@ -13,10 +13,6 @@ const style = {
 };
 
 const Home = () => {
-    useEffect(() => {
-        document.title = 'Orcania | Home';
-    }, []);
-
     return (
         <div style={style}>
             <section className="hero is-fullheight has-background-primary2dark mb-0">
@@ -170,14 +166,12 @@ const Home = () => {
                     <div className="container">
                         <div className="columns">
                             <div className="column">
-                                {/* <Link
-                                    href="/token"
-                                    className="box has-background-primary2dark-box has-text-centered"
-                                    style={{ minHeight: '280px', height: '100%' }}
-                                    data-aos="fade-up"
-                                    passHref
-                                >
-                                    <a>
+                                <Link href="/token" passHref>
+                                    <a
+                                        className="box has-background-primary2dark has-text-centered"
+                                        style={{ minHeight: '280px', height: '100%' }}
+                                        data-aos="fade-up"
+                                    >
                                         <h1 className="title is-4 has-text-light-purple ">Orcania Coin</h1>
                                         <img src="media/pages/home/token.png" alt="" />
                                         <p className="has-text-light is-size-5">
@@ -187,14 +181,12 @@ const Home = () => {
                                 </Link>
                             </div>
                             <div className="column">
-                                <Link
-                                    href="/multichain"
-                                    className="box has-background-primary2dark-box has-text-centered"
-                                    style={{ minHeight: '280px', height: '100%' }}
-                                    data-aos="fade-up"
-                                    passHref
-                                >
-                                    <a>
+                                <Link href="/multichain" passHref>
+                                    <a
+                                        className="box has-background-primary2dark has-text-centered"
+                                        style={{ minHeight: '280px', height: '100%' }}
+                                        data-aos="fade-up"
+                                    >
                                         <h1 className="title is-4 has-text-light-purple ">Orcania Multichain</h1>
                                         <img src="media/pages/home/multichain.png" alt="" style={{ width: '40%' }} />
                                         <p className="has-text-light is-size-5">
@@ -205,14 +197,12 @@ const Home = () => {
                                 </Link>
                             </div>
                             <div className="column">
-                                <Link
-                                    href="/dex"
-                                    className="box has-background-primary2dark-box has-text-centered"
-                                    style={{ minHeight: '280px', height: '100%' }}
-                                    data-aos="fade-up"
-                                    passHref
-                                >
-                                    <a>
+                                <Link href="/dex" passHref>
+                                    <a
+                                        className="box has-background-primary2dark has-text-centered"
+                                        style={{ minHeight: '280px', height: '100%' }}
+                                        data-aos="fade-up"
+                                    >
                                         <h1 className="title is-4 has-text-light-purple ">Orcania DEX</h1>
                                         <img src="media/pages/home/exchange.png" alt="" />
                                         <p className="has-text-light is-size-5">
@@ -220,7 +210,7 @@ const Home = () => {
                                             <br />
                                         </p>
                                     </a>
-                                </Link> */}
+                                </Link>
                             </div>
                         </div>
                     </div>

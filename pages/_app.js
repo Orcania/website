@@ -2,7 +2,6 @@
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import Script from 'next/script';
-
 import { Provider } from 'react-redux';
 import store from 'src/redux/store';
 
@@ -18,6 +17,7 @@ import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
 
 const CelesteProvider = dynamic(() => import('src/components/celeste'), { ssr: false });
+const AOSProvider = dynamic(() => import('src/components/aos-provider'), { ssr: false });
 
 const { FONT_AWESOME_KEY } = process.env;
 const { appName } = appConfig;
@@ -33,6 +33,7 @@ function MyApp({ Component, pageProps }) {
             <Script src={`https://kit.fontawesome.com/${FONT_AWESOME_KEY}.js`} />
             <Provider store={store}>
                 <CelesteProvider>
+                    <AOSProvider />
                     <ReactNotifications types={custom_notification_types} />
 
                     <WalletsModal />
