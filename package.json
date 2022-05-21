@@ -16,7 +16,11 @@
     "@celeste-js/react": "^1.0.5",
     "@celeste-js/store": "^2.2.0",
     "animate.css": "^4.1.1",
+<<<<<<< HEAD
     "bignumber.js": "^9.0.2",
+=======
+    "aos": "^2.3.4",
+>>>>>>> 806d462ef64e05c1d575621c64aaf5f457f8b34e
     "bulma": "^0.9.3",
     "next": "^12.1.5",
     "node-sass": "^6.0.1",

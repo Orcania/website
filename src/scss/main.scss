@@ -23,9 +23,14 @@ body,
     margin: 0;
     padding: 0;
 
+    // @extend .coolscroll;
+    // scroll-behavior: smooth;
+    // overflow: auto;
+}
+
+body {
     @extend .coolscroll;
     scroll-behavior: smooth;
-    overflow: auto;
 }
 
 #__next {

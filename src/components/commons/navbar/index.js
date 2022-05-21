@@ -2,8 +2,9 @@
 /* eslint-disable jsx-a11y/interactive-supports-focus */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import Image from 'next/image';
+// import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import { DisconnectButton, useCelesteSelector, ConnectedWrapper, SwitchNetworkButton } from '@celeste-js/react';
 // import { providers } from '@celeste-js/core/dist/constants';
@@ -40,7 +41,7 @@ const Navbar = () => {
     const [burgerActive, setBurgerActive] = useState(false);
     const [bgColor, setBgColor] = useState(false);
     const [scrollingDown, setScrollingDown] = useState(false);
-
+    const router = useRouter();
     const { walletReducer } = useCelesteSelector(state => state);
 
     const dispatch = useDispatch();
@@ -62,16 +63,16 @@ const Navbar = () => {
     };
 
     useEffect(() => {
-        const elmnt = document.getElementById('__next');
+        // const elmnt = document.getElementById('__next');
         let oldScroll = 0;
-        elmnt.addEventListener('scroll', () => {
-            if (elmnt.scrollTop > 50) setBgColor(true);
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) setBgColor(true);
             else setBgColor(false);
 
-            if (oldScroll && oldScroll > elmnt.scrollTop) setScrollingDown(false);
+            if (oldScroll && oldScroll > window.scrollY) setScrollingDown(false);
             else setScrollingDown(true);
 
-            oldScroll = elmnt.scrollTop;
+            oldScroll = window.scrollY;
         });
     }, []);
 
@@ -105,71 +106,101 @@ const Navbar = () => {
                 </div>
 
                 <div className={`navbar-menu ${mobileActive ? 'is-active animate__animated animate__fadeInLeft' : ''}`}>
-                    <div className="navbar-start">
-                        <div className="navbar-item has-dropdown is-hoverable">
-                            <a className="navbar-link ">
-                                <i className="far fa-exchange" /> &nbsp; Exchange
-                            </a>
-
-                            <div className="navbar-dropdown has-background-transparent">
-                                <Link href="/swap">
-                                    <a className="navbar-item has-text-white">Swap</a>
-                                </Link>
-
-                                <Link href="/liquidity">
-                                    <a className="navbar-item has-text-white">Liquidity</a>
-                                </Link>
-
-                                {/* <Link href="/liquidity/add">
-                                <a className="navbar-item has-text-white">liquidity - add</a>
-                            </Link>
-
-                            <Link href="/liquidity/remove">
-                                <a className="navbar-item has-text-white">liquidity - remove (Cooming Soon)</a>
-                            </Link>  */}
-                            </div>
-                        </div>
-
-                        {/* <Link href="/dex">
-                        <a className="navbar-item has-text-white">
-                            <i className="fas fa-tractor" /> &nbsp; Farms (Cooming Soon)
-                        </a>
-                    </Link>
-
-                    <Link href="/faucet">
-                        <a className="navbar-item has-text-white">
-                            <i className="fas fa-faucet" /> &nbsp; Faucet
-                        </a>
-                    </Link> */}
-                    </div>
-
                     <div className="navbar-end">
-                        <div className="navbar-item">
-                            {/* <button className="button is-rounded has-text-hpink has-background-hpurple-o-5 has-border-2-hpink-o-10 is-shadowless">
-                            ETH mainnet 
-                        </button>  */}
-                        </div>
-                        <ConnectedWrapper
-                            disconnectedComponent={
-                                <div className="navbar-item">
-                                    <button
-                                        id="connect-button"
-                                        className="button is-rounded has-text-hpink has-background-hpurple-o-5 has-border-2-hpink-o-10 is-shadowless"
-                                        type="button"
-                                        onClick={() => {
-                                            dispatch(
-                                                open_modal({
-                                                    modalName: 'walletsModal',
-                                                })
-                                            );
-                                        }}
-                                    >
-                                        Connect
-                                    </button>
-                                </div>
-                            }
-                        >
-                            <div className="navbar-item">
+                        <Link href="/home" passHref>
+                            <a
+                                className={`navbar-item has-text-light  ${
+                                    router.pathname === '/home' ? 'is-active' : ''
+                                }`}
+                            >
+                                <span className="icon">
+                                    <i className="fas fa-home" />
+                                </span>
+                                &nbsp;
+                                <h1>Home</h1>
+                            </a>
+                        </Link>
+
+                        <Link href="/token" passHref>
+                            <a
+                                className={`navbar-item has-text-light  ${
+                                    router.pathname === '/token' ? 'is-active' : ''
+                                }`}
+                            >
+                                <span className="icon">
+                                    <i className="fas fa-coin" />
+                                </span>
+                                &nbsp;
+                                <h1>Coin</h1>
+                            </a>
+                        </Link>
+
+                        <Link href="/multichain" passHref>
+                            <a
+                                className={`navbar-item has-text-light  ${
+                                    router.pathname === '/multichain' ? 'is-active' : ''
+                                }`}
+                            >
+                                <span className="icon">
+                                    <i className="fa-solid fa-link-horizontal" />
+                                </span>
+                                &nbsp;
+                                <h1>Multichain</h1>
+                            </a>
+                        </Link>
+
+                        <Link href="/dex" passHref>
+                            <a
+                                className={`navbar-item has-text-light ${
+                                    router.pathname === '/dex' ? 'is-active' : ''
+                                }`}
+                            >
+                                <span className="icon">
+                                    <i className="fas fa-exchange-alt" />
+                                </span>
+                                &nbsp;
+                                <h1>DEX</h1>
+                            </a>
+                        </Link>
+
+                        <Link href="/mint" passHref>
+                            <a
+                                className={`navbar-item has-text-light  ${
+                                    router.pathname === '/mint' ? 'is-active' : ''
+                                }`}
+                            >
+                                <span className="icon">
+                                    <i className="fa-solid fa-coins" />
+                                </span>
+                                &nbsp;
+                                <h1>Mint</h1>
+                            </a>
+                        </Link>
+                        {router.pathname === '/mint' ? (
+                            <ConnectedWrapper
+                                disconnectedComponent={
+                                    <div className="navbar-item">
+                                        <button
+                                            id="connect-button"
+                                            className="button is-rounded has-text-light-purple has-background-primary-o-5 has-border-2-hpink-o-10 is-shadowless"
+                                            type="button"
+                                            onClick={() => {
+                                                dispatch(
+                                                    open_modal({
+                                                        modalName: 'walletsModal',
+                                                    })
+                                                );
+                                            }}
+                                        >
+                                            <span className="icon">
+                                                <i className="fas fa-wallet" />
+                                            </span>
+                                            <span>Choose Wallet</span>
+                                        </button>
+                                    </div>
+                                }
+                            >
+                                {/* <div className="navbar-item">
                                 {walletReducer.chainId === 1666700000 ? (
                                     <SwitchNetworkButton
                                         chainId={1666700000}
@@ -201,19 +232,21 @@ const Navbar = () => {
                                         </div>
                                     </button>
                                 )}
-                            </div>
-                            <div className="navbar-item">
-                                <button
-                                    id="connect-button"
-                                    className="button is-rounded has-text-hpink has-background-hpurple-o-5 has-border-2-hpink-o-10 is-shadowless"
-                                    type="button"
-                                >
-                                    {walletReducer.address && getAddressReduced(walletReducer.address)}
-                                </button>
-                            </div>
-                        </ConnectedWrapper>
+                            </div> */}
+                                <div className="navbar-item">
+                                    <button
+                                        id="connect-button"
+                                        className="button is-rounded has-text-light-purple has-background-primary-o-5 has-border-2-hpink-o-10 is-shadowless has-font-ptmono"
+                                        type="button"
+                                    >
+                                        {walletReducer.address && getAddressReduced(walletReducer.address)}
+                                    </button>
+                                </div>
+                            </ConnectedWrapper>
+                        ) : null}
+                    </div>
 
-                        <div className="navbar-item">
+                    {/* <div className="navbar-item">
                             <DisconnectButton
                                 id="disconnect-button"
                                 className="button is-rounded has-text-hpink has-background-hpurple-o-5 has-border-2-hpink-o-10 is-shadowless"
@@ -222,8 +255,7 @@ const Navbar = () => {
                                     console.log(e);
                                 }}
                             />
-                        </div>
-                    </div>
+                        </div> */}
                 </div>
             </div>
         </nav>

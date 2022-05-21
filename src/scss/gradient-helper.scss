@@ -48,6 +48,7 @@
 
 @mixin generate-gradients-classes($gradient, $gradientName) {
     .has-background-#{$gradientName} {
+        @debug 'has-background-#{$gradientName}';
         background: $gradient !important;
     }
 

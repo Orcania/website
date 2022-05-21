@@ -172,6 +172,6 @@ const MintPage = () => {
     );
 };
 
-MintPage.getLayout = page => getPageTitleLayout(getMainLayout(page), 'Mint');
+MintPage.getLayout = page => getPageTitleLayout(getMainLayout(page), 'Orcania | Mint');
 
 export default MintPage;
