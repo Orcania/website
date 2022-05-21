@@ -9,7 +9,7 @@ const TeamCard = props => {
             <div className="card-imagee has-background-primary2dark-v" style={{ position: 'relative' }}>
                 <figure className="image is-square " style={{ transform: 'scale(0.7)' }}>
                     <img
-                        className="is-rounded has-border-contrast"
+                        className="is-rounded has-border-5-primary-o-10"
                         src={props.imgsrc || 'media/pages/home/memberAny.png'}
                         alt=""
                     />

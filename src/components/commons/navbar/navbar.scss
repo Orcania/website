@@ -10,9 +10,9 @@
             &:hover {
                 background: rgba(0, 0, 0, 0) !important;
                 color: $light-purple !important;
-                h1 {
-                    color: $light-purple !important;
-                }
+                // h1 {
+                //     color: $contrast !important;
+                // }
             }
 
             &.is-active {

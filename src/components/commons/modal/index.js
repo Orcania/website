@@ -69,10 +69,14 @@ const Modal = props => {
     return isOpen ? (
         <div className="modal is-active">
             <div id="____modal-bg" className="modal-background has-background-hblack2-o-2 has-bg-blur-2" />
-            <div id="____modal" className="modal-content px-4 animate__faster animate__animated animate__fadeIn">
+            <div
+                id="____modal"
+                className="modal-content px-4 animate__faster animate__animated animate__fadeIn"
+                style={{ display: 'grid', placeItems: 'center' }}
+            >
                 {children}
             </div>
-            <button className="modal-close is-large" aria-label="close" onClick={closeAfterAnimation} type="button" />
+            {/* <button className="modal-close is-large" aria-label="close" onClick={closeAfterAnimation} type="button" /> */}
         </div>
     ) : null;
 };

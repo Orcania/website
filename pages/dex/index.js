@@ -171,7 +171,7 @@ const Dex = () => {
                     </div>
                 </section>
             </section>
-            <section className="has-background-light is-last-section">
+            <section className="has-background-light is-last-section" style={{ paddingBottom: '8rem' }}>
                 <div className="head pt-6" />
                 <div className="hero-body pb-6" style={{ overflow: 'hidden' }}>
                     <div className="container px-3">
@@ -252,6 +252,6 @@ const Dex = () => {
     );
 };
 
-Dex.getLayout = page => getPageTitleLayout(getMainLayout(page), 'Orcania | DEX');
+Dex.getLayout = page => getPageTitleLayout(getMainLayout(page), 'DEX');
 
 export default Dex;

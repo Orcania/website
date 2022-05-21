@@ -322,6 +322,6 @@ const Multichain = () => {
     );
 };
 
-Multichain.getLayout = page => getPageTitleLayout(getMainLayout(page), 'Orcania | Multichain');
+Multichain.getLayout = page => getPageTitleLayout(getMainLayout(page), 'Multichain');
 
 export default Multichain;

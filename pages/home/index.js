@@ -168,7 +168,7 @@ const Home = () => {
                             <div className="column">
                                 <Link href="/token" passHref>
                                     <a
-                                        className="box has-background-primary2dark has-text-centered"
+                                        className="box has-background-primary2dark-box has-text-centered"
                                         style={{ minHeight: '280px', height: '100%' }}
                                         data-aos="fade-up"
                                     >
@@ -183,7 +183,7 @@ const Home = () => {
                             <div className="column">
                                 <Link href="/multichain" passHref>
                                     <a
-                                        className="box has-background-primary2dark has-text-centered"
+                                        className="box has-background-primary2dark-box has-text-centered"
                                         style={{ minHeight: '280px', height: '100%' }}
                                         data-aos="fade-up"
                                     >
@@ -199,7 +199,7 @@ const Home = () => {
                             <div className="column">
                                 <Link href="/dex" passHref>
                                     <a
-                                        className="box has-background-primary2dark has-text-centered"
+                                        className="box has-background-primary2dark-box has-text-centered"
                                         style={{ minHeight: '280px', height: '100%' }}
                                         data-aos="fade-up"
                                     >
@@ -217,7 +217,7 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* <section className="has-background-d2p2d">
+            <section className="has-background-d2p2d">
                 <div className="head pt-6">
                     <h1 className="title has-lina-text contrast is-3 has-text-contrast has-text-centered mb-6">
                         Ecosystem and Partners
@@ -232,7 +232,7 @@ const Home = () => {
                                         <a
                                             href={item.link}
                                             target="_blank"
-                                            className="box has-background-dark has-no-box-shadow"
+                                            className="box has-background-dark is-shadowless"
                                             rel="noopener noreferrer"
                                         >
                                             <img src={item.logo} alt={item.alt} />
@@ -251,7 +251,7 @@ const Home = () => {
                                         <a
                                             href={item.link}
                                             target="_blank"
-                                            className="box has-background-dark has-no-box-shadow"
+                                            className="box has-background-dark is-shadowless"
                                             rel="noopener noreferrer"
                                         >
                                             <img src={item.logo} alt={item.alt} />
@@ -262,7 +262,7 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-            </section> */}
+            </section>
 
             <section className="has-background-light">
                 <div className="head pt-6 mb-6">
@@ -600,6 +600,6 @@ const Home = () => {
     );
 };
 
-Home.getLayout = page => getPageTitleLayout(getMainLayout(page), 'Orcania | Home');
+Home.getLayout = page => getPageTitleLayout(getMainLayout(page), 'Home');
 
 export default Home;

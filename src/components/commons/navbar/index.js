@@ -182,7 +182,7 @@ const Navbar = () => {
                                     <div className="navbar-item">
                                         <button
                                             id="connect-button"
-                                            className="button is-rounded has-text-light-purple has-background-primary-o-5 has-border-2-hpink-o-10 is-shadowless"
+                                            className="button is-rounded has-text-light-purple has-background-primary-o-5 has-border-2-light-purple-o-10 is-shadowless"
                                             type="button"
                                             onClick={() => {
                                                 dispatch(
@@ -236,7 +236,7 @@ const Navbar = () => {
                                 <div className="navbar-item">
                                     <button
                                         id="connect-button"
-                                        className="button is-rounded has-text-light-purple has-background-primary-o-5 has-border-2-hpink-o-10 is-shadowless has-font-ptmono"
+                                        className="button is-rounded has-text-light-purple has-background-primary-o-5 has-border-2-light-purple-o-10 is-shadowless has-font-ptmono"
                                         type="button"
                                     >
                                         {walletReducer.address && getAddressReduced(walletReducer.address)}

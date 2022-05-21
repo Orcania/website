@@ -3,4 +3,8 @@
 @import 'pages/mint/mint.scss';
 @import 'src/components/base/team-card/team-card.scss';
 @import 'pages/multichain/multichain.scss';
-@import "pages/multichain/table.scss";
+@import 'pages/multichain/table.scss';
+
+.has-shadow {
+    box-shadow: 0 5px rgba(239, 208, 255, 0.5) !important;
+}

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from 'react';
 import { getLayout as getPageTitleLayout } from 'src/layouts/page-title';
 import { getLayout as getMainLayout } from 'src/layouts/main';
@@ -439,7 +440,7 @@ const Token = props => {
                                                 }}
                                             >
                                                 <img
-                                                    src="https://drive.google.com/uc?export=view&id=1_a6a0G54WcGo09taAIE7RFqr_fGvfR_s"
+                                                    src="https://drive.google.com/uc?export=view&id=1N3-_dYnGpKzyHRsqsFY1fPpca8uPnRCM"
                                                     alt=""
                                                     width="80"
                                                 />
@@ -510,6 +511,6 @@ const Token = props => {
     );
 };
 
-Token.getLayout = page => getPageTitleLayout(getMainLayout(page), 'Orcania | Token');
+Token.getLayout = page => getPageTitleLayout(getMainLayout(page), 'Token');
 
 export default Token;
