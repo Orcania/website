@@ -8,9 +8,9 @@ import { rpcs } from 'celeste.config';
 import OcaMintProxy from 'src/classes/ocamint-proxy';
 
 const mintTypes = {
-    regular: 'Regular',
-    wl: 'White List',
-    traf: 'TRAF Holder',
+    regular: 'Mint Type: Regular',
+    wl: 'Mint Type: White List',
+    traf: 'You are a TRAF Holder !!',
 };
 
 const priceMethods = {
@@ -24,11 +24,26 @@ const currencies = {
     1666700000: 'ONE',
 };
 
-const defaultPrice = BigNumber(100000000000000000)
+const defaultPrice = +BigNumber(100000000000000000)
     .div(10 ** 18)
     .toFixed(5)
     .toString();
 
+const priceTemplates = {
+    regular: price => price,
+    wl: price => (
+        <>
+            <del className="mr-2">{defaultPrice}</del>
+            <span style={{ color: '#45ff73' }}>{price}</span>
+        </>
+    ),
+    traf: price => (
+        <>
+            <del className="mr-2">{defaultPrice}</del>
+            <span style={{ color: '#45ff73' }}>{price}</span>
+        </>
+    ),
+};
 const defaultCurrency = 'USD';
 
 const PriceComponent = () => {
@@ -61,7 +76,7 @@ const PriceComponent = () => {
             const ocaMintProxy = new OcaMintProxy().read(chainId);
 
             const priceBN = await ocaMintProxy[priceMethods[mintReducer.mintType]]();
-            const priceDec = new BigNumber(priceBN)
+            const priceDec = +new BigNumber(priceBN)
                 .div(10 ** 18)
                 .toFixed(5)
                 .toString();
@@ -74,13 +89,13 @@ const PriceComponent = () => {
     return (
         <div>
             <h1 className="subtitle has-text-white is-6 has-text-centered mb-1">Mint Price</h1>
-            <h1 className="subtitle has-text-white is-3 has-text-centered has-font-pt-mono mb-0">
-                {price} <small className="is-size-6">{currency} </small>
+            <h1 className="subtitle has-text-white is-3 has-text-centered has-font-pt-mono mb-2">
+                {priceTemplates[mintReducer.mintType](price)} <small className="is-size-6">{currency} </small>
             </h1>
             <ConnectedWrapper>
                 <NetworkWrapper>
                     <h1 className="subtitle has-text-white is-6 has-text-centered">
-                        Mint Type: {mintTypes[mintReducer.mintType]}
+                        {mintTypes[mintReducer.mintType]}
                     </h1>
                 </NetworkWrapper>
             </ConnectedWrapper>

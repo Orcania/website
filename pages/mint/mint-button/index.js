@@ -56,14 +56,19 @@ const MintButton = props => {
     // console.log(mintType);
 
     useEffect(() => {
-        if (walletReducer.address === null || !web3Reducer.initialized) return;
+        if (walletReducer.address === null || !web3Reducer.initialized) {
+            dispatch(set_mint_type('regular'));
+            return;
+        }
 
         if (
             !Object.values(rpcs)
                 .map(rpc => rpc.chainId)
                 .includes(walletReducer.chainId)
-        )
+        ) {
+            dispatch(set_mint_type('regular'));
             return;
+        }
 
         (async () => {
             // 1. check if network is eth mainnet

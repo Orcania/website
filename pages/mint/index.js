@@ -10,6 +10,7 @@ import useCountdown from 'src/hooks/useCountdown';
 
 import PriceComponent from './price';
 import MintButton from './mint-button';
+import AddTokenToWallet from './add-token-to-wallet';
 
 // console.log(useCeleste);
 
@@ -40,8 +41,8 @@ const MintPage = () => {
     return (
         <div className="has-background-primary2dark mb-0">
             <div className="container px-5" style={{ paddingBottom: '8rem', paddingTop: '8rem' }}>
-                <div className="box box-wrapper" style={{}}>
-                    <div className="box has-background-dark-o-8 px-6" style={{}}>
+                <div className="box box-wrapper">
+                    <div className="box has-background-dark-o-8 px-6">
                         <div className="columns is-reverse is-vcentered">
                             <div className="column is-6" data-aos="fade-down">
                                 <section className="mb-6">
@@ -50,7 +51,7 @@ const MintPage = () => {
                                     </h1>
                                     <p
                                         className="has-text-white is-size-5 has-text-justified"
-                                        style={{ lineHeight: '100%' }}
+                                        style={{ lineHeight: '130%' }}
                                     >
                                         OCA is the most advanced ERC20 token on the Ethereum blockchain. It was
                                         developed by the Orcania team with transaction fees 40%-80% cheaper than any
@@ -134,6 +135,8 @@ const MintPage = () => {
 
                                 <section className="mb-6">
                                     <MintButton amount={amount} disabled={amount === '' || amount < 1} />
+                                    <br />
+                                    <AddTokenToWallet />
                                 </section>
 
                                 {/* <div className="is-flex is-flex-direction-row is-align-items-flex-start is-justify-content-space-between">
