@@ -23,8 +23,10 @@ const MintButton = props => {
 
     const [mintType, setMintType] = useState('default');
     const [loadingType, setLoadingType] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     const onMintClick = async () => {
+        setLoading(true);
         switch (mintType) {
             case 'regular':
                 await defaultMint(amount);
@@ -41,19 +43,24 @@ const MintButton = props => {
             default:
                 break;
         }
+        setLoading(false);
     };
 
     // useEffect(() => {
-    //     window.addEventListener('keydown', e => {
-    //         if (e.key === 'h') {
-    //             console.log(celesteStore.getState());
-    //         }
-    //     });
-    // }, []);
+
+    //     if(!web3Reducer.initialized || walletReducer.address === null) {
+    //         setBalanceEnough(true);
+    //     }
+
+    //     const {web3} = web3Reducer;
+    //     const balanceBN = web3.eth.getBalance(walletReducer.address);
+
+    //     if(balanceBN.lt(amount)ceEnough(false);
+    //     }
+
+    // }, [amount, walletReducer.address, web3Reducer.initialized]);
 
     /* *~~*~~*~~*~~* CONSULT STATE *~~*~~*~~*~~* */
-
-    // console.log(mintType);
 
     useEffect(() => {
         if (walletReducer.address === null || !web3Reducer.initialized) {
@@ -129,23 +136,13 @@ const MintButton = props => {
                 }
             >
                 <button
-                    className={`button is-fullwidth mint-button has-text-weight-bold ${
-                        loadingType ? 'is-loading' : ''
-                    }`}
+                    className={`button is-fullwidth mint-button has-text-weight-bold ${loading ? 'is-loading' : ''}`}
                     type="button"
                     onClick={onMintClick}
                     disabled={disabled}
                 >
                     Mint
                 </button>
-
-                {/* <button
-                    className="button is-fullwidth mint-button has-text-weight-bold"
-                    type="button"
-                    onClick={onWlMintClick}
-                >
-                    WL Mint
-                </button> */}
             </NetworkWrapper>
         </ConnectedWrapper>
     );

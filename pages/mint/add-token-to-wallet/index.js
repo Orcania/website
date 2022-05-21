@@ -15,10 +15,10 @@ const addTokenToWallet = () => {
             params: {
                 type: 'ERC20', // Initially only supports ERC20, but eventually more!
                 options: {
-                    address: '0x23cEaF84D1C973a0b2fb7E5a83918E3248D5dE57', // addressBook.OCA[chainId],
+                    address: addressBook.OCA[chainId], // addressBook.OCA[chainId],
                     symbol: 'OCA',
                     decimals: 18,
-                    image: 'https://orcania.io/static/media/token_logo.58787c92.svg', // A string url of the token logo
+                    image: 'https://orcania.io/media/pages/token/token_logo.svg', // A string url of the token logo
                 },
             },
         });

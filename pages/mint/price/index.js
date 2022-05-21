@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import BigNumber from 'bignumber.js';
 
 import { ConnectedWrapper, NetworkWrapper, useCelesteSelector } from '@celeste-js/react';
 
 import { rpcs } from 'celeste.config';
 import OcaMintProxy from 'src/classes/ocamint-proxy';
+import { set_price_bn } from 'src/redux/actions';
 
 const mintTypes = {
-    regular: 'Mint Type: Regular',
-    wl: 'Mint Type: White List',
+    regular: '',
+    wl: 'You are White Listed !!',
     traf: 'You are a TRAF Holder !!',
 };
 
@@ -20,26 +21,28 @@ const priceMethods = {
 };
 
 const currencies = {
-    97: 'BNB',
-    1666700000: 'ONE',
+    1: 'ETH',
+    56: 'BNB',
+    137: 'MATIC',
+    1666600000: 'ONE',
 };
 
 const defaultPrice = +BigNumber(100000000000000000)
     .div(10 ** 18)
-    .toFixed(5)
+    .toFixed(7)
     .toString();
 
 const priceTemplates = {
-    regular: price => price,
-    wl: price => (
+    regular: (normalPrice, price) => price,
+    wl: (normalPrice, price) => (
         <>
-            <del className="mr-2">{defaultPrice}</del>
+            <del className="mr-2">{normalPrice}</del>
             <span style={{ color: '#45ff73' }}>{price}</span>
         </>
     ),
-    traf: price => (
+    traf: (normalPrice, price) => (
         <>
-            <del className="mr-2">{defaultPrice}</del>
+            <del className="mr-2">{normalPrice}</del>
             <span style={{ color: '#45ff73' }}>{price}</span>
         </>
     ),
@@ -51,13 +54,17 @@ const PriceComponent = () => {
 
     const { mintReducer } = useSelector(state => state);
 
+    const dispatch = useDispatch();
+    const [normalPrice, setNormalPrice] = useState(defaultPrice);
     const [price, setPrice] = useState(defaultPrice);
     const [currency, setCurrency] = useState(defaultCurrency);
 
     useEffect(() => {
         if (walletReducer.address === null || !web3Reducer.initialized) {
+            setNormalPrice(defaultPrice);
             setPrice(defaultPrice);
             setCurrency(defaultCurrency);
+            dispatch(set_price_bn('100000000000000000'));
         }
 
         if (
@@ -65,8 +72,10 @@ const PriceComponent = () => {
                 .map(rpc => rpc.chainId)
                 .includes(walletReducer.chainId)
         ) {
+            setNormalPrice(defaultPrice);
             setPrice(defaultPrice);
             setCurrency(defaultCurrency);
+            dispatch(set_price_bn('100000000000000000'));
             return;
         }
 
@@ -75,13 +84,21 @@ const PriceComponent = () => {
         (async () => {
             const ocaMintProxy = new OcaMintProxy().read(chainId);
 
+            const normalPriceBN = await ocaMintProxy.price();
+            const normalPrice = +new BigNumber(normalPriceBN)
+                .div(10 ** 18)
+                .toFixed(7)
+                .toString();
+
             const priceBN = await ocaMintProxy[priceMethods[mintReducer.mintType]]();
             const priceDec = +new BigNumber(priceBN)
                 .div(10 ** 18)
-                .toFixed(5)
+                .toFixed(7)
                 .toString();
 
+            setNormalPrice(normalPrice);
             setPrice(priceDec);
+            dispatch(set_price_bn(priceBN));
             setCurrency(currencies[chainId]);
         })();
     }, [mintReducer.mintType, walletReducer.address, web3Reducer.initialized, walletReducer.chainId]);
@@ -90,11 +107,12 @@ const PriceComponent = () => {
         <div>
             <h1 className="subtitle has-text-white is-6 has-text-centered mb-1">Mint Price</h1>
             <h1 className="subtitle has-text-white is-3 has-text-centered has-font-pt-mono mb-2">
-                {priceTemplates[mintReducer.mintType](price)} <small className="is-size-6">{currency} </small>
+                {priceTemplates[mintReducer.mintType](normalPrice, price)}{' '}
+                <small className="is-size-6">{currency} </small>
             </h1>
             <ConnectedWrapper>
                 <NetworkWrapper>
-                    <h1 className="subtitle has-text-white is-6 has-text-centered">
+                    <h1 className="subtitle is-6 has-text-centered" style={{ color: '#45ff73' }}>
                         {mintTypes[mintReducer.mintType]}
                     </h1>
                 </NetworkWrapper>

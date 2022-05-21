@@ -3,13 +3,21 @@ const erc721 = require('./src/static/abis/erc721.json');
 
 module.exports = {
     rpcs: {
-        HNY: {
-            chainId: 1666700000,
-            url: 'https://api.s0.b.hmny.io',
+        ETH: {
+            chainId: 1,
+            url: 'https://speedy-nodes-nyc.moralis.io/3379a8269aa940b8ced12344/eth/mainnet',
         },
         BSC: {
-            chainId: 97,
-            url: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
+            chainId: 56,
+            url: 'https://bsc-dataseed.binance.org/',
+        },
+        POL: {
+            chainId: 137,
+            url: 'https://polygon-rpc.com/',
+        },
+        HNY: {
+            chainId: 1666600000,
+            url: 'https://api.harmony.one',
         },
     },
     smartContracts: [
@@ -23,12 +31,19 @@ module.exports = {
     ],
     addressBook: {
         OCAMINT: {
-            1666700000: '0xb3a36988BD53206194b3a44F838BeFA51b03369c',
-            97: '0x29A00aA0e282059e744DaD12cAA5290cb0D7755d',
+            1: '0x4c4BAB8b80785272d0089D76E85828f9a70FdbC2',
+            56: '0x4c4BAB8b80785272d0089D76E85828f9a70FdbC2',
+            137: '0x4c4BAB8b80785272d0089D76E85828f9a70FdbC2',
+            1666600000: '0x4c4BAB8b80785272d0089D76E85828f9a70FdbC2',
+        },
+        OCA: {
+            1: '0x8AeB42F7b4204C956c51907C89639E3446a787Ea',
+            56: '0x8AeB42F7b4204C956c51907C89639E3446a787Ea',
+            137: '0x8AeB42F7b4204C956c51907C89639E3446a787Ea',
+            1666600000: '0x8AeB42F7b4204C956c51907C89639E3446a787Ea',
         },
         TRAF: {
-            1666700000: '0x3374fa0dACB5158CD7d89e56a3f56413c1f4e662',
-            97: '0x05dCd27BA7345085237e15719A1B4B1DD312F580',
+            1: '0x81f296145C5555d7b4B426D97E4e2260c017F5d0',
         },
     },
 };

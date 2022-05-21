@@ -23,7 +23,16 @@ const trafMint = async amount => {
     const ocaMint = ocaMintProxy.write(chainId);
 
     try {
-        await ocaMint.trafMint({ amount: amountBN }, { from: walletReducer.address });
+        if (chainId === 137)
+            await ocaMint.trafMint(
+                { amount: amountBN },
+                {
+                    from: walletReducer.address,
+                    gasPrice: '50000000000',
+                    maxPriorityFeePerGas: '50000000000',
+                }
+            );
+        else await ocaMint.trafMint({ amount: amountBN }, { from: walletReducer.address });
         NotificationsStore.addNotification(successNotification('successful mint', 'You minted OCA token successfully'));
     } catch (error) {
         NotificationsStore.addNotification(errorNotification('Error', error.message));

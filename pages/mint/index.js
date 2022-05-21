@@ -1,23 +1,36 @@
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import BigNumber from 'bignumber.js';
 
 import { getLayout as getPageTitleLayout } from 'src/layouts/page-title';
 import { getLayout as getMainLayout } from 'src/layouts/main';
-
-import { useDispatch } from 'react-redux';
 
 import useCountdown from 'src/hooks/useCountdown';
 
 import PriceComponent from './price';
 import MintButton from './mint-button';
 import AddTokenToWallet from './add-token-to-wallet';
+import { ConnectedWrapper, NetworkWrapper, useCelesteSelector } from '@celeste-js/react';
 
 // console.log(useCeleste);
+
+const currencies = {
+    1: 'ETH',
+    56: 'BNB',
+    137: 'MATIC',
+    1666600000: 'ONE',
+};
 
 const MintPage = () => {
     const { days, hours, minutes: mins, seconds: secs } = useCountdown(1653148800);
 
+    const { walletReducer, web3Reducer } = useCelesteSelector(state => state);
+
+    const dispatch = useDispatch();
+    const { mintReducer } = useSelector(state => state);
     const [amount, setAmount] = useState(1);
+    const [totalPrice, setTotalPrice] = useState();
 
     const handleIncreaseClick = () => {
         setAmount(+amount + 1);
@@ -37,6 +50,33 @@ const MintPage = () => {
             setAmount(value);
         }
     };
+
+    useEffect(() => {
+        if (!web3Reducer.initialized || walletReducer.address === null || walletReducer.chainId === null) return;
+
+        const { priceBN } = mintReducer;
+
+        if (amount == '' || amount == 0) {
+            setTotalPrice(0);
+            return;
+        }
+
+        if (priceBN == 0) return;
+
+        console.log('yeh');
+
+        const totalBN = BigNumber(priceBN)
+            .times(+amount)
+            .toFixed(7)
+            .toString();
+
+        const totalDec = +BigNumber(totalBN)
+            .div(10 ** 18)
+            .toFixed(7)
+            .toString();
+
+        setTotalPrice(`${totalDec} ${currencies[walletReducer.chainId]}`);
+    }, [amount, walletReducer.address, walletReducer.chainId, web3Reducer.initialized, mintReducer.priceBN]);
 
     return (
         <div className="has-background-primary2dark mb-0">
@@ -112,30 +152,47 @@ const MintPage = () => {
                                     </div>
                                 </section>
 
-                                {days == 0 && hours == 0 && mins == 0 && secs == 0 ? (
+                                {/* {days == 0 && hours == 0 && mins == 0 && secs == 0 ? ( */}
+                                {true ? (
                                     <>
-                                        <section className="mb-6 ">
-                                            <div className="is-flex is-flex-direction-row">
-                                                <div
-                                                    className="button symbol-button"
-                                                    onClick={handleDecreaseClick}
-                                                    disabled={+amount <= 1}
-                                                >
-                                                    -
-                                                </div>
-                                                <input
-                                                    className="input mint-input has-font-pt-mono"
-                                                    type="text"
-                                                    value={amount}
-                                                    onChange={handleAmountChange}
-                                                />
-                                                <div className="button symbol-button" onClick={handleIncreaseClick}>
-                                                    +
-                                                </div>
-                                            </div>
-                                        </section>
+                                        <ConnectedWrapper>
+                                            <NetworkWrapper>
+                                                <section className="mb-6 ">
+                                                    <div className="is-flex is-flex-direction-row">
+                                                        <div
+                                                            className="button symbol-button"
+                                                            onClick={handleDecreaseClick}
+                                                            disabled={+amount <= 1}
+                                                        >
+                                                            -
+                                                        </div>
+                                                        <input
+                                                            className="input mint-input has-font-pt-mono"
+                                                            type="text"
+                                                            value={amount}
+                                                            onChange={handleAmountChange}
+                                                        />
+                                                        <div
+                                                            className="button symbol-button"
+                                                            onClick={handleIncreaseClick}
+                                                        >
+                                                            +
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </NetworkWrapper>
+                                        </ConnectedWrapper>
+
                                         <section className="mb-6">
                                             <MintButton amount={amount} disabled={amount === '' || amount < 1} />
+                                            <br />
+                                            <ConnectedWrapper>
+                                                <NetworkWrapper>
+                                                    <div className="has-text-white m-0 mb-1 has-text-centered is-size-7">
+                                                        Total: {totalPrice}
+                                                    </div>
+                                                </NetworkWrapper>
+                                            </ConnectedWrapper>
                                             <br />
                                             <AddTokenToWallet />
                                         </section>

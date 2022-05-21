@@ -8,7 +8,9 @@ import BigNumber from 'bignumber.js';
 const defaultMint = async amount => {
     const ocaMintProxy = new OcaMintProxy();
 
-    const { walletReducer } = celesteStore.getState();
+    const { walletReducer, web3Reducer } = celesteStore.getState();
+
+    const { web3 } = web3Reducer;
 
     const { chainId } = walletReducer;
 
@@ -22,7 +24,17 @@ const defaultMint = async amount => {
     const ocaMint = ocaMintProxy.write(chainId);
 
     try {
-        await ocaMint.mint({ amount: amountBN }, { from: walletReducer.address });
+        if (chainId === 137)
+            await ocaMint.mint(
+                { amount: amountBN },
+                {
+                    from: walletReducer.address,
+                    gasPrice: '50000000000',
+                    maxPriorityFeePerGas: '50000000000',
+                }
+            );
+        else await ocaMint.mint({ amount: amountBN }, { from: walletReducer.address });
+
         NotificationsStore.addNotification(successNotification('successful mint', 'You minted OCA token successfully'));
     } catch (error) {
         NotificationsStore.addNotification(errorNotification('Error', error.message));

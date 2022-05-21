@@ -9,3 +9,4 @@ export const CLOSE_MODAL = 'CLOSE_MODAL';
 
 /* *~~*~~*~~*~~*~~* MINT REDUCER *~~*~~*~~*~~*~~* */
 export const SET_MINT_TYPE = 'SET_MINT_TYPE';
+export const SET_PRICE_BN = 'SET_PRICE_BN';
