@@ -79,7 +79,7 @@ const MintButton = props => {
 
         (async () => {
             // 1. check if network is eth mainnet
-            if (+walletReducer.chainId === 97) {
+            if (+walletReducer.chainId === 1) {
                 // 1.2 check if user is traf holder
                 const trafRead = new TrafProxy().read();
 
