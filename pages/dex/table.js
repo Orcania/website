@@ -42,7 +42,7 @@ const Table = () => {
                             <td>Bounded to provided pairs</td>
                             <td className="has-text-contrast has-background-semi">
                                 {' '}
-                                Unbounded too all cryptos on the DEX{' '}
+                                Unbounded to all cryptos on the DEX{' '}
                             </td>
                         </tr>
                         <tr>
