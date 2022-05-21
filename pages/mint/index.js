@@ -15,7 +15,7 @@ import AddTokenToWallet from './add-token-to-wallet';
 // console.log(useCeleste);
 
 const MintPage = () => {
-    const { days, hours, minutes: mins, seconds: secs } = useCountdown(1653120000);
+    const { days, hours, minutes: mins, seconds: secs } = useCountdown(1653152400);
 
     const [amount, setAmount] = useState(1);
 
@@ -112,59 +112,70 @@ const MintPage = () => {
                                     </div>
                                 </section>
 
-                                <section className="mb-6 ">
-                                    <div className="is-flex is-flex-direction-row">
-                                        <div
-                                            className="button symbol-button"
-                                            onClick={handleDecreaseClick}
-                                            disabled={+amount <= 1}
-                                        >
-                                            -
+                                {days == 0 && hours == 0 && mins == 0 && secs == 0 ? (
+                                    <>
+                                        <section className="mb-6 ">
+                                            <div className="is-flex is-flex-direction-row">
+                                                <div
+                                                    className="button symbol-button"
+                                                    onClick={handleDecreaseClick}
+                                                    disabled={+amount <= 1}
+                                                >
+                                                    -
+                                                </div>
+                                                <input
+                                                    className="input mint-input has-font-pt-mono"
+                                                    type="text"
+                                                    value={amount}
+                                                    onChange={handleAmountChange}
+                                                />
+                                                <div className="button symbol-button" onClick={handleIncreaseClick}>
+                                                    +
+                                                </div>
+                                            </div>
+                                        </section>
+                                        <section className="mb-6">
+                                            <MintButton amount={amount} disabled={amount === '' || amount < 1} />
+                                            <br />
+                                            <AddTokenToWallet />
+                                        </section>
+                                    </>
+                                ) : (
+                                    <div className="is-flex is-flex-direction-row is-align-items-flex-start is-justify-content-space-between">
+                                        <div style={{ width: '25%' }}>
+                                            <div className="box has-background-primary-o-2 mr-3 has-font-pt-mono ct-box">
+                                                {days}
+                                            </div>
+                                            <h1 className="subtitle has-text-light-purple is-6 has-text-centered">
+                                                days
+                                            </h1>
                                         </div>
-                                        <input
-                                            className="input mint-input has-font-pt-mono"
-                                            type="text"
-                                            value={amount}
-                                            onChange={handleAmountChange}
-                                        />
-                                        <div className="button symbol-button" onClick={handleIncreaseClick}>
-                                            +
+                                        <div style={{ width: '25%' }}>
+                                            <div className="box has-background-primary-o-2 mr-3 has-font-pt-mono ct-box">
+                                                {hours}
+                                            </div>
+                                            <h1 className="subtitle has-text-light-purple is-6 has-text-centered">
+                                                hours
+                                            </h1>
+                                        </div>
+                                        <div style={{ width: '25%' }}>
+                                            <div className="box has-background-primary-o-2 mr-3 has-font-pt-mono ct-box">
+                                                {mins}
+                                            </div>
+                                            <h1 className="subtitle has-text-light-purple is-6 has-text-centered">
+                                                mins
+                                            </h1>
+                                        </div>
+                                        <div style={{ width: '25%' }}>
+                                            <div className="box has-background-primary-o-2 has-font-pt-mono ct-box">
+                                                {secs}
+                                            </div>
+                                            <h1 className="subtitle has-text-light-purple is-6 has-text-centered">
+                                                secs
+                                            </h1>
                                         </div>
                                     </div>
-                                </section>
-
-                                <section className="mb-6">
-                                    <MintButton amount={amount} disabled={amount === '' || amount < 1} />
-                                    <br />
-                                    <AddTokenToWallet />
-                                </section>
-
-                                {/* <div className="is-flex is-flex-direction-row is-align-items-flex-start is-justify-content-space-between">
-                                    <div style={{ width: '25%' }}>
-                                        <div className="box has-background-primary-o-2 mr-3 has-font-pt-mono ct-box">
-                                            {days}
-                                        </div>
-                                        <h1 className="subtitle has-text-light-purple is-6 has-text-centered">days</h1>
-                                    </div>
-                                    <div style={{ width: '25%' }}>
-                                        <div className="box has-background-primary-o-2 mr-3 has-font-pt-mono ct-box">
-                                            {hours}
-                                        </div>
-                                        <h1 className="subtitle has-text-light-purple is-6 has-text-centered">hours</h1>
-                                    </div>
-                                    <div style={{ width: '25%' }}>
-                                        <div className="box has-background-primary-o-2 mr-3 has-font-pt-mono ct-box">
-                                            {mins}
-                                        </div>
-                                        <h1 className="subtitle has-text-light-purple is-6 has-text-centered">mins</h1>
-                                    </div>
-                                    <div style={{ width: '25%' }}>
-                                        <div className="box has-background-primary-o-2 has-font-pt-mono ct-box">
-                                            {secs}
-                                        </div>
-                                        <h1 className="subtitle has-text-light-purple is-6 has-text-centered">secs</h1>
-                                    </div>
-                                </div> */}
+                                )}
                             </div>
                             <div className="column is-1 is-hidden-mobile" />
                         </div>
