@@ -15,7 +15,7 @@ import AddTokenToWallet from './add-token-to-wallet';
 // console.log(useCeleste);
 
 const MintPage = () => {
-    const { days, hours, minutes: mins, seconds: secs } = useCountdown(1653152400);
+    const { days, hours, minutes: mins, seconds: secs } = useCountdown(1653148800);
 
     const [amount, setAmount] = useState(1);
 
