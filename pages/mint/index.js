@@ -63,8 +63,6 @@ const MintPage = () => {
 
         if (priceBN == 0) return;
 
-        console.log('yeh');
-
         const totalBN = BigNumber(priceBN)
             .times(+amount)
             .toFixed(7)
@@ -152,8 +150,7 @@ const MintPage = () => {
                                     </div>
                                 </section>
 
-                                {/* {days == 0 && hours == 0 && mins == 0 && secs == 0 ? ( */}
-                                {true ? (
+                                {days == 0 && hours == 0 && mins == 0 && secs == 0 ? (
                                     <>
                                         <ConnectedWrapper>
                                             <NetworkWrapper>

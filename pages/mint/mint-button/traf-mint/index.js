@@ -23,7 +23,7 @@ const trafMint = async amount => {
     const ocaMint = ocaMintProxy.write(chainId);
 
     try {
-        if (chainId === 137)
+        if (+chainId === 137)
             await ocaMint.trafMint(
                 { amount: amountBN },
                 {

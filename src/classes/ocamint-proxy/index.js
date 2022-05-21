@@ -39,36 +39,60 @@ const OcaMintProxy = () => {
             const OCAMINT = new web3.eth.Contract(ocamintABI, addressBook.OCAMINT[chainId]);
 
             return {
-                mint: async ({ amount }, { from }) => {
+                mint: async ({ amount }, { from, gasPrice = null, maxPriorityFeePerGas = null }) => {
                     const tx = await OCAMINT.methods.mint();
 
+                    const data = {
+                        from,
+                        value: amount,
+                    };
+
+                    if (gasPrice !== null) data.gasPrice = gasPrice;
+                    if (maxPriorityFeePerGas !== null) data.maxPriorityFeePerGas = maxPriorityFeePerGas;
+
                     return new Promise((res, rej) => {
                         try {
-                            const txRes = tx.send({ from, value: amount });
+                            const txRes = tx.send(data);
                             res(txRes);
                         } catch (e) {
                             rej(e);
                         }
                     });
                 },
-                wlMint: async ({ amount }, { from }) => {
+                wlMint: async ({ amount }, { from, gasPrice = null, maxPriorityFeePerGas = null }) => {
                     const tx = await OCAMINT.methods.wlMint();
 
+                    const data = {
+                        from,
+                        value: amount,
+                    };
+
+                    if (gasPrice !== null) data.gasPrice = gasPrice;
+                    if (maxPriorityFeePerGas !== null) data.maxPriorityFeePerGas = maxPriorityFeePerGas;
+
                     return new Promise((res, rej) => {
                         try {
-                            const txRes = tx.send({ from, value: amount });
+                            const txRes = tx.send(data);
                             res(txRes);
                         } catch (e) {
                             rej(e);
                         }
                     });
                 },
-                trafMint: async ({ amount }, { from }) => {
+                trafMint: async ({ amount }, { from, gasPrice = null, maxPriorityFeePerGas = null }) => {
                     const tx = await OCAMINT.methods.trafMint();
+
+                    const data = {
+                        from,
+                        value: amount,
+                    };
+
+                    if (gasPrice !== null) data.gasPrice = gasPrice;
+                    if (maxPriorityFeePerGas !== null) data.maxPriorityFeePerGas = maxPriorityFeePerGas;
 
                     return new Promise((res, rej) => {
                         try {
-                            const txRes = tx.send({ from, value: amount });
+                            const txRes = tx.send(data);
                             res(txRes);
                         } catch (e) {
                             rej(e);
