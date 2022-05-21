@@ -7,7 +7,7 @@ const trafProxy = () => {
         read: () => {
             const { web3Reducer } = celesteStore.getState();
 
-            const trafRead = web3Reducer.contracts['TRAF_READ.97'];
+            const trafRead = web3Reducer.contracts['TRAF_READ.1'];
 
             return {
                 balanceOf: async address => {
