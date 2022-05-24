@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 
 import { DisconnectButton, useCelesteSelector, ConnectedWrapper, SwitchNetworkButton } from '@celeste-js/react';
 // import { providers } from '@celeste-js/core/dist/constants';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useStore } from 'react-redux';
 import { useState, useEffect } from 'react';
 // import './navbar.scss';
 
@@ -37,14 +37,14 @@ const getAddressReduced = address => `${address.slice(0, 6)}...${address.slice(-
 
 const Navbar = () => {
     // local state
+    const dispatch = useDispatch();
     const [mobileActive, setMobileActive] = useState(false);
     const [burgerActive, setBurgerActive] = useState(false);
     const [bgColor, setBgColor] = useState(false);
     const [scrollingDown, setScrollingDown] = useState(false);
-    const router = useRouter();
     const { walletReducer } = useCelesteSelector(state => state);
 
-    const dispatch = useDispatch();
+    const router = useRouter();
 
     const handleHamburgerClick = e => {
         e.preventDefault();
@@ -62,10 +62,17 @@ const Navbar = () => {
         }
     };
 
+    const handleNavbarItemClick = () => {
+        setBurgerActive(false);
+        animateCSS('.navbar-menu', 'fadeOutLeft').then(() => {
+            setMobileActive(false);
+        });
+    };
+
     useEffect(() => {
         // const elmnt = document.getElementById('__next');
         let oldScroll = 0;
-        window.addEventListener('scroll', () => {
+        window.addEventListener('scroll', function listener() {
             if (window.scrollY > 50) setBgColor(true);
             else setBgColor(false);
 
@@ -112,6 +119,7 @@ const Navbar = () => {
                                 className={`navbar-item has-text-light  ${
                                     router.pathname === '/home' ? 'is-active' : ''
                                 }`}
+                                onClick={handleNavbarItemClick}
                             >
                                 <span className="icon">
                                     <i className="fas fa-home" />
@@ -126,6 +134,7 @@ const Navbar = () => {
                                 className={`navbar-item has-text-light  ${
                                     router.pathname === '/token' ? 'is-active' : ''
                                 }`}
+                                onClick={handleNavbarItemClick}
                             >
                                 <span className="icon">
                                     <i className="fas fa-coin" />
@@ -140,6 +149,7 @@ const Navbar = () => {
                                 className={`navbar-item has-text-light  ${
                                     router.pathname === '/multichain' ? 'is-active' : ''
                                 }`}
+                                onClick={handleNavbarItemClick}
                             >
                                 <span className="icon">
                                     <i className="fa-solid fa-link-horizontal" />
@@ -154,6 +164,7 @@ const Navbar = () => {
                                 className={`navbar-item has-text-light ${
                                     router.pathname === '/dex' ? 'is-active' : ''
                                 }`}
+                                onClick={handleNavbarItemClick}
                             >
                                 <span className="icon">
                                     <i className="fas fa-exchange-alt" />
@@ -168,6 +179,7 @@ const Navbar = () => {
                                 className={`navbar-item has-text-light  ${
                                     router.pathname === '/mint' ? 'is-active' : ''
                                 }`}
+                                onClick={handleNavbarItemClick}
                             >
                                 <span className="icon">
                                     <i className="fa-solid fa-coins" />
