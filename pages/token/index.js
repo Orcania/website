@@ -292,7 +292,7 @@ const Token = props => {
                                         Total mount issued
                                     </h1>
 
-                                    <p className="has-text-white has-text-center">-</p>
+                                    <p className="has-text-white has-text-center">150,115,877</p>
                                 </div>
                             </div>
                             <div className="column has-text-centered" data-aos="fade-up">
@@ -308,7 +308,7 @@ const Token = props => {
                                     <h1 className=" subtitle has-text-center has-text-light-purple">
                                         Deployment Blockchains
                                     </h1>
-                                    <p className="has-text-white has-text-center">Ethereum (Soon) - Harmony (Soon)</p>
+                                    <p className="has-text-white has-text-center">Ethereum - BSC - Polygon - Harmony</p>
                                 </div>
                             </div>
                             <div className="column has-text-centered" data-aos="fade-up">
@@ -322,7 +322,9 @@ const Token = props => {
                             <div className="column has-text-centered" data-aos="fade-up">
                                 <div className="box has-background-dark2primary-v ">
                                     <h1 className=" subtitle has-text-center has-text-light-purple">Address</h1>
-                                    <p className="has-text-white has-text-center">-</p>
+                                    <p className="has-text-white has-text-center">
+                                        0x8AeB42F7b4204C956c51907C89639E3446a787Ea
+                                    </p>
                                 </div>
                             </div>
                             <div className="column has-text-centered" data-aos="fade-up">

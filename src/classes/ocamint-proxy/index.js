@@ -2,6 +2,7 @@
 
 import { store as celesteStore } from '@celeste-js/store';
 import ocamintABI from 'src/static/abis/ocamint.json';
+import ocaReferralMintABI from 'src/static/abis/oca_mint_referral.json';
 
 import { addressBook } from 'celeste.config';
 
@@ -37,8 +38,32 @@ const OcaMintProxy = () => {
             const { web3 } = web3Reducer;
 
             const OCAMINT = new web3.eth.Contract(ocamintABI, addressBook.OCAMINT[chainId]);
+            const OCA_REFERRAL_MINT = new web3.eth.Contract(ocaReferralMintABI, addressBook.OCA_REFERRAL_MINT[chainId]);
 
             return {
+                referral_mint: (
+                    { referralAddress, amount },
+                    { from, gasPrice = null, maxPriorityFeePerGas = null }
+                ) => {
+                    const tx = OCA_REFERRAL_MINT.methods.mint(referralAddress);
+
+                    const data = {
+                        from,
+                        value: amount,
+                    };
+
+                    if (gasPrice !== null) data.gasPrice = gasPrice;
+                    if (maxPriorityFeePerGas !== null) data.maxPriorityFeePerGas = maxPriorityFeePerGas;
+
+                    return new Promise((res, rej) => {
+                        try {
+                            const txRes = tx.send(data);
+                            res(txRes);
+                        } catch (e) {
+                            rej(e);
+                        }
+                    });
+                },
                 mint: async ({ amount }, { from, gasPrice = null, maxPriorityFeePerGas = null }) => {
                     const tx = await OCAMINT.methods.mint();
 

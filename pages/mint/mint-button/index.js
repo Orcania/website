@@ -10,6 +10,7 @@ import TrafProxy from 'src/classes/traf-proxy';
 import { useEffect, useState } from 'react';
 
 import defaultMint from './default-mint';
+import referralMint from './referral-mint';
 import wlMint from './wl-mint';
 import trafMint from './traf-mint';
 
@@ -19,9 +20,9 @@ const MintButton = props => {
     const dispatch = useDispatch();
     const { mintReducer } = useSelector(state => state);
 
-    const { amount, disabled } = props;
+    const { amount, disabled, referralMint: isReferralMint, referralAddress } = props;
 
-    const [mintType, setMintType] = useState('default');
+    const [mintType, setMintType] = useState('regular');
     const [loadingType, setLoadingType] = useState(true);
     const [loading, setLoading] = useState(false);
 
@@ -30,6 +31,10 @@ const MintButton = props => {
         switch (mintType) {
             case 'regular':
                 await defaultMint(amount);
+                break;
+
+            case 'referral':
+                await referralMint(amount, referralAddress);
                 break;
 
             case 'wl':
@@ -104,6 +109,9 @@ const MintButton = props => {
             if (isWl) {
                 setMintType('wl');
                 dispatch(set_mint_type('wl'));
+            } else if (isReferralMint) {
+                setMintType('referral');
+                dispatch(set_mint_type('regular'));
             } else {
                 setMintType('regular');
                 dispatch(set_mint_type('regular'));

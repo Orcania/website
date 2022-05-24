@@ -1,0 +1,26 @@
+@import 'src/scss/vars';
+
+.copylinkbutton {
+    &:hover {
+        background-color: $hsatblue !important;
+        color: $dark !important;
+    }
+}
+
+.orcania-box-container {
+    position: relative;
+}
+
+.orcania-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background: url(../../public/media/logos/oca-dark.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.2;
+    width: 100%;
+    height: 100%;
+}

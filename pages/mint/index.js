@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import BigNumber from 'bignumber.js';
@@ -31,6 +33,10 @@ const MintPage = () => {
     const { mintReducer } = useSelector(state => state);
     const [amount, setAmount] = useState(1);
     const [totalPrice, setTotalPrice] = useState();
+
+    const [referralMint, setReferralMint] = useState(false);
+
+    const { query } = useRouter();
 
     const handleIncreaseClick = () => {
         setAmount(+amount + 1);
@@ -75,6 +81,13 @@ const MintPage = () => {
 
         setTotalPrice(`${totalDec} ${currencies[walletReducer.chainId]}`);
     }, [amount, walletReducer.address, walletReducer.chainId, web3Reducer.initialized, mintReducer.priceBN]);
+
+    useEffect(() => {
+        // check if referral address is valid and only contains hex characters with 0x prefix
+        if (query.referral && query.referral.match(/^0x[0-9a-fA-F]*$/) && query.referral.length == 42) {
+            setReferralMint(true);
+        }
+    }, [query.referral]);
 
     return (
         <div className="has-background-primary2dark mb-0">
@@ -150,86 +163,59 @@ const MintPage = () => {
                                     </div>
                                 </section>
 
-                                {true ? (
-                                    <>
-                                        <ConnectedWrapper>
-                                            <NetworkWrapper>
-                                                <section className="mb-6 ">
-                                                    <div className="is-flex is-flex-direction-row">
-                                                        <div
-                                                            className="button symbol-button"
-                                                            onClick={handleDecreaseClick}
-                                                            disabled={+amount <= 1}
-                                                        >
-                                                            -
-                                                        </div>
-                                                        <input
-                                                            className="input mint-input has-font-pt-mono"
-                                                            type="text"
-                                                            value={amount}
-                                                            onChange={handleAmountChange}
-                                                        />
-                                                        <div
-                                                            className="button symbol-button"
-                                                            onClick={handleIncreaseClick}
-                                                        >
-                                                            +
-                                                        </div>
-                                                    </div>
-                                                </section>
-                                            </NetworkWrapper>
-                                        </ConnectedWrapper>
-
-                                        <section className="mb-6">
-                                            <MintButton amount={amount} disabled={amount === '' || amount < 1} />
-                                            <br />
-                                            <ConnectedWrapper>
-                                                <NetworkWrapper>
-                                                    <div className="has-text-white m-0 mb-1 has-text-centered is-size-7">
-                                                        Total: {totalPrice}
-                                                    </div>
-                                                </NetworkWrapper>
-                                            </ConnectedWrapper>
-                                            <br />
-                                            <AddTokenToWallet />
+                                <ConnectedWrapper>
+                                    <NetworkWrapper>
+                                        <section className="mb-6 ">
+                                            <div className="is-flex is-flex-direction-row">
+                                                <div
+                                                    className="button symbol-button"
+                                                    onClick={handleDecreaseClick}
+                                                    disabled={+amount <= 1}
+                                                >
+                                                    -
+                                                </div>
+                                                <input
+                                                    className="input mint-input has-font-pt-mono"
+                                                    type="text"
+                                                    value={amount}
+                                                    onChange={handleAmountChange}
+                                                />
+                                                <div className="button symbol-button" onClick={handleIncreaseClick}>
+                                                    +
+                                                </div>
+                                            </div>
                                         </section>
-                                    </>
-                                ) : (
-                                    <div className="is-flex is-flex-direction-row is-align-items-flex-start is-justify-content-space-between">
-                                        <div style={{ width: '25%' }}>
-                                            <div className="box has-background-primary-o-2 mr-3 has-font-pt-mono ct-box">
-                                                {days}
+                                    </NetworkWrapper>
+                                </ConnectedWrapper>
+
+                                <section className="mb-6">
+                                    <MintButton
+                                        amount={amount}
+                                        disabled={amount === '' || amount < 1}
+                                        referralMint={referralMint}
+                                        referralAddress={query.referral}
+                                    />
+                                    <br />
+                                    <ConnectedWrapper>
+                                        <NetworkWrapper>
+                                            <div className="has-text-white m-0 mb-1 has-text-centered is-size-7">
+                                                Total: {totalPrice}
                                             </div>
-                                            <h1 className="subtitle has-text-light-purple is-6 has-text-centered">
-                                                days
-                                            </h1>
-                                        </div>
-                                        <div style={{ width: '25%' }}>
-                                            <div className="box has-background-primary-o-2 mr-3 has-font-pt-mono ct-box">
-                                                {hours}
-                                            </div>
-                                            <h1 className="subtitle has-text-light-purple is-6 has-text-centered">
-                                                hours
-                                            </h1>
-                                        </div>
-                                        <div style={{ width: '25%' }}>
-                                            <div className="box has-background-primary-o-2 mr-3 has-font-pt-mono ct-box">
-                                                {mins}
-                                            </div>
-                                            <h1 className="subtitle has-text-light-purple is-6 has-text-centered">
-                                                mins
-                                            </h1>
-                                        </div>
-                                        <div style={{ width: '25%' }}>
-                                            <div className="box has-background-primary-o-2 has-font-pt-mono ct-box">
-                                                {secs}
-                                            </div>
-                                            <h1 className="subtitle has-text-light-purple is-6 has-text-centered">
-                                                secs
-                                            </h1>
-                                        </div>
-                                    </div>
-                                )}
+                                        </NetworkWrapper>
+                                    </ConnectedWrapper>
+                                    <br />
+                                    <AddTokenToWallet />
+
+                                    <ConnectedWrapper>
+                                        <Link href="/referral-program" passHref>
+                                            <a className="has-text-white has-text-centered">
+                                                <h1>
+                                                    <u>Refer a friend</u>
+                                                </h1>
+                                            </a>
+                                        </Link>
+                                    </ConnectedWrapper>
+                                </section>
                             </div>
                             <div className="column is-1 is-hidden-mobile" />
                         </div>

@@ -35,7 +35,9 @@ const defaultMint = async amount => {
             );
         } else await ocaMint.mint({ amount: amountBN }, { from: walletReducer.address });
 
-        NotificationsStore.addNotification(successNotification('successful mint', 'You minted OCA token successfully'));
+        NotificationsStore.addNotification(
+            successNotification('Successful mint', `You minted ${amount} OCA successfully`)
+        );
     } catch (error) {
         NotificationsStore.addNotification(errorNotification('Error', error.message));
     }

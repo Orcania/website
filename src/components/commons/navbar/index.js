@@ -64,9 +64,7 @@ const Navbar = () => {
 
     const handleNavbarItemClick = () => {
         setBurgerActive(false);
-        animateCSS('.navbar-menu', 'fadeOutLeft').then(() => {
-            setMobileActive(false);
-        });
+        setMobileActive(false);
     };
 
     useEffect(() => {
@@ -186,6 +184,20 @@ const Navbar = () => {
                                 </span>
                                 &nbsp;
                                 <h1>Mint</h1>
+                            </a>
+                        </Link>
+                        <Link href="/referral-program" passHref>
+                            <a
+                                className={`navbar-item has-text-light  ${
+                                    router.pathname === '/referral-program' ? 'is-active' : ''
+                                }`}
+                                onClick={handleNavbarItemClick}
+                            >
+                                <span className="icon">
+                                    <i class="fa-solid fa-user-group" />
+                                </span>
+                                &nbsp;
+                                <h1>Refer a friend</h1>
                             </a>
                         </Link>
                         {router.pathname === '/mint' ? (
