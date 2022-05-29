@@ -172,10 +172,10 @@ const Navbar = () => {
                             </a>
                         </Link>
 
-                        <Link href="/mint" passHref>
+                        <Link href="/buy" passHref>
                             <a
                                 className={`navbar-item has-text-light  ${
-                                    router.pathname === '/mint' ? 'is-active' : ''
+                                    router.pathname === '/buy' ? 'is-active' : ''
                                 }`}
                                 onClick={handleNavbarItemClick}
                             >
@@ -183,7 +183,7 @@ const Navbar = () => {
                                     <i className="fa-solid fa-coins" />
                                 </span>
                                 &nbsp;
-                                <h1>Mint</h1>
+                                <h1>Buy</h1>
                             </a>
                         </Link>
                         <Link href="/referral-program" passHref>

@@ -98,7 +98,7 @@ const MintPage = () => {
                             <div className="column is-6" data-aos="fade-down">
                                 <section className="mb-6">
                                     <h1 className="subtitle has-text-light-purple is-3 has-text-centered-mobile">
-                                        Orcania Mint
+                                        Buy OCA Token
                                     </h1>
                                     <p
                                         className="has-text-white is-size-5 has-text-justified"

@@ -149,7 +149,7 @@ const MintButton = props => {
                     onClick={onMintClick}
                     disabled={disabled}
                 >
-                    Mint
+                    Buy
                 </button>
             </NetworkWrapper>
         </ConnectedWrapper>
