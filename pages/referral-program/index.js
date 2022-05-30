@@ -10,7 +10,7 @@ import { open_modal } from 'src/redux/actions';
 
 import { infoNotification } from 'src/static/notifications';
 
-const baseLink = 'https://orcania.io/buy?referral=';
+const baseLink = 'https://orcania.io/ico?referral=';
 
 const MintPage = () => {
     const { web3Reducer, walletReducer } = useCelesteSelector(state => state);
@@ -58,20 +58,20 @@ const MintPage = () => {
                                 </section>
                                 <section className="mb-6">
                                     <p className="has-text-white is-size-5 has-text-centered-mobile">
-                                        Invite your friends to buy OCA and earn 5% reward from their buys on any
-                                        blockchain. <br />
+                                        Invite your friends to purchase OCA and earn 5% reward from their purcahses on
+                                        any blockchain. <br />
                                         <br />
                                         Example:
                                         <ul>
                                             <br />
                                             <li className="mb-5">
-                                                If your friend buys 1000 OCA on Ethereum using your referral link, they
-                                                will get 1000 OCA and you will instantly receive a 50 OCA reward on
+                                                If your friend purchases 1000 OCA on Ethereum using your referral link,
+                                                they will get 1000 OCA and you will instantly receive a 50 OCA reward on
                                                 Ethereum.
                                             </li>
                                             <li>
-                                                If your friend buys 1000 OCA on BSC using your referral link, they will
-                                                get 1000 OCA and you will instantly receive a 50 OCA reward on BSC.
+                                                If your friend purchases 1000 OCA on BSC using your referral link, they
+                                                will get 1000 OCA and you will instantly receive a 50 OCA reward on BSC.
                                             </li>
                                         </ul>
                                     </p>

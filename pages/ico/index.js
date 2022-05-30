@@ -98,7 +98,7 @@ const MintPage = () => {
                             <div className="column is-6" data-aos="fade-down">
                                 <section className="mb-6">
                                     <h1 className="subtitle has-text-light-purple is-3 has-text-centered-mobile">
-                                        Buy OCA Token
+                                        Buy OCA
                                     </h1>
                                     <p
                                         className="has-text-white is-size-5 has-text-justified"
@@ -226,6 +226,6 @@ const MintPage = () => {
     );
 };
 
-MintPage.getLayout = page => getPageTitleLayout(getMainLayout(page), 'Mint');
+MintPage.getLayout = page => getPageTitleLayout(getMainLayout(page), 'ICO');
 
 export default MintPage;

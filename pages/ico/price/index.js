@@ -105,7 +105,7 @@ const PriceComponent = () => {
 
     return (
         <div>
-            <h1 className="subtitle has-text-white is-6 has-text-centered mb-1">Buy Price</h1>
+            <h1 className="subtitle has-text-white is-6 has-text-centered mb-1">OCA Price</h1>
             <h1 className="subtitle has-text-white is-3 has-text-centered has-font-pt-mono mb-2">
                 {priceTemplates[mintReducer.mintType](normalPrice, price)}{' '}
                 <small className="is-size-6">{currency} </small>
