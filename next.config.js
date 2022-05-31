@@ -8,7 +8,12 @@ module.exports = {
             {
                 source: '/',
                 destination: '/home',
-                permanent: true,
+                permanent: false,
+            },
+            {
+                source: '/mint',
+                destination: '/ico',
+                permanent: false,
             },
         ];
     },
