@@ -48,7 +48,7 @@ const Token = props => {
                                         <button
                                             className="button is-fullwidth is-rounded has-text-light-purple has-background-primary-o-5 has-border-2-light-purple-o-10 is-shadowless"
                                             onClick={() => {
-                                                router.push('/mint');
+                                                router.push('/ico');
                                             }}
                                         >
                                             Mint
