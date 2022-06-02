@@ -21,15 +21,24 @@ const Dex = () => {
                                 </h1>
 
                                 <br />
-                                <div className="buttons is-hidden">
+                                <div className="buttons ">
                                     <a
                                         href="https://drive.google.com/file/d/16xNf1W65dzVRxJRfjylwpXpXU2PeQXZ3/view?usp=sharing"
                                         target="_blank"
                                         rel="noreferrer noopener"
-                                        className="button is-light-purple"
+                                        className="button is-fullwidth is-rounded has-text-light-purple has-background-primary-o-5 has-border-2-light-purple-o-10 is-shadowless mint-button mr-3"
                                         style={{ width: '150px' }}
                                     >
                                         <span className="is-size-5">White paper</span>
+                                    </a>
+                                    <a
+                                        href="https://odex-test.netlify.app/swap"
+                                        target="_blank"
+                                        rel="noreferrer noopener"
+                                        className="button is-fullwidth is-rounded has-text-light-purple has-background-primary-o-5 has-border-2-light-purple-o-10 is-shadowless mint-button"
+                                        style={{ width: '150px' }}
+                                    >
+                                        <span className="is-size-5">Test App</span>
                                     </a>
                                 </div>
                             </div>
