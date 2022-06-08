@@ -434,7 +434,7 @@ const Home = () => {
                                 <TeamCard
                                     name="Bechara Maalouf"
                                     charge="Web Developer"
-                                    imgsrc="media/pages/home/member6.jpeg"
+                                    // imgsrc="media/pages/home/member6.jpeg"
                                     chargeIcon={<i className="fas fa-code"></i>}
                                     socialmedia={
                                         <div>
