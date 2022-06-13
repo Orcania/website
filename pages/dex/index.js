@@ -21,7 +21,7 @@ const Dex = () => {
                                 </h1>
 
                                 <br />
-                                <div className="buttons ">
+                                <div className="buttons">
                                     <a
                                         href="https://drive.google.com/file/d/16xNf1W65dzVRxJRfjylwpXpXU2PeQXZ3/view?usp=sharing"
                                         target="_blank"
@@ -32,13 +32,22 @@ const Dex = () => {
                                         <span className="is-size-5">White paper</span>
                                     </a>
                                     <a
-                                        href="https://odex-test.netlify.app/swap"
+                                        href="https://oca-dex-testing-boba.netlify.app/swap"
                                         target="_blank"
                                         rel="noreferrer noopener"
                                         className="button is-fullwidth is-rounded has-text-light-purple has-background-primary-o-5 has-border-2-light-purple-o-10 is-shadowless mint-button"
                                         style={{ width: '150px' }}
                                     >
-                                        <span className="is-size-5">Test App</span>
+                                        <span className="is-size-5">Test on Boba</span>
+                                    </a>
+                                    <a
+                                        href="https://oca-dex-testing-hny.netlify.app/swap"
+                                        target="_blank"
+                                        rel="noreferrer noopener"
+                                        className="button is-fullwidth is-rounded has-text-light-purple has-background-primary-o-5 has-border-2-light-purple-o-10 is-shadowless mint-button ml-3"
+                                        style={{ width: '150px' }}
+                                    >
+                                        <span className="is-size-5">Test on Harmony</span>
                                     </a>
                                 </div>
                             </div>
