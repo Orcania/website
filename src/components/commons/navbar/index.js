@@ -172,6 +172,36 @@ const Navbar = () => {
                             </a>
                         </Link>
 
+                        <Link href="/portfolio" passHref>
+                            <a
+                                className={`navbar-item has-text-light ${
+                                    router.pathname === '/portfolio' ? 'is-active' : ''
+                                }`}
+                                onClick={handleNavbarItemClick}
+                            >
+                                <span className="icon">
+                                    <i className="fas fa-chart-line" />
+                                </span>
+                                &nbsp;
+                                <h1>Portfolio</h1>
+                            </a>
+                        </Link>
+
+                        <Link href="/services" passHref>
+                            <a
+                                className={`navbar-item has-text-light ${
+                                    router.pathname === '/services' ? 'is-active' : ''
+                                }`}
+                                onClick={handleNavbarItemClick}
+                            >
+                                <span className="icon">
+                                    <i className="fas fa-cogs" />
+                                </span>
+                                &nbsp;
+                                <h1>Services</h1>
+                            </a>
+                        </Link>
+
                         <Link href="/ico" passHref>
                             <a
                                 className={`navbar-item has-text-light  ${
@@ -194,7 +224,7 @@ const Navbar = () => {
                                 onClick={handleNavbarItemClick}
                             >
                                 <span className="icon">
-                                    <i class="fa-solid fa-user-group" />
+                                    <i className="fa-solid fa-user-group" />
                                 </span>
                                 &nbsp;
                                 <h1>Refer a friend</h1>

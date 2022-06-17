@@ -107,7 +107,7 @@ const MintPage = () => {
                                             onClick={copyAddress}
                                         >
                                             <span className="icon">
-                                                <i class="fas fa-copy" />
+                                                <i className="fas fa-copy" />
                                             </span>
                                             <b>Copy Referral Link</b>
                                         </button>
