@@ -27,11 +27,11 @@ const templatePartnerSecondDiv = [
         logo: 'media/partners/chaotic_djs.png',
         alt: 'Chaoctic DJs',
     },
-    {
-        link: 'https://cryptoland.io/',
-        logo: 'media/partners/crypto-coin.png',
-        alt: 'CryptoLand',
-    },
+    // {
+    //     link: 'https://cryptoland.io/',
+    //     logo: 'media/partners/crypto-coin.png',
+    //     alt: 'CryptoLand',
+    // },
 ];
 
 let partnerSection = [];
