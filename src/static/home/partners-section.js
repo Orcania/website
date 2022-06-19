@@ -28,6 +28,11 @@ const templatePartnerSecondDiv = [
         alt: 'Chaoctic DJs',
     },
     // {
+    //     link: '',
+    //     logo: 'media/partners/boba-logo.png',
+    //     alt: 'Boba',
+    // },
+    // {
     //     link: 'https://cryptoland.io/',
     //     logo: 'media/partners/crypto-coin.png',
     //     alt: 'CryptoLand',
