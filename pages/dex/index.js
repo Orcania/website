@@ -22,7 +22,7 @@ const Dex = () => {
 
                                 <br />
                                 <div className="buttons">
-                                    <div className="columns">
+                                    <div className="columns is-mobile">
                                         <div className="column">
                                             <a
                                                 href="https://drive.google.com/file/d/16xNf1W65dzVRxJRfjylwpXpXU2PeQXZ3/view?usp=sharing"
@@ -46,7 +46,7 @@ const Dex = () => {
                                     </div>
                                 </div>
                             </div>
-
+                            <div className="py-3 is-hidden-desktop" />
                             <div className="column" data-aos="fade-left">
                                 <img src="media/pages/token/token_governance.svg" alt="" />
                             </div>
