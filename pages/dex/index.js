@@ -22,36 +22,31 @@ const Dex = () => {
 
                                 <br />
                                 <div className="buttons">
-                                    <a
-                                        href="https://drive.google.com/file/d/16xNf1W65dzVRxJRfjylwpXpXU2PeQXZ3/view?usp=sharing"
-                                        target="_blank"
-                                        rel="noreferrer noopener"
-                                        className="button is-fullwidth is-rounded has-text-light-purple has-background-primary-o-5 has-border-2-light-purple-o-10 is-shadowless mint-button mr-3"
-                                        style={{ width: '150px' }}
-                                    >
-                                        <span className="is-size-5">White paper</span>
-                                    </a>
-                                    <a
-                                        href="https://oca-dex-testing-boba.netlify.app/swap"
-                                        target="_blank"
-                                        rel="noreferrer noopener"
-                                        className="button is-fullwidth is-rounded has-text-light-purple has-background-primary-o-5 has-border-2-light-purple-o-10 is-shadowless mint-button"
-                                        style={{ width: '150px' }}
-                                    >
-                                        <span className="is-size-5">Test on Boba</span>
-                                    </a>
-                                    <a
-                                        href="https://oca-dex-testing-hny.netlify.app/swap"
-                                        target="_blank"
-                                        rel="noreferrer noopener"
-                                        className="button is-fullwidth is-rounded has-text-light-purple has-background-primary-o-5 has-border-2-light-purple-o-10 is-shadowless mint-button ml-3"
-                                        style={{ width: '150px' }}
-                                    >
-                                        <span className="is-size-5">Test on Harmony</span>
-                                    </a>
+                                    <div className="columns is-mobile">
+                                        <div className="column">
+                                            <a
+                                                href="https://drive.google.com/file/d/16xNf1W65dzVRxJRfjylwpXpXU2PeQXZ3/view?usp=sharing"
+                                                target="_blank"
+                                                rel="noreferrer noopener"
+                                                className="button is-fullwidth is-rounded has-text-light-purple has-background-primary-o-5 has-border-2-light-purple-o-10 is-shadowless mint-button"
+                                            >
+                                                <span className="is-size-5">White paper</span>
+                                            </a>
+                                        </div>
+                                        <div className="column">
+                                            <a
+                                                href="https://oca-dex-testing-boba.netlify.app/"
+                                                target="_blank"
+                                                rel="noreferrer noopener"
+                                                className="button is-fullwidth is-rounded has-text-light-purple has-background-primary-o-5 has-border-2-light-purple-o-10 is-shadowless mint-button"
+                                            >
+                                                <span className="is-size-5">Test on Boba</span>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-
+                            <div className="py-3 is-hidden-desktop" />
                             <div className="column" data-aos="fade-left">
                                 <img src="media/pages/token/token_governance.svg" alt="" />
                             </div>

@@ -55,14 +55,14 @@ const Services = () => {
                         </div>
                     </div>
 
-                    <div className="columns is-centered pt-6">
+                    <div className="columns is-centered is-marginless pt-6">
                         {data.slice(0, 3).map(item => (
                             <div className="column is-4" key={item.id} data-aos="fade">
                                 <TiltedSquareBox title={item.title} subtitle={item.subtitle} icon={item.icon} />
                             </div>
                         ))}
                     </div>
-                    <div className="columns is-centered">
+                    <div className="columns is-centered is-marginless">
                         {data.slice(3, 5).map(item => (
                             <div className="column is-4" key={item.id} data-aos="fade">
                                 <TiltedSquareBox title={item.title} subtitle={item.subtitle} icon={item.icon} />

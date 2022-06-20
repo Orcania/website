@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { getLayout as getPageTitleLayout } from 'src/layouts/page-title';
 import { getLayout as getMainLayout } from 'src/layouts/main';
 import { useRouter } from 'next/router';
+import Tokenomics from './tokenomics';
 const style = {
     // height: '100%'
 };
@@ -69,36 +70,34 @@ const Token = props => {
                 </div>
             </section>
 
-            {/* <section className="has-background-light px-4">
-        <div className="head pt-6 mb-6">
-          <div className="container pt-6">
-            <h1 className="title is-3 has-text-primary has-text-centered has-liae-text primary mb-5">
-              Upcoming Token Distribution
-            </h1>
+            <section className="has-background-light px-4">
+                <div className="head pt-6 mb-6">
+                    <div className="container pt-6">
+                        <h1 className="title is-3 has-text-primary has-text-centered has-liae-text primary mb-5">
+                            Upcoming Token Distribution
+                        </h1>
 
-            <div className="columns">
-              <div className="column is-5">
-                <div>
-                  <Tokenomics showData={showData} setShowData={setShowData} />
-                </div>
-              </div>
-              <div className="column">
-                <div className="">
-                  <h1 className="subtitle has-text-centered has-text-primary">
-                    {showData.title}
-                  </h1>
+                        <div className="columns">
+                            <div className="column is-5">
+                                <div>
+                                    <Tokenomics showData={showData} setShowData={setShowData} />
+                                </div>
+                            </div>
+                            <div className="column">
+                                <div className="">
+                                    <h1 className="subtitle has-text-centered has-text-primary">{showData.title}</h1>
 
-                  <showData.body />
+                                    <showData.body />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <br />
-        <div className="body pb-6">
-          <div className="container is-max-desktop"></div>
-        </div>
-      </section> */}
+                <br />
+                <div className="body pb-6">
+                    <div className="container is-max-desktop"></div>
+                </div>
+            </section>
 
             <section className="has-background-d2p2d ">
                 <div className="head pt-6" />
