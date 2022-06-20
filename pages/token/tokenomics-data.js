@@ -2,7 +2,7 @@ const data = [
     {
         title: 'Initial Coin Offering',
         body: () => <></>,
-        percentage: 15,
+        percentage: 85,
     },
     {
         title: 'Protocol Development Allocation',
@@ -18,7 +18,7 @@ const data = [
                 growth and engagement.
             </p>
         ),
-        percentage: 85,
+        percentage: 15,
     },
     // {
     //   title: "Nodes Sale Parallel",
