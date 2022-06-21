@@ -19,9 +19,9 @@ import 'src/scss/main.scss';
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
 import 'aos/dist/aos.css';
+import ScrollToTop from 'src/components/base/scroll-to-top';
 
 const CelesteProvider = dynamic(() => import('src/components/celeste'), { ssr: false });
-// const AOSProvider = dynamic(() => import('src/components/aos-provider'), { ssr: false });
 
 const { FONT_AWESOME_KEY } = process.env;
 const { appName } = appConfig;
@@ -46,6 +46,7 @@ function MyApp({ Component, pageProps }) {
             <Script src={`https://kit.fontawesome.com/${FONT_AWESOME_KEY}.js`} />
             <Provider store={store}>
                 <CelesteProvider>
+                    <ScrollToTop />
                     {/* <AOSProvider /> */}
                     <ReactNotifications types={custom_notification_types} />
 

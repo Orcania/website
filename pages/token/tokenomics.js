@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
-import Chart from 'react-apexcharts';
+import dynamic from 'next/dynamic';
 import tokenomicsData from './tokenomics-data';
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const Tokenomics = props => {
     useEffect(() => {
