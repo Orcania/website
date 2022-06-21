@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { getLayout as getPageTitleLayout } from 'src/layouts/page-title';
 import { getLayout as getMainLayout } from 'src/layouts/main';
 import { useRouter } from 'next/router';
-import Tokenomics from './tokenomics';
+import Tokenomics from 'src/components/tokenomics';
 const style = {
     // height: '100%'
 };
