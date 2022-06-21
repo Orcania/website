@@ -1,10 +1,33 @@
 import { useEffect } from 'react';
 import dynamic from 'next/dynamic';
-import { tokenomicsData } from './tokenomics-data';
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const Tokenomics = props => {
+    const tokenomicsData = [
+        {
+            title: 'Initial Coin Offering',
+            body: () => <></>,
+            percentage: 85,
+        },
+        {
+            title: 'Protocol Development Allocation',
+            body: () => (
+                <p>
+                    This allocation will be used to fund the growth and development of the Orcania projects.
+                    <br />
+                    It will be used to cover salaries of Orcania team members working on Orcania projects, and cover
+                    external expenses of certain projects' needs such as servers.
+                    <br />
+                    Furthermore the Orcania team will utilize this allocation along side funds of its own to supply
+                    liquidity on the Orcania DEX upon it's release, and hold events and competitions to encourage
+                    ecosystem growth and engagement.
+                </p>
+            ),
+            percentage: 15,
+        },
+    ];
+
     useEffect(() => {
         const elms = document.querySelectorAll('.apexcharts-legend-series');
 
