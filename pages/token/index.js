@@ -12,20 +12,8 @@ const Token = props => {
     const router = useRouter();
 
     const [showData, setShowData] = useState({
-        title: 'ICO',
-        body: () => (
-            <p>
-                The ICO will be held after the nodes presale has been concluded.
-                <br />
-                <br />
-                Any OCA remaining from the nodes presale will be added to the public ICO, it will allow everyone to
-                aquire OCA on multiple blockchains. <br />
-                <br />
-                The ICO will either be held on centralized services such as Binance with part of the ICO being held on
-                DAPPs on the supported blockchains of the Orcania Bridge, or it will be fully held on DAPPs of the
-                supported blockchains.
-            </p>
-        ),
+        title: '',
+        body: () => <></>,
     });
 
     useEffect(() => {
