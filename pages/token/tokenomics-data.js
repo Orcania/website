@@ -1,4 +1,4 @@
-const data = [
+export const tokenomicsData = [
     {
         title: 'Initial Coin Offering',
         body: () => <></>,
@@ -143,5 +143,3 @@ const data = [
     //   percentage: 2.5,
     // },
 ];
-
-export default data;
