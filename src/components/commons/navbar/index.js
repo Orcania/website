@@ -172,7 +172,7 @@ const Navbar = () => {
                             </a>
                         </Link>
 
-                        {/* <Link href="/portfolio" passHref>
+                        <Link href="/portfolio" passHref>
                             <a
                                 className={`navbar-item has-text-light ${
                                     router.pathname === '/portfolio' ? 'is-active' : ''
@@ -185,9 +185,9 @@ const Navbar = () => {
                                 &nbsp;
                                 <h1>Portfolio</h1>
                             </a>
-                        </Link> */}
+                        </Link>
 
-                        {/* <Link href="/services" passHref>
+                        <Link href="/services" passHref>
                             <a
                                 className={`navbar-item has-text-light ${
                                     router.pathname === '/services' ? 'is-active' : ''
@@ -200,7 +200,7 @@ const Navbar = () => {
                                 &nbsp;
                                 <h1>Services</h1>
                             </a>
-                        </Link> */}
+                        </Link>
 
                         <Link href="/ico" passHref>
                             <a
