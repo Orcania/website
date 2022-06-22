@@ -1,13 +1,18 @@
-// import axios from 'axios';
-
-// const endpoint = process.env.ENDPOINT1;
-// const endpoint1 = process.env.ENDPOINT;
+import axios from 'axios';
+const { ENDPOINT } = process.env;
 
 const api = {
     get: {
         items: () => [{ id: 1 }, { id: 2 }, { id: 3 }],
     },
-    post: {},
+    post: {
+        postMail: ({ email }) => {
+            return axios({
+                method: 'post',
+                url: `${ENDPOINT}/api/mail?email=${email}`,
+            });
+        },
+    },
     put: {},
     delete: {},
 };

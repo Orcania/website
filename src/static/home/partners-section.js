@@ -9,6 +9,11 @@ const templatePartnerSection = [
         logo: 'media/partners/harmony.svg',
         alt: 'Harmony',
     },
+    {
+        link: 'https://boba.network/',
+        logo: 'media/partners/boba.svg',
+        alt: 'Boba',
+    },
 ];
 
 const templatePartnerSecondDiv = [

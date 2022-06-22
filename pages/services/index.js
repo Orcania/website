@@ -2,6 +2,11 @@ import { getLayout as getPageTitleLayout } from 'src/layouts/page-title';
 import { getLayout as getMainLayout } from 'src/layouts/main';
 import IntroSection from 'src/components/intro-section';
 import TiltedSquareBox from './tilted-square-box';
+import { useEffect, useRef } from 'react';
+
+import styles from './styles.module.scss';
+
+const { columns_container, second_column } = styles;
 
 const Services = () => {
     const data = [
@@ -37,6 +42,14 @@ const Services = () => {
         },
     ];
 
+    const firstColumn = useRef(null);
+    const secondColumn = useRef(null);
+
+    useEffect(() => {
+        if (secondColumn.current) {
+        }
+    }, [secondColumn]);
+
     return (
         <div>
             <IntroSection
@@ -55,20 +68,23 @@ const Services = () => {
                         </div>
                     </div>
 
-                    <div className="columns is-centered is-marginless pt-6">
-                        {data.slice(0, 3).map(item => (
-                            <div className="column is-4" key={item.id} data-aos="fade">
-                                <TiltedSquareBox title={item.title} subtitle={item.subtitle} icon={item.icon} />
-                            </div>
-                        ))}
+                    <div className={columns_container}>
+                        <div className="columns is-centered pt-6 is-marginless">
+                            {data.slice(0, 3).map(item => (
+                                <div className="column is-4" key={item.id} data-aos="fade">
+                                    <TiltedSquareBox title={item.title} subtitle={item.subtitle} icon={item.icon} />
+                                </div>
+                            ))}
+                        </div>
+                        <div className={`columns is-centered ${second_column} is-marginless`} ref={secondColumn}>
+                            {data.slice(3, 5).map(item => (
+                                <div className="column is-4" key={item.id} data-aos="fade">
+                                    <TiltedSquareBox title={item.title} subtitle={item.subtitle} icon={item.icon} />
+                                </div>
+                            ))}
+                        </div>
                     </div>
-                    <div className="columns is-centered is-marginless">
-                        {data.slice(3, 5).map(item => (
-                            <div className="column is-4" key={item.id} data-aos="fade">
-                                <TiltedSquareBox title={item.title} subtitle={item.subtitle} icon={item.icon} />
-                            </div>
-                        ))}
-                    </div>
+                    <div className="is-hidden-mobile" style={{ height: '300px' }} />
                 </div>
             </section>
         </div>

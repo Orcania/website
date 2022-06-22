@@ -1,0 +1,14 @@
+.columns_container {
+    position: relative;
+}
+.second_column {
+    position: absolute;
+    width: 100%;
+
+    top: 60%;
+
+    @media screen and (max-width: 768px) {
+        position: unset;
+        top: unset;
+    }
+}
