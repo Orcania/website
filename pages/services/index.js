@@ -3,45 +3,13 @@ import { getLayout as getMainLayout } from 'src/layouts/main';
 import IntroSection from 'src/components/intro-section';
 import TiltedSquareBox from './tilted-square-box';
 import { useEffect, useRef } from 'react';
-
+import servicesData from 'src/static/services/services-data';
 import styles from './styles.module.scss';
+import ContactUsBox from './contact-us-box';
 
-const { columns_container, second_column } = styles;
+const { columns_container, second_column, background_photo, contact_box } = styles;
 
 const Services = () => {
-    const data = [
-        {
-            id: 1,
-            title: 'Smart Contracts Development',
-            subtitle: 'We can help you build a smart contract that will be secure and easy to use.',
-            icon: 'fa-solid fa-file-contract',
-        },
-        {
-            id: 2,
-            title: 'Blockchain Development',
-            subtitle: 'We can help you build a blockchain that will be secure and easy to use.',
-            icon: 'fa-brands fa-hive',
-        },
-        {
-            id: 3,
-            title: 'Server Development',
-            subtitle: 'We can help you build a server that will be secure and easy to use.',
-            icon: 'fa-solid fa-server',
-        },
-        {
-            id: 4,
-            title: 'DAPP Development',
-            subtitle: 'We can help you build a DAPP that will be secure and easy to use.',
-            icon: 'fa-solid fa-dice',
-        },
-        {
-            id: 5,
-            title: 'Bots Development',
-            subtitle: 'We can help you build a bot that will be secure and easy to use.',
-            icon: 'fa-solid fa-robot',
-        },
-    ];
-
     const firstColumn = useRef(null);
     const secondColumn = useRef(null);
 
@@ -69,15 +37,15 @@ const Services = () => {
                     </div>
 
                     <div className={columns_container}>
-                        <div className="columns is-centered pt-6 is-marginless">
-                            {data.slice(0, 3).map(item => (
+                        <div className="columns is-centered pt-6 is-marginless" ref={firstColumn}>
+                            {servicesData.slice(0, 3).map(item => (
                                 <div className="column is-4" key={item.id} data-aos="fade">
                                     <TiltedSquareBox title={item.title} subtitle={item.subtitle} icon={item.icon} />
                                 </div>
                             ))}
                         </div>
                         <div className={`columns is-centered ${second_column} is-marginless`} ref={secondColumn}>
-                            {data.slice(3, 5).map(item => (
+                            {servicesData.slice(3, 5).map(item => (
                                 <div className="column is-4" key={item.id} data-aos="fade">
                                     <TiltedSquareBox title={item.title} subtitle={item.subtitle} icon={item.icon} />
                                 </div>
@@ -85,6 +53,20 @@ const Services = () => {
                         </div>
                     </div>
                     <div className="is-hidden-mobile" style={{ height: '300px' }} />
+                </div>
+            </section>
+            <section className={`section ${background_photo}`}>
+                <div className="container">
+                    <div className="columns is-centered is-flex is-align-items-center" data-aos="fade-up">
+                        <div className="column is-4">
+                            <h1 className="title is-size-1 is-size-4-mobile has-text-white">
+                                Have a project? We would love to help.
+                            </h1>
+                        </div>
+                        <div className="column is-5 is-8-mobile">
+                            <ContactUsBox />
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
