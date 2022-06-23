@@ -218,11 +218,52 @@ const Home = () => {
                 </div>
             </section>
 
-            <InfiniteSlider
-                title={'Ecosystem and Partners'}
-                firstColumn={partnerSection}
-                secondColumn={partnerSectionSecondDivision}
-            />
+            <section className="has-background-d2p2d">
+                <div className="head pt-6">
+                    <h1 className="title has-lina-text contrast is-3 has-text-contrast has-text-centered mb-6">
+                        Ecosystem and Partners
+                    </h1>
+                </div>
+                <div className="hero-body pb-6 px-0" style={{ overflow: 'hidden' }}>
+                    <div id="infinite" className="highway-slider">
+                        <div className="highway-barrier">
+                            <ul className="highway-lane">
+                                {partnerSection.map((item, index) => (
+                                    <li className="highway-car ml" key={index}>
+                                        <a
+                                            href={item.link}
+                                            target="_blank"
+                                            className="box has-background-dark is-shadowless"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <img src={item.logo} alt={item.alt} />
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="infinite" className="highway-slider">
+                        <div className="highway-barrier">
+                            <ul className="highway-lane phase2">
+                                {partnerSectionSecondDivision.map((item, index) => (
+                                    <li className="highway-car ml" key={index}>
+                                        <a
+                                            href={item.link}
+                                            target="_blank"
+                                            className="box has-background-dark is-shadowless"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <img src={item.logo} alt={item.alt} />
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <section className="has-background-light">
                 <div className="head pt-6 mb-6">

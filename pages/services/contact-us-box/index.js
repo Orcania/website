@@ -38,68 +38,106 @@ const ContactUsBox = () => {
     };
 
     return (
-        <div className={`box ${contact_box} has-text-white`}>
-            <div className="field py-2">
-                <p className="control has-icons-left has-icons-right">
-                    <input className="input" type="text" placeholder="Your name" onChange={e => validateName(e)} />
-                    <span className="icon is-small is-left">
-                        <i className="fas fa-user"></i>
-                    </span>
-                    <span id="validate-name" className="icon is-small is-right">
-                        <i className="fas fa-check"></i>
-                    </span>
-                </p>
-            </div>
-            <div className="field py-2">
-                <p className="control has-icons-left has-icons-right">
-                    <input className="input" type="email" placeholder="Your email" onChange={e => validateEmail(e)} />
-                    <span className="icon is-small is-left">
-                        <i className="fas fa-envelope"></i>
-                    </span>
-                    <span id="validate-email" className="icon is-small is-right">
-                        <i className="fas fa-check"></i>
-                    </span>
-                </p>
-            </div>
-            <div className="field py-2">
-                <div className="control">
-                    <textarea className="textarea has-fixed-size" placeholder="Tell us about your project" />
+        <>
+            <div className="columns">
+                <div className="column">
+                    <div className="field">
+                        <label className="label has-text-white">Your name</label>
+                        <div className="control has-icons-left">
+                            <input
+                                className="input has-background-light-purple-o-5 has-text-white is-borderless"
+                                type="text"
+                                placeholder="John Doe"
+                                onChange={e => validateName(e)}
+                            />
+                            <span id="validate-name" className="icon has-text-light-purple is-small is-left">
+                                <i className="fas fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div className="column">
+                    <div className="field">
+                        <label className="label has-text-white">Your email</label>
+                        <div className="control has-icons-left">
+                            <input
+                                className="input has-background-light-purple-o-5 has-text-white is-borderless"
+                                type="email"
+                                placeholder="johndoe@gmail.com"
+                                onChange={e => validateEmail(e)}
+                            />
+                            <span id="validate-email" className="icon has-text-light-purple is-small is-left">
+                                <i className="fas fa-envelope" />
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            {/* <div className="file has-name">
-                <label className="file-label">
-                    <input className="file-input" type="file" name="resume" onChange={e => getFileName(e)} />
-                    <span className="file-cta">
-                        <span className="file-icon">
-                            <i className="fas fa-paperclip" />
-                        </span>
-                        <span className="file-label">Add attachment</span>
-                    </span>
-                    <span className="file-name">Your file</span>
-                </label>
-            </div> */}
-            <div className="field py-2">
-                <p className="control has-icons-left has-icons-right">
-                    <input
-                        className="input"
-                        type="text"
-                        placeholder="Enter the URL containing your files (Google Drive, Dropbox...)"
-                        onChange={e => validateURL(e)}
-                    />
-                    <span className="icon is-small is-left">
-                        <i className="fas fa-globe"></i>
-                    </span>
-                    <span id="validate-url" className="icon is-small is-right">
-                        <i className="fas fa-check"></i>
-                    </span>
-                </p>
-            </div>
-            <div className="field is-grouped pt-5">
-                <div className="control">
-                    <button className="button is-white">Send Request</button>
+            <div className="columns">
+                <div className="column">
+                    <div className="field">
+                        <label className="label has-text-white">Project type</label>
+                        <div className="control has-icons-left">
+                            <div className="select is-fullwidth">
+                                <select className="has-background-light-purple-o-5 has-text-white is-borderless">
+                                    <option>NFT Project</option>
+                                    <option>DeFi Project</option>
+                                    <option>GameFi Project</option>
+                                    <option>Services Project</option>
+                                    <option>Entertainment Project</option>
+                                    <option>Basic Website</option>
+                                    <option>App Design</option>
+                                    <option>Others</option>
+                                </select>
+                                <span className="icon is-small is-left">
+                                    <i className="fa-solid fa-rectangle-history-circle-user" />
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="column">
+                    <div className="field">
+                        <label className="label has-text-white">URL</label>
+                        <div className="control has-icons-left">
+                            <input
+                                className="input has-background-light-purple-o-5 has-text-white is-borderless"
+                                type="text"
+                                placeholder="drive.google.com/aH2z568qaw47"
+                                onChange={e => validateURL(e)}
+                            />
+                            <span id="validate-url" className="icon has-text-light-purple is-small is-left">
+                                <i className="fas fa-link"></i>
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+            <div className="columns">
+                <div className="column">
+                    <div className="field">
+                        <label className="label has-text-white">About</label>
+                        <div className="control">
+                            <textarea
+                                className="textarea has-background-light-purple-o-5 has-text-white is-borderless"
+                                placeholder="Tell us about your project"
+                                rows="5"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="columns">
+                <div className="column is-narrow">
+                    <button
+                        className="button is-fullwidth has-background-light-purple-o-5 has-text-white has-border-1-light-purple-o-10"
+                        type="submit"
+                    >
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </>
     );
 };
 

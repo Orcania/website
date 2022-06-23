@@ -1,7 +1,7 @@
 const InfiniteSlider = props => {
-    const { firstColumn, secondColumn, children, title } = props;
+    const { firstColumn, secondColumn, children, title, backgroundColor } = props;
     return (
-        <section className="has-background-d2p2d">
+        <section className={`has-background-${backgroundColor}`}>
             <div className="head pt-6">
                 <h1 className="title has-lina-text contrast is-3 has-text-contrast has-text-centered mb-6">{title}</h1>
             </div>

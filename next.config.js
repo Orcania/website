@@ -2,7 +2,7 @@ module.exports = {
     reactStrictMode: true,
     env: {
         FONT_AWESOME_KEY: '8d70729523',
-        ENDPOINT: 'http://localhost:3000',
+        ENDPOINT: 'https://zerotwo.art',
     },
     async redirects() {
         return [
