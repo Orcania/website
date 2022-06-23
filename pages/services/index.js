@@ -3,9 +3,15 @@ import { getLayout as getMainLayout } from 'src/layouts/main';
 import IntroSection from 'src/components/intro-section';
 import TiltedSquareBox from './tilted-square-box';
 import { useEffect, useRef } from 'react';
-import servicesData from 'src/static/services/services-data';
+import {
+    servicesData,
+    sliderFirstColumn,
+    sliderSecondColumn,
+    sliderThirdColumn,
+} from 'src/static/services/services-data';
 import styles from './styles.module.scss';
 import ContactUsBox from './contact-us-box';
+import InfiniteSlider from 'src/components/infinite-slider';
 
 const { columns_container, second_column, background_photo, contact_box } = styles;
 
@@ -55,6 +61,32 @@ const Services = () => {
                     <div className="is-hidden-mobile" style={{ height: '300px' }} />
                 </div>
             </section>
+            <InfiniteSlider
+                title={'Supported Chains'}
+                firstColumn={sliderFirstColumn}
+                secondColumn={sliderSecondColumn}
+                children={
+                    <div id="infinite" className="highway-slider">
+                        <div className="highway-barrier">
+                            <ul className="highway-lane phase2">
+                                {sliderThirdColumn.map((item, index) => (
+                                    <li className="highway-car ml" key={index}>
+                                        <a
+                                            href={item.link}
+                                            target="_blank"
+                                            className="box has-background-dark is-shadowless"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <img src={item.logo} alt={item.alt} />
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                }
+            />
+
             <section className={`section ${background_photo}`}>
                 <div className="container">
                     <div className="columns is-centered is-flex is-align-items-center" data-aos="fade-up">

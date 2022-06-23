@@ -31,4 +31,109 @@ const servicesData = [
     },
 ];
 
-export default servicesData;
+const sliderFirstColumn = [
+    {
+        link: 'https://ethereum.org/',
+        logo: 'media/supported-chains/ethereum-eth-logo.svg',
+        alt: 'Ethereum',
+    },
+    {
+        link: 'https://www.binance.com/',
+        logo: 'media/partners/binance.svg',
+        alt: 'Binance',
+    },
+    {
+        link: 'https://www.avax.network/',
+        logo: 'media/partners/avalanche.svg',
+        alt: 'Avalanche',
+    },
+    {
+        link: 'https://www.polygon.technology/',
+        logo: 'media/partners/polygon.svg',
+        alt: 'Polygon',
+    },
+    {
+        link: 'https://www.optimism.io/',
+        logo: 'media/partners/optimism.svg',
+        alt: 'Optimism',
+    },
+];
+
+const sliderSecondColumn = [
+    {
+        link: 'https://www.vechain.org/',
+        logo: 'media/partners/vechain.svg',
+        alt: 'VeChain',
+    },
+    {
+        link: 'https://klaytn.foundation/',
+        logo: '',
+        alt: 'Klaytn',
+    },
+    {
+        link: 'https://fantom.foundation/',
+        logo: 'media/partners/fantom.svg',
+        alt: 'Fantom',
+    },
+    {
+        link: 'https://celo.org/',
+        logo: 'media/partners/celo.svg',
+        alt: 'Celo',
+    },
+    {
+        link: 'https://xinfin.org/',
+        logo: 'media/partners/xinfin.svg',
+        alt: 'Xinfin',
+    },
+];
+
+const sliderThirdColumn = [
+    {
+        link: 'https://www.harmony.one/',
+        logo: 'media/partners/harmony.svg',
+        alt: 'Harmony',
+    },
+    {
+        link: 'https://gnosis.io/',
+        logo: 'media/partners/gnosis.svg',
+        alt: 'Gnosis',
+    },
+    {
+        link: 'https://moonbeam.network/',
+        logo: 'media/partners/moonbeam.svg',
+        alt: 'Moonbeam',
+    },
+    {
+        link: 'https://moonbeam.network/networks/moonriver/',
+        logo: 'media/partners/moonriver.svg',
+        alt: 'MoonRiver',
+    },
+    {
+        link: 'https://velas.com/',
+        logo: 'media/partners/velas.svg',
+        alt: 'Velas',
+    },
+    {
+        link: 'https://boba.network/',
+        logo: 'media/partners/boba.svg',
+        alt: 'Boba',
+    },
+];
+
+let copyOfFirstColumn = [];
+let copyOfSecondColumn = [];
+let copyOfThirdColumn = [];
+
+for (let i = 0; i < 10; i++) {
+    copyOfFirstColumn = [...copyOfFirstColumn, ...sliderFirstColumn];
+}
+
+for (let i = 0; i < 10; i++) {
+    copyOfSecondColumn = [...copyOfSecondColumn, ...sliderSecondColumn];
+}
+
+for (let i = 0; i < 10; i++) {
+    copyOfThirdColumn = [...copyOfThirdColumn, ...sliderThirdColumn];
+}
+
+export { servicesData, sliderFirstColumn, sliderSecondColumn, sliderThirdColumn };
