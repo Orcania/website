@@ -19,6 +19,7 @@ import 'src/scss/main.scss';
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
 import 'aos/dist/aos.css';
+import '@splidejs/splide/dist/css/splide.min.css';
 
 const CelesteProvider = dynamic(() => import('src/components/celeste'), { ssr: false });
 // const AOSProvider = dynamic(() => import('src/components/aos-provider'), { ssr: false });

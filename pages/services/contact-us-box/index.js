@@ -1,8 +1,4 @@
-import styles from './styles.module.scss';
-
 const ContactUsBox = () => {
-    const { contact_box } = styles;
-
     const validateName = e => {
         const name = e.target.value;
         const checkMark = document.getElementById('validate-name');
@@ -40,7 +36,7 @@ const ContactUsBox = () => {
     return (
         <>
             <div className="columns">
-                <div className="column">
+                <div className="column" data-aos="fade-right">
                     <div className="field">
                         <label className="label has-text-white">Your name</label>
                         <div className="control has-icons-left">
@@ -56,7 +52,7 @@ const ContactUsBox = () => {
                         </div>
                     </div>
                 </div>
-                <div className="column">
+                <div className="column" data-aos="fade-left">
                     <div className="field">
                         <label className="label has-text-white">Your email</label>
                         <div className="control has-icons-left">
@@ -74,11 +70,11 @@ const ContactUsBox = () => {
                 </div>
             </div>
             <div className="columns">
-                <div className="column">
+                <div className="column" data-aos="fade-right">
                     <div className="field">
                         <label className="label has-text-white">Project type</label>
                         <div className="control has-icons-left">
-                            <div className="select is-fullwidth">
+                            <div className="select is-white is-fullwidth">
                                 <select className="has-background-light-purple-o-5 has-text-white is-borderless">
                                     <option>NFT Project</option>
                                     <option>DeFi Project</option>
@@ -96,7 +92,7 @@ const ContactUsBox = () => {
                         </div>
                     </div>
                 </div>
-                <div className="column">
+                <div className="column" data-aos="fade-left">
                     <div className="field">
                         <label className="label has-text-white">URL</label>
                         <div className="control has-icons-left">
@@ -114,7 +110,7 @@ const ContactUsBox = () => {
                 </div>
             </div>
             <div className="columns">
-                <div className="column">
+                <div className="column" data-aos="fade">
                     <div className="field">
                         <label className="label has-text-white">About</label>
                         <div className="control">
@@ -128,7 +124,7 @@ const ContactUsBox = () => {
                 </div>
             </div>
             <div className="columns">
-                <div className="column is-narrow">
+                <div className="column is-narrow" data-aos="fade-up">
                     <button
                         className="button is-fullwidth has-background-light-purple-o-5 has-text-white has-border-1-light-purple-o-10"
                         type="submit"

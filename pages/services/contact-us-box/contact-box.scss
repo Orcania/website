@@ -1,0 +1,17 @@
+@import 'src/scss/vars.scss';
+
+.select.is-white {
+
+    &:after {
+		border-color: white !important;
+	}
+
+}
+
+select {
+    & option {
+        color: $dark;
+        background-color: $light-purple;
+    }
+    
+}
