@@ -16,10 +16,10 @@ module.exports = {
             chainId: 137,
             url: 'https://polygon-rpc.com/',
         },
-        HNY: {
-            chainId: 1666600000,
-            url: 'https://api.harmony.one',
-        },
+        // HNY: {
+        //     chainId: 1666600000,
+        //     url: 'https://api.harmony.one',
+        // },
     },
     smartContracts: [
         { key: 'OCAMINT', abi: ocamint },
