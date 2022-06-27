@@ -5,11 +5,11 @@ const Slider = props => {
 
     const gap = 20;
     const perPage = 4;
-    const height = 20;
+    const height = 17;
 
     return (
         <div className="wrapper">
-            <Splide options={{ perPage, height: `${height}rem`, gap }}>
+            <Splide tag="section" options={{ perPage, height: `${height}rem`, gap }}>
                 {data.map(slide => (
                     <SplideSlide key={slide.id}>
                         <figure className="image is-256x256">
