@@ -1,19 +1,22 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/interactive-supports-focus */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable @next/next/no-img-element */
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import BigNumber from 'bignumber.js';
 
 import { getLayout as getPageTitleLayout } from 'src/layouts/page-title';
 import { getLayout as getMainLayout } from 'src/layouts/main';
 
-import useCountdown from 'src/hooks/useCountdown';
+// import useCountdown from 'src/hooks/useCountdown';
 
+import { ConnectedWrapper, NetworkWrapper, useCelesteSelector } from '@celeste-js/react';
 import PriceComponent from './price';
 import MintButton from './mint-button';
 import AddTokenToWallet from './add-token-to-wallet';
-import { ConnectedWrapper, NetworkWrapper, useCelesteSelector } from '@celeste-js/react';
 
 // console.log(useCeleste);
 
@@ -25,11 +28,11 @@ const currencies = {
 };
 
 const MintPage = () => {
-    const { days, hours, minutes: mins, seconds: secs } = useCountdown(1653148800);
+    // const { days, hours, minutes: mins, seconds: secs } = useCountdown(1653148800);
 
     const { walletReducer, web3Reducer } = useCelesteSelector(state => state);
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const { mintReducer } = useSelector(state => state);
     const [amount, setAmount] = useState(1);
     const [totalPrice, setTotalPrice] = useState();
@@ -62,12 +65,12 @@ const MintPage = () => {
 
         const { priceBN } = mintReducer;
 
-        if (amount == '' || amount == 0) {
+        if (amount === '' || amount === 0) {
             setTotalPrice(0);
             return;
         }
 
-        if (priceBN == 0) return;
+        if (priceBN === 0) return;
 
         const totalBN = BigNumber(priceBN)
             .times(+amount)
@@ -80,11 +83,12 @@ const MintPage = () => {
             .toString();
 
         setTotalPrice(`${totalDec} ${currencies[walletReducer.chainId]}`);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [amount, walletReducer.address, walletReducer.chainId, web3Reducer.initialized, mintReducer.priceBN]);
 
     useEffect(() => {
         // check if referral address is valid and only contains hex characters with 0x prefix
-        if (query.referral && query.referral.match(/^0x[0-9a-fA-F]*$/) && query.referral.length == 42) {
+        if (query.referral && query.referral.match(/^0x[0-9a-fA-F]*$/) && query.referral.length === 42) {
             setReferralMint(true);
         }
     }, [query.referral]);
@@ -168,6 +172,7 @@ const MintPage = () => {
                                         <section className="mb-6 ">
                                             <div className="is-flex is-flex-direction-row">
                                                 <div
+                                                    role="button"
                                                     className="button symbol-button"
                                                     onClick={handleDecreaseClick}
                                                     disabled={+amount <= 1}
@@ -180,7 +185,11 @@ const MintPage = () => {
                                                     value={amount}
                                                     onChange={handleAmountChange}
                                                 />
-                                                <div className="button symbol-button" onClick={handleIncreaseClick}>
+                                                <div
+                                                    className="button symbol-button"
+                                                    onClick={handleIncreaseClick}
+                                                    role="button"
+                                                >
                                                     +
                                                 </div>
                                             </div>

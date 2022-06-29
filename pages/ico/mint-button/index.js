@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { ConnectedWrapper, NetworkWrapper, useCelesteSelector } from '@celeste-js/react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -18,7 +19,6 @@ const MintButton = props => {
     const { walletReducer, web3Reducer } = useCelesteSelector(state => state);
 
     const dispatch = useDispatch();
-    const { mintReducer } = useSelector(state => state);
 
     const { amount, disabled, referralMint: isReferralMint, referralAddress } = props;
 

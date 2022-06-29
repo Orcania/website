@@ -1,15 +1,19 @@
 import { useEffect } from 'react';
-import Chart from 'react-apexcharts';
-import tokenomicsData from './tokenomics-data';
+import dynamic from 'next/dynamic';
+import tokenomicsData from 'src/static/tokenomics-data';
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const Tokenomics = props => {
+    const { setShowData } = props;
+
     useEffect(() => {
         const elms = document.querySelectorAll('.apexcharts-legend-series');
 
         const elmsArr = Array.from(elms);
 
-        elmsArr.map((elm, i) => {
-            elm.addEventListener('mouseenter', e => {
+        elmsArr.map(elm => {
+            return elm.addEventListener('mouseenter', () => {
                 const seriesname = elm.getAttribute('seriesname').replace(/x/g, ' ');
 
                 const data = tokenomicsData.find(item => item.title.toLowerCase() === seriesname.toLowerCase());
@@ -17,9 +21,8 @@ const Tokenomics = props => {
                 setShowData(data);
             });
         });
-    }, []);
+    }, [setShowData]);
 
-    const { showData, setShowData } = props;
     const series = tokenomicsData.map(data => data.percentage);
     const labels = tokenomicsData.map(data => data.title);
 
@@ -27,8 +30,7 @@ const Tokenomics = props => {
         chart: {
             type: 'donut',
             events: {
-                updated: (chartContext, config) => {},
-                dataPointSelection: (event, chartContext, config) => {
+                dataPointSelection: (_event, _chartContext, config) => {
                     // const data = tokenomicsData.get(config.w.globals.labels[config.dataPointIndex]);
                     const data = tokenomicsData.find(
                         d => d.title.toLowerCase() === config.w.globals.labels[config.dataPointIndex].toLowerCase()
@@ -36,7 +38,7 @@ const Tokenomics = props => {
 
                     setShowData(data);
                 },
-                dataPointMouseEnter: function (event, chartContext, config) {
+                dataPointMouseEnter(_event, _chartContext, config) {
                     // console.log( config.w.globals.labels[config.dataPointIndex] );
 
                     const data = tokenomicsData.find(
@@ -57,7 +59,7 @@ const Tokenomics = props => {
         stroke: {
             colors: ['#DEDEDE'],
         },
-        labels: labels,
+        labels,
         fill: {
             opacity: 0.8,
         },
@@ -65,7 +67,7 @@ const Tokenomics = props => {
         tooltip: {
             enabled: true,
             followCursor: false,
-            custom: function ({ series, seriesIndex, dataPointIndex, w }) {
+            custom({ seriesIndex, w }) {
                 return `<div className="p-2" style="background: ${w.globals.colors[seriesIndex]}"><span>${w.globals.labels[seriesIndex]} ${series[seriesIndex]}% </span></div>`;
             },
             fixed: {

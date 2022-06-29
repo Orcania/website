@@ -7,7 +7,7 @@ const Table = () => {
                 <table className="table has-background-traansparent has-text-dark is-size-5">
                     <thead>
                         <tr>
-                            <th></th>
+                            <th aria-label="table-header" />
                             <th>
                                 <h1 className="subtitle is-4"> Ethereum</h1>
                             </th>
@@ -36,7 +36,7 @@ const Table = () => {
                         </tr>
                         <tr>
                             <th className="has-text-right">Validators</th>
-                            <td>>7500</td>
+                            <td>7500</td>
                             <td>100</td>
                             <td>21</td>
                             <td>1000</td>

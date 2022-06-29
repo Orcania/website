@@ -1,7 +1,7 @@
 const data = [
     {
         title: 'Initial Coin Offering',
-        body: () => <></>,
+        body: () => null,
         percentage: 85,
     },
     {
@@ -11,11 +11,11 @@ const data = [
                 This allocation will be used to fund the growth and development of the Orcania projects.
                 <br />
                 It will be used to cover salaries of Orcania team members working on Orcania projects, and cover
-                external expenses of certain projects' needs such as servers.
+                external expenses of certain projects&apos; needs such as servers.
                 <br />
                 Furthermore the Orcania team will utilize this allocation along side funds of its own to supply
-                liquidity on the Orcania DEX upon it's release, and hold events and competitions to encourage ecosystem
-                growth and engagement.
+                liquidity on the Orcania DEX upon it&apos;s release, and hold events and competitions to encourage
+                ecosystem growth and engagement.
             </p>
         ),
         percentage: 15,

@@ -8,9 +8,7 @@ import BigNumber from 'bignumber.js';
 const referralMint = async (amount, referralAddress) => {
     const ocaMintProxy = new OcaMintProxy();
 
-    const { walletReducer, web3Reducer } = celesteStore.getState();
-
-    const { web3 } = web3Reducer;
+    const { walletReducer } = celesteStore.getState();
 
     const { chainId } = walletReducer;
 

@@ -3,29 +3,18 @@ import { useEffect, useState } from 'react';
 import { getLayout as getPageTitleLayout } from 'src/layouts/page-title';
 import { getLayout as getMainLayout } from 'src/layouts/main';
 import { useRouter } from 'next/router';
-import Tokenomics from './tokenomics';
+import Tokenomics from 'src/components/tokenomics';
+
 const style = {
     // height: '100%'
 };
 
-const Token = props => {
+const Token = () => {
     const router = useRouter();
 
     const [showData, setShowData] = useState({
-        title: 'ICO',
-        body: () => (
-            <p>
-                The ICO will be held after the nodes presale has been concluded.
-                <br />
-                <br />
-                Any OCA remaining from the nodes presale will be added to the public ICO, it will allow everyone to
-                aquire OCA on multiple blockchains. <br />
-                <br />
-                The ICO will either be held on centralized services such as Binance with part of the ICO being held on
-                DAPPs on the supported blockchains of the Orcania Bridge, or it will be fully held on DAPPs of the
-                supported blockchains.
-            </p>
-        ),
+        title: '',
+        body: () => null,
     });
 
     useEffect(() => {
@@ -47,6 +36,7 @@ const Token = props => {
                                 <div className="columns pt-4">
                                     <div className="column is-4">
                                         <button
+                                            type="button"
                                             className="button is-fullwidth is-rounded has-text-light-purple has-background-primary-o-5 has-border-2-light-purple-o-10 is-shadowless"
                                             onClick={() => {
                                                 router.push('/ico');
@@ -95,7 +85,7 @@ const Token = props => {
                 </div>
                 <br />
                 <div className="body pb-6">
-                    <div className="container is-max-desktop"></div>
+                    <div className="container is-max-desktop" />
                 </div>
             </section>
 
@@ -123,8 +113,8 @@ const Token = props => {
                                         <br />
                                         <br />
                                         OCA is further used for voting on project ideas and recommendations related to
-                                        the Orcania ecosystem. It is the heart of this ecosystem, and the basis of it's
-                                        security and governance.
+                                        the Orcania ecosystem. It is the heart of this ecosystem, and the basis of
+                                        it&apos;s security and governance.
                                     </p>
                                 </div>
                                 <div
@@ -152,8 +142,8 @@ const Token = props => {
                                     </h1>
                                     <p className="has-text-light  has-text-distriute is-size-5">
                                         OCA is the governance asset for the Orcania ecosystem and projects. OCA holders
-                                        hold the power over all security and ecosystem changes and they're approval is
-                                        needed to implement such changes.
+                                        hold the power over all security and ecosystem changes and they&apos;re approval
+                                        is needed to implement such changes.
                                         <br />
                                         <br />
                                         This governance power is most valid in the Orcania Multichain and Chain
@@ -194,9 +184,10 @@ const Token = props => {
                                         contracts.
                                         <br />
                                         <br />
-                                        Some of the other features include 'Multi Transfer', which allows distribution
-                                        of OCA to a wide variety of addresses for low cost. This is most efficient in
-                                        companies and teams looking to pay a wide variety of addresses in OCA.
+                                        Some of the other features include Multi Transfer&apos;, which allows
+                                        distribution of OCA to a wide variety of addresses for low cost. This is most
+                                        efficient in companies and teams looking to pay a wide variety of addresses in
+                                        OCA.
                                     </p>
                                 </div>
                                 <div

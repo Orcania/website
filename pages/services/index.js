@@ -1,14 +1,15 @@
+/* eslint-disable @next/next/no-img-element */
 import { getLayout as getPageTitleLayout } from 'src/layouts/page-title';
 import { getLayout as getMainLayout } from 'src/layouts/main';
 import IntroSection from 'src/components/intro-section';
-import TiltedSquareBox from './tilted-square-box';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import {
     servicesData,
     sliderFirstColumn,
     sliderSecondColumn,
     sliderThirdColumn,
 } from 'src/static/services/services-data';
+import TiltedSquareBox from './tilted-square-box';
 import styles from './styles.module.scss';
 import ContactUsBox from './contact-us-box';
 import ProjectsSection from './our-projects-section';
@@ -19,17 +20,12 @@ const Services = () => {
     const firstColumn = useRef(null);
     const secondColumn = useRef(null);
 
-    useEffect(() => {
-        if (secondColumn.current) {
-        }
-    }, [secondColumn]);
-
     return (
         <div>
             <IntroSection
                 title="Services"
                 subtitle="We offer a variety of services to help you get the most out of your business."
-                image={'media/pages/vault/vault_about.svg'}
+                image="media/pages/vault/vault_about.svg"
             />
             <section className="has-background-light">
                 <div className="head pt-6">
@@ -39,8 +35,8 @@ const Services = () => {
                     <div id="infinite" className="highway-slider">
                         <div className="highway-barrier">
                             <ul className="highway-lane">
-                                {sliderFirstColumn.map((item, index) => (
-                                    <li className="highway-car ml" key={index}>
+                                {sliderFirstColumn.map(item => (
+                                    <li className="highway-car ml" key={item.id}>
                                         <a
                                             href={item.link}
                                             target="_blank"
@@ -58,8 +54,8 @@ const Services = () => {
                     <div id="infinite" className="highway-slider">
                         <div className="highway-barrier">
                             <ul className="highway-lane phase2">
-                                {sliderSecondColumn.map((item, index) => (
-                                    <li className="highway-car ml" key={index}>
+                                {sliderSecondColumn.map(item => (
+                                    <li className="highway-car ml" key={item.id}>
                                         <a
                                             href={item.link}
                                             target="_blank"
@@ -77,8 +73,8 @@ const Services = () => {
                     <div id="infinite" className="highway-slider">
                         <div className="highway-barrier">
                             <ul className="highway-lane phase2">
-                                {sliderThirdColumn.map((item, index) => (
-                                    <li className="highway-car ml" key={index}>
+                                {sliderThirdColumn.map(item => (
+                                    <li className="highway-car ml" key={item.id}>
                                         <a
                                             href={item.link}
                                             target="_blank"

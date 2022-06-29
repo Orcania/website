@@ -1,7 +1,7 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import api from 'src/api';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useState } from 'react';
 import { Store as ReactNotificationsStore } from 'react-notifications-component';
 import { successNotification, errorNotification } from 'src/static/notifications';
 
@@ -46,11 +46,11 @@ const ContactUsBox = () => {
                         url: values.url,
                     })
                     .then(() => {
-                        values.name = '';
-                        values.email = '';
-                        values.projectType = '';
-                        values.url = '';
-                        values.message = '';
+                        formik.setFieldValue('name', '');
+                        formik.setFieldValue('email', '');
+                        formik.setFieldValue('projectType', '');
+                        formik.setFieldValue('url', '');
+                        formik.setFieldValue('message', '');
                         ReactNotificationsStore.addNotification(
                             successNotification('Received', 'Thank you for your message! We will reply when possible.')
                         );
@@ -62,8 +62,6 @@ const ContactUsBox = () => {
             }
         },
     });
-
-    console.log(formik.touched.url && formik.errors.url);
 
     return (
         <form onSubmit={formik.handleSubmit}>
@@ -85,7 +83,7 @@ const ContactUsBox = () => {
                                 <p className="help is-danger">{formik.errors.name}</p>
                             ) : null}
                             <span className="icon has-text-light-purple is-small is-left">
-                                <i className="fas fa-user"></i>
+                                <i className="fas fa-user" />
                             </span>
                         </div>
                     </div>
@@ -165,7 +163,7 @@ const ContactUsBox = () => {
                                 <p className="help is-danger">{formik.errors.url}</p>
                             ) : null}
                             <span className="icon has-text-light-purple is-small is-left">
-                                <i className="fas fa-link"></i>
+                                <i className="fas fa-link" />
                             </span>
                         </div>
                     </div>

@@ -22,8 +22,6 @@ const MintPage = () => {
     const copyAddress = () => {
         if (!web3Reducer.initialized || walletReducer.address == null) return;
 
-        const { address } = walletReducer;
-
         // copy address to clipboard
 
         navigator.clipboard.writeText(referralLink);
@@ -38,7 +36,7 @@ const MintPage = () => {
         const { address } = walletReducer;
 
         setReferralLink(`${baseLink}${address}`);
-    }, [web3Reducer.initialized, walletReducer.address]);
+    }, [web3Reducer.initialized, walletReducer.address, walletReducer]);
 
     return (
         <div className="has-background-primary2dark mb-0">
@@ -103,6 +101,7 @@ const MintPage = () => {
                                         }
                                     >
                                         <button
+                                            type="button"
                                             className="button is-fullwidth has-background-hsatblue-o-1 has-text-hsatblue is-size-5 has-border-2-hsatblue-o-10 copylinkbutton"
                                             onClick={copyAddress}
                                         >
