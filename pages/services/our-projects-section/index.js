@@ -1,6 +1,7 @@
 import Slider from 'src/components/slider';
 import ourProjectsData from 'src/static/our-projects-data';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 // const animateCSS = (element, animation, prefix = 'animate__') =>
 //     // We create a Promise and return it
@@ -24,6 +25,8 @@ const ProjectsSection = () => {
     const [overlayMenu, setOverlayMenu] = useState(false);
 
     const [burgerMenu, setBurgerMenu] = useState(false);
+
+    const { sliderDataReducer } = useSelector(state => state);
 
     const handleBurgerMenuClick = e => {
         e.preventDefault();
@@ -55,7 +58,7 @@ const ProjectsSection = () => {
                         <iframe
                             className="has-border-radius-20"
                             title="video"
-                            src="https://www.youtube.com/embed/QHN-_Z-_Z-Y"
+                            src={sliderDataReducer.video}
                             height="512"
                             width="1024"
                             frameBorder="0"
@@ -73,16 +76,13 @@ const ProjectsSection = () => {
 
                                 <div className="columns has-text-centered is-centered">
                                     <div className="column">
-                                        <h1 className="title is-size-2 has-text-white">OCA DEX</h1>
+                                        <h1 className="title is-size-2 has-text-white">{sliderDataReducer.title}</h1>
                                     </div>
                                 </div>
                                 <div className="columns has-text-centered px-5">
                                     <div className="column" style={{ textAlign: 'justify', textJustify: 'inter-word' }}>
                                         <p className="subtitle is-size-5 has-text-white">
-                                            Project description Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Fusce ullamcorper metus id orci venenatis consectetur.Ut elementum urna non
-                                            nibh molestie, sed fermentum augue vehicula. Project description Lorem ipsum
-                                            dolor sit amet.
+                                            {sliderDataReducer.description}
                                         </p>
                                     </div>
                                 </div>
