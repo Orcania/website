@@ -11,11 +11,9 @@ import {
 } from 'src/static/services/services-data';
 import styles from './styles.module.scss';
 import ContactUsBox from './contact-us-box';
-import Slider from 'src/components/slider';
-import ourProjectsData from 'src/static/our-projects-data';
-// import InfiniteSlider from 'src/components/infinite-slider';
+import ProjectsSection from './our-projects-section';
 
-const { columns_container, second_column, background_photo, contact_box } = styles;
+const { columns_container, second_column } = styles;
 
 const Services = () => {
     const firstColumn = useRef(null);
@@ -33,11 +31,9 @@ const Services = () => {
                 subtitle="We offer a variety of services to help you get the most out of your business."
                 image={'media/pages/vault/vault_about.svg'}
             />
-            <section className="has-background-d2p2d">
+            <section className="has-background-light">
                 <div className="head pt-6">
-                    <h1 className="title has-lina-text contrast is-3 has-text-contrast has-text-centered mb-6">
-                        Supported Blockchains
-                    </h1>
+                    <h1 className="title is-3 has-text-primary has-text-centered mb-6">Supported Blockchains</h1>
                 </div>
                 <div className="hero-body pb-6 px-0" style={{ overflow: 'hidden' }}>
                     <div id="infinite" className="highway-slider">
@@ -77,23 +73,24 @@ const Services = () => {
                             </ul>
                         </div>
                     </div>
-                </div>
-                <div id="infinite" className="highway-slider">
-                    <div className="highway-barrier">
-                        <ul className="highway-lane phase2">
-                            {sliderThirdColumn.map((item, index) => (
-                                <li className="highway-car ml" key={index}>
-                                    <a
-                                        href={item.link}
-                                        target="_blank"
-                                        className="box has-background-dark is-shadowless"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <img src={item.logo} alt={item.alt} />
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
+
+                    <div id="infinite" className="highway-slider">
+                        <div className="highway-barrier">
+                            <ul className="highway-lane phase2">
+                                {sliderThirdColumn.map((item, index) => (
+                                    <li className="highway-car ml" key={index}>
+                                        <a
+                                            href={item.link}
+                                            target="_blank"
+                                            className="box has-background-dark is-shadowless"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <img src={item.logo} alt={item.alt} />
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -125,48 +122,12 @@ const Services = () => {
                     <div className="is-hidden-mobile" style={{ height: '300px' }} />
                 </div>
             </section>
-            <section className="section has-background-light">
-                <div className="container">
-                    <div className="columns has-text-centered">
-                        <div className="column">
-                            <h1 className="title is-size-1 has-text-dark">Our Projects</h1>
-                            <h2 className="subtitle is-size-2 has-text-dark pt-4 pb-6">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua.
-                            </h2>
-                        </div>
-                    </div>
-                    <div className="columns is-centered">
-                        <div className="column is-flex is-justify-content-center">
-                            <figure className="image">
-                                <iframe
-                                    title="video"
-                                    style={{ borderRadius: '20px' }}
-                                    src="https://www.youtube.com/embed/QHN-_Z-_Z-Y"
-                                    height="512"
-                                    width="1024"
-                                    frameBorder="0"
-                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                />
-                            </figure>
-                        </div>
-                    </div>
-                    <div className="columns is-centered py-6">
-                        <div className="column is-9">
-                            <Slider data={ourProjectsData} />
-                        </div>
-                    </div>
-                </div>
-            </section>
-
+            <ProjectsSection />
             <section className="section has-background-primary2dark-v ">
                 <div className="container">
                     <div className="columns" data-aos="fade-up">
                         <div className="column is-5">
-                            <h1 className="title is-size-1 has-text-white">
-                                Have a project? We would love to help. 🤝
-                            </h1>
+                            <h1 className="title is-size-1 has-text-white">Have a project? We would love to help.</h1>
                         </div>
                     </div>
                     <div className="columns">

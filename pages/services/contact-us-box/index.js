@@ -1,52 +1,90 @@
+import api from 'src/api';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import { useState } from 'react';
+import { Store as ReactNotificationsStore } from 'react-notifications-component';
+import { successNotification, errorNotification } from 'src/static/notifications';
+
 const ContactUsBox = () => {
-    const validateName = e => {
-        const name = e.target.value;
-        const checkMark = document.getElementById('validate-name');
-        const regex = /^[a-zA-Z ]+$/;
+    const formik = useFormik({
+        initialValues: {
+            name: '',
+            email: '',
+            projectType: '',
+            url: '',
+            message: '',
+        },
+        validationSchema: Yup.object({
+            name: Yup.string().required('Name is required'),
+            email: Yup.string().email('Email is invalid').required('Email is required'),
+            projectType: Yup.string()
+                .oneOf(
+                    [
+                        'NFT Project',
+                        'DeFi Project',
+                        'GameFi Project',
+                        'Services Project',
+                        'Entertainment Project',
+                        'Basic Website',
+                        'App Design',
+                        'Others',
+                    ],
+                    'Invalid project type'
+                )
+                .required('Project type is required'),
+            url: Yup.string().url('URL is invalid'),
+            message: Yup.string().required('Message is required'),
+        }),
+        onSubmit: async values => {
+            try {
+                await api.post
+                    .postMail({
+                        name: values.name,
+                        email: values.email,
+                        projectType: values.projectType,
+                        about: values.message,
+                        url: values.url,
+                    })
+                    .then(() => {
+                        values.name = '';
+                        values.email = '';
+                        values.projectType = '';
+                        values.url = '';
+                        values.message = '';
+                        ReactNotificationsStore.addNotification(
+                            successNotification('Received', 'Thank you for your message! We will reply when possible.')
+                        );
+                    });
+            } catch (error) {
+                ReactNotificationsStore.addNotification(
+                    errorNotification('Error', 'Something went wrong. Please try again later.')
+                );
+            }
+        },
+    });
 
-        if (name.match(regex)) {
-            checkMark.classList.add('has-text-contrast');
-        } else {
-            checkMark.classList.remove('has-text-contrast');
-        }
-    };
-
-    const validateURL = e => {
-        const url = e.target.value;
-        const checkMark = document.getElementById('validate-url');
-
-        // check if url is valid
-        if (url.match(/^(http|https):\/\/[^ "]+$/)) {
-            checkMark.classList.add('has-text-contrast');
-        } else {
-            checkMark.classList.remove('has-text-contrast');
-        }
-    };
-
-    const validateEmail = e => {
-        const email = e.target.value;
-        const checkMark = document.getElementById('validate-email');
-        if (email.includes('@') && email.includes('.')) {
-            checkMark.classList.add('has-text-contrast');
-        } else {
-            checkMark.classList.remove('has-text-contrast');
-        }
-    };
+    console.log(formik.touched.url && formik.errors.url);
 
     return (
-        <>
+        <form onSubmit={formik.handleSubmit}>
             <div className="columns">
                 <div className="column" data-aos="fade-right">
                     <div className="field">
-                        <label className="label has-text-white">Your name</label>
+                        <label className="label has-text-white">Your name *</label>
                         <div className="control has-icons-left">
                             <input
+                                id="name"
+                                name="name"
                                 className="input has-background-light-purple-o-5 has-text-white is-borderless"
                                 type="text"
                                 placeholder="John Doe"
-                                onChange={e => validateName(e)}
+                                onChange={formik.handleChange}
+                                value={formik.values.name}
                             />
-                            <span id="validate-name" className="icon has-text-light-purple is-small is-left">
+                            {formik.touched.name && formik.errors.name ? (
+                                <p className="help is-danger">{formik.errors.name}</p>
+                            ) : null}
+                            <span className="icon has-text-light-purple is-small is-left">
                                 <i className="fas fa-user"></i>
                             </span>
                         </div>
@@ -54,15 +92,21 @@ const ContactUsBox = () => {
                 </div>
                 <div className="column" data-aos="fade-left">
                     <div className="field">
-                        <label className="label has-text-white">Your email</label>
+                        <label className="label has-text-white">Your email *</label>
                         <div className="control has-icons-left">
                             <input
+                                id="email"
+                                name="email"
                                 className="input has-background-light-purple-o-5 has-text-white is-borderless"
                                 type="email"
-                                placeholder="johndoe@gmail.com"
-                                onChange={e => validateEmail(e)}
+                                placeholder="johndoe@email.com"
+                                onChange={formik.handleChange}
+                                value={formik.values.email}
                             />
-                            <span id="validate-email" className="icon has-text-light-purple is-small is-left">
+                            {formik.touched.email && formik.errors.email ? (
+                                <p className="help is-danger">{formik.errors.email}</p>
+                            ) : null}
+                            <span className="icon has-text-light-purple is-small is-left">
                                 <i className="fas fa-envelope" />
                             </span>
                         </div>
@@ -72,19 +116,31 @@ const ContactUsBox = () => {
             <div className="columns">
                 <div className="column" data-aos="fade-right">
                     <div className="field">
-                        <label className="label has-text-white">Project type</label>
+                        <label className="label has-text-white">Project type *</label>
                         <div className="control has-icons-left">
                             <div className="select is-white is-fullwidth">
-                                <select className="has-background-light-purple-o-5 has-text-white is-borderless">
-                                    <option>NFT Project</option>
-                                    <option>DeFi Project</option>
-                                    <option>GameFi Project</option>
-                                    <option>Services Project</option>
-                                    <option>Entertainment Project</option>
-                                    <option>Basic Website</option>
-                                    <option>App Design</option>
-                                    <option>Others</option>
+                                <select
+                                    name="projectType"
+                                    id="projectType"
+                                    className="has-background-light-purple-o-5 has-text-white is-borderless"
+                                    onChange={formik.handleChange}
+                                    value={formik.values.projectType}
+                                >
+                                    <option value="" disabled>
+                                        Select project type
+                                    </option>
+                                    <option value="NFT Project">NFT Project</option>
+                                    <option value="DeFi Project">DeFi Project</option>
+                                    <option value="GameFi Project">GameFi Project</option>
+                                    <option value="Services Project">Services Project</option>
+                                    <option value="Entertainment Project">Entertainment Project</option>
+                                    <option value="Basic Website">Basic Website</option>
+                                    <option value="App Design">App Design</option>
+                                    <option value="Others">Others</option>
                                 </select>
+                                {formik.touched.projectType && formik.errors.projectType ? (
+                                    <p className="help is-danger">{formik.errors.projectType}</p>
+                                ) : null}
                                 <span className="icon is-small is-left">
                                     <i className="fa-solid fa-rectangle-history-circle-user" />
                                 </span>
@@ -94,15 +150,21 @@ const ContactUsBox = () => {
                 </div>
                 <div className="column" data-aos="fade-left">
                     <div className="field">
-                        <label className="label has-text-white">URL</label>
+                        <label className="label has-text-white">URL (Further explanation in a document)</label>
                         <div className="control has-icons-left">
                             <input
+                                id="url"
+                                name="url"
                                 className="input has-background-light-purple-o-5 has-text-white is-borderless"
                                 type="text"
-                                placeholder="drive.google.com/aH2z568qaw47"
-                                onChange={e => validateURL(e)}
+                                placeholder="https://drive.google.com/aH2z568qaw47"
+                                onChange={formik.handleChange}
+                                value={formik.values.url}
                             />
-                            <span id="validate-url" className="icon has-text-light-purple is-small is-left">
+                            {formik.touched.url && formik.errors.url ? (
+                                <p className="help is-danger">{formik.errors.url}</p>
+                            ) : null}
+                            <span className="icon has-text-light-purple is-small is-left">
                                 <i className="fas fa-link"></i>
                             </span>
                         </div>
@@ -112,13 +174,20 @@ const ContactUsBox = () => {
             <div className="columns">
                 <div className="column" data-aos="fade">
                     <div className="field">
-                        <label className="label has-text-white">About</label>
+                        <label className="label has-text-white">About *</label>
                         <div className="control">
                             <textarea
+                                id="message"
+                                name="message"
                                 className="textarea has-background-light-purple-o-5 has-text-white is-borderless"
                                 placeholder="Tell us about your project"
                                 rows="5"
+                                onChange={formik.handleChange}
+                                value={formik.values.message}
                             />
+                            {formik.touched.message && formik.errors.message ? (
+                                <p className="help is-danger">{formik.errors.message}</p>
+                            ) : null}
                         </div>
                     </div>
                 </div>
@@ -133,7 +202,7 @@ const ContactUsBox = () => {
                     </button>
                 </div>
             </div>
-        </>
+        </form>
     );
 };
 

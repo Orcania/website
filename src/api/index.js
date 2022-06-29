@@ -12,15 +12,18 @@ const api = {
         },
     },
     post: {
-        postMail: ({ name, email, about, url }) => {
+        postMail: ({ name, email, projectType, about, url }) => {
             return axios({
                 method: 'post',
                 url: `${ENDPOINT}/contacts/apply`,
                 data: {
-                    name: name,
-                    email: email,
-                    about: about,
-                    url: url,
+                    contact: {
+                        name: name,
+                        email: email,
+                        projectType: projectType,
+                        about: about,
+                        url: url,
+                    },
                 },
             });
         },
