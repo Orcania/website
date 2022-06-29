@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 const InfiniteSlider = props => {
     const { firstColumn, secondColumn, children, title, backgroundColor } = props;
     return (
@@ -9,8 +10,8 @@ const InfiniteSlider = props => {
                 <div id="infinite" className="highway-slider">
                     <div className="highway-barrier">
                         <ul className="highway-lane">
-                            {firstColumn.map((item, index) => (
-                                <li className="highway-car ml" key={index}>
+                            {firstColumn.map(item => (
+                                <li className="highway-car ml" key={item.id}>
                                     <a
                                         href={item.link}
                                         target="_blank"
@@ -28,8 +29,8 @@ const InfiniteSlider = props => {
                 <div id="infinite" className="highway-slider">
                     <div className="highway-barrier">
                         <ul className="highway-lane phase2">
-                            {secondColumn.map((item, index) => (
-                                <li className="highway-car ml" key={index}>
+                            {secondColumn.map(item => (
+                                <li className="highway-car ml" key={item.id}>
                                     <a
                                         href={item.link}
                                         target="_blank"

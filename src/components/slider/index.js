@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 
 const Slider = props => {

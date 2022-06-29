@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { getLayout as getPageTitleLayout } from 'src/layouts/page-title';
 import { getLayout as getMainLayout } from 'src/layouts/main';
 import Table from './table';
@@ -113,9 +114,9 @@ const Dex = () => {
                                     <p className="has-text-light  has-text-distriute is-size-5">
                                         The Orcania DEX like any other DEX relies on users to provide the majority of
                                         the liquidity for cryptos to allow flexible trading. However, the DEX also
-                                        builds up it's own liquidity as time passes by, making it less reliant on users
-                                        for liquidity and allowing for flexible trading at all times for all cryptos on
-                                        the DEX.
+                                        builds up it&apos;s own liquidity as time passes by, making it less reliant on
+                                        users for liquidity and allowing for flexible trading at all times for all
+                                        cryptos on the DEX.
                                     </p>
                                 </div>
                                 <div className="column has-text-centered" data-aos="fade-right">
@@ -157,7 +158,7 @@ const Dex = () => {
                                         The Orcania DEX offers the smoothest of trading experience, allowing users to
                                         swap any token they want with no extra gas fees or DEX fees. <br />
                                         <br />
-                                        Unlike other DEX's, any crypto added to the Orcania DEX becomes instantly
+                                        Unlike other DEX&apos;s, any crypto added to the Orcania DEX becomes instantly
                                         tradable for all other tokens on the DEX with no need for token pairs rerouting
                                         that usually results in very high gas fees and DEX fees. <br />
                                         <br />
@@ -253,7 +254,7 @@ const Dex = () => {
                                 On the Orcania-DEX there is OCA is in the middle of all swaps, meaning if a user
                                 provides ONE-OCA liquidity, then no matter what tokens the traders use to buy ONE or
                                 when traders use ONE to buy other cryptos, the user providing ONE-OCA liquidity is
-                                always gaining from the fees, resulting in 3x-20x higher yield than other DEX's
+                                always gaining from the fees, resulting in 3x-20x higher yield than other DEX&apos;s
                             </p>
                         </div>
                     </div>

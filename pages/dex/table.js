@@ -5,7 +5,7 @@ const Table = () => {
                 <table className="table has-background-traansparent has-text-dark is-size-5">
                     <thead>
                         <tr>
-                            <th></th>
+                            <th aria-label="table-header" />
                             <th>
                                 <h1 className="subtitle is-4"> Other DEX </h1>
                             </th>

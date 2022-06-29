@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 const IntroSection = ({ title, subtitle, image, content }) => {
     return (
         <section className="hero is-fullheight has-background-primary2dark">

@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 const { ENDPOINT } = process.env;
 
 const api = {
@@ -18,11 +19,11 @@ const api = {
                 url: `${ENDPOINT}/contacts/apply`,
                 data: {
                     contact: {
-                        name: name,
-                        email: email,
-                        projectType: projectType,
-                        about: about,
-                        url: url,
+                        name,
+                        email,
+                        projectType,
+                        about,
+                        url,
                     },
                 },
             });
