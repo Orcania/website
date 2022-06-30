@@ -1,21 +1,27 @@
 const ourProjectsData = [
     {
         id: 1,
-        src: 'https://bulma.io/images/placeholders/256x256.png',
-        videosrc: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+        src: 'media/services/projects-snapshots/oca-dex.png',
+        videosrc: 'media/services/projects-snapshots/videos/oca-dex.mp4',
         alt: 'OCA-DEX',
         title: 'OCA-DEX',
         description:
-            'OCA-DEX is a decentralized exchange that allows users to trade cryptocurrencies in a decentralized manner.',
+            'The Orcania DEX is the first ever DEFI 2.0 DEX aimed at low gas swaps regardless of the swap pair, low DEX fees, increased locked liquidity stability, and unbounded trading flexibility.',
+        link: 'https://oca-dex-testing-boba.netlify.app/swap',
+        discord: 'https://discord.gg/M25Rcdsj',
+        twitter: 'https://twitter.com/orcania_io',
     },
     {
         id: 2,
-        src: 'https://bulma.io/images/placeholders/256x256.png',
-        videosrc: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+        src: 'media/services/projects-snapshots/traf.png',
+        videosrc: 'media/services/projects-snapshots/videos/traf.mp4',
         alt: 'TRAF',
         title: 'TRAF',
         description:
-            'Project description Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ullamcorper metus id orci venenatis consectetur.Ut elementum urna non nibh molestie, sed fermentum augue vehicula. Project description Lorem ipsum dolor sit amet.',
+            'The Red Ape Family (TRAF) is a ground-breaking new comedy, and the first animated series built around, and starring, famous NFTs. It is also the first show of its kind where episodes are sold as individual NFTs.',
+        link: 'https://theredapefamily.com/home',
+        discord: 'https://discord.gg/JeqSUsVQQC',
+        twitter: 'https://twitter.com/TheRedApeFamily',
     },
     {
         id: 3,

@@ -55,16 +55,17 @@ const ProjectsSection = () => {
                 </div>
                 <div className="columns is-gapless is-centered">
                     <div className="column is-narrow is-flex is-justify-content-center is-relative">
-                        <iframe
+                        <video
                             className="has-border-radius-20"
-                            title="video"
-                            src={sliderDataReducer.video}
-                            height="512"
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
                             width="1024"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                        />
+                            height="512"
+                        >
+                            <source src={sliderDataReducer.video} type="video/mp4" />
+                        </video>
 
                         {overlayMenu ? (
                             <div className="overlay-menu">
@@ -87,21 +88,45 @@ const ProjectsSection = () => {
                                     </div>
                                 </div>
                                 <div className="columns has-text-centered is-centered pt-4">
-                                    <div className="column is-narrow">
-                                        <span className="icon is-size-3 is-large has-text-white">
-                                            <i className="fas fa-users" />
-                                        </span>
-                                    </div>
-                                    <div className="column is-narrow">
-                                        <span className="icon is-size-3 is-large has-text-white">
-                                            <i className="fas fa-calendar" />
-                                        </span>
-                                    </div>
-                                    <div className="column is-narrow">
-                                        <span className="icon is-size-3 is-large has-text-white">
-                                            <i className="fas fa-clock" />
-                                        </span>
-                                    </div>
+                                    {sliderDataReducer.discord === undefined ? null : (
+                                        <div className="column is-narrow">
+                                            <a
+                                                href={sliderDataReducer.discord}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                <span className="icon is-size-3 is-large has-text-white">
+                                                    <i className="fab fa-discord" />
+                                                </span>
+                                            </a>
+                                        </div>
+                                    )}
+                                    {sliderDataReducer.twitter === undefined ? null : (
+                                        <div className="column is-narrow">
+                                            <a
+                                                href={sliderDataReducer.twitter}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                <span className="icon is-size-3 is-large has-text-white">
+                                                    <i className="fab fa-twitter" />
+                                                </span>
+                                            </a>
+                                        </div>
+                                    )}
+                                    {sliderDataReducer.website === undefined ? null : (
+                                        <div className="column is-narrow">
+                                            <a
+                                                href={sliderDataReducer.website}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                <span className="icon is-size-3 is-large has-text-white">
+                                                    <i className="fas fa-globe" />
+                                                </span>
+                                            </a>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         ) : (

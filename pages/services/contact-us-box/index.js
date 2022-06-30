@@ -193,7 +193,7 @@ const ContactUsBox = () => {
             <div className="columns">
                 <div className="column is-narrow" data-aos="fade-up">
                     <button
-                        className="button has-border-radius-10 is-fullwidth px-6 has-background-light-purple-o-2 has-text-white has-border-1-light-purple-o-10"
+                        className="button submit-button has-text-weight-bold has-border-radius-10 is-fullwidth px-6 has-background-light-purple-o-2 has-text-white has-border-1-light-purple-o-10"
                         type="submit"
                     >
                         Submit
