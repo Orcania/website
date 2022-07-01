@@ -16,6 +16,11 @@
 
     }
 
+    @media screen and (max-width: 1024px){
+        width: 160px;
+        height: 130px;
+    }
+
 }
 
 .splide__arrow{
@@ -36,4 +41,9 @@
 .splide__slide{
     width: auto !important;
     height: auto !important;
+}
+
+.wrapper{
+    margin: auto;
+    overflow: hidden;
 }

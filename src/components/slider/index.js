@@ -25,6 +25,13 @@ const Slider = props => {
         autoHeight: true,
         pagination: false,
         arrows: true,
+        breakpoints: {
+            1024: {
+                perPage: 2,
+                gap: '10px',
+                autoWidth: false,
+            },
+        },
     };
 
     return (
