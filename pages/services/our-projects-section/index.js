@@ -146,7 +146,7 @@ const ProjectsSection = () => {
                         )}
                     </div>
                 </div>
-                <div className="columns is-centered py-6">
+                <div className="columns is-centered py-6 mx-0">
                     <div className="column is-9">
                         <Slider data={ourProjectsData} />
                     </div>

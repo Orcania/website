@@ -40,7 +40,7 @@
 	}
 	&::before {
 		top:0;left:0;
-		background: linear-gradient(to right, rgba($dark,1) 0%, rgba(255,255,255,0) 100%);
+		// background: linear-gradient(to right, rgba($dark,1) 0%, rgba(255,255,255,0) 100%);
 		@media (max-width: 769px ){
 			display: none;
 		}

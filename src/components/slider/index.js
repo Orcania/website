@@ -27,9 +27,10 @@ const Slider = props => {
         arrows: true,
         breakpoints: {
             1024: {
-                perPage: 2,
-                gap: '10px',
-                autoWidth: false,
+                perPage: 1,
+                autoWidth: true,
+                arrows: false,
+                focus: 'center',
             },
         },
     };
