@@ -37,28 +37,25 @@ const ourProjectsData = [
     },
     {
         id: 4,
-        src: 'https://bulma.io/images/placeholders/256x256.png',
-        alt: 'Bulma',
+        src: 'media/services/projects-snapshots/meconcash.png',
+        videosrc: 'media/services/projects-snapshots/videos/meconcash.mp4',
+        alt: 'MeconCash',
+        title: 'MeconCash',
+        description:
+            'MeconCash is a cryptocurrency platform used for payments, rewards and transactions of online and mobile services.',
+        link: 'https://www.meconcash.com/index_en.html',
+        twitter: 'https://twitter.com/meconcash',
     },
     {
         id: 5,
-        src: 'https://bulma.io/images/placeholders/256x256.png',
-        alt: 'Bulma',
-    },
-    {
-        id: 6,
-        src: 'https://bulma.io/images/placeholders/256x256.png',
-        alt: 'Bulma',
-    },
-    {
-        id: 7,
-        src: 'https://bulma.io/images/placeholders/256x256.png',
-        alt: 'Bulma',
-    },
-    {
-        id: 8,
-        src: 'https://bulma.io/images/placeholders/256x256.png',
-        alt: 'Bulma',
+        src: 'media/services/projects-snapshots/cryptoland.png',
+        videosrc: 'media/services/projects-snapshots/videos/cryptoland.mp4',
+        alt: 'CryptoLand',
+        title: 'CryptoLand',
+        description:
+            'CryCor was once a powerful member of the intergalactic community, but wars, famines, and natural disasters have reduced the planet to a barren wasteland. High above the surface float mystical islands, shrouded in lore.',
+        link: 'https://cryptoland.io',
+        discord: 'https://discord.gg/p6bVhdUXaJ',
     },
 ];
 
