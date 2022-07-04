@@ -25,8 +25,15 @@ const ourProjectsData = [
     },
     {
         id: 3,
-        src: 'https://bulma.io/images/placeholders/256x256.png',
-        alt: 'Bulma',
+        src: 'media/services/projects-snapshots/chaotic-djs.png',
+        videosrc: 'media/services/projects-snapshots/videos/chaotic-djs.mp4',
+        alt: 'Chatoic DJs',
+        title: 'Chaotic DJs',
+        description:
+            'Chaotic DJs is a collection of 10,000 NFTs that brings the music community a home to Interact, Connect, Engage and Earn ($CHAOTIC).',
+        link: 'https://chaoticdjs.com/',
+        discord: 'https://discord.com/invite/VRZkskRH46',
+        twitter: 'https://twitter.com/chaoticdjs',
     },
     {
         id: 4,

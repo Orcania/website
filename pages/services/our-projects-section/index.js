@@ -58,7 +58,7 @@ const ProjectsSection = () => {
                 <div className="columns is-gapless is-centered">
                     <div className="column is-narrow is-flex is-justify-content-center is-relative">
                         <video
-                            className="has-border-radius-20"
+                            className="video-container has-border-radius-20"
                             autoPlay
                             loop
                             muted
