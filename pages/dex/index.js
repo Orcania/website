@@ -180,6 +180,39 @@ const Dex = () => {
                         <h1 className="title is-3 has-text-contrast has-text-centered mb-6">DEX Features</h1>
                     </div>
                     <div className="hero-body pb-6" style={{ overflow: 'hidden' }}>
+                        <div className="container is-hidden-desktop">
+                            <div className="columns">
+                                <h1 className="title is-white has-text-white has-text-centered">Legend</h1>
+                                <div className="columns pb-6">
+                                    <div className="column is-narrow">
+                                        <div className="columns is-flex is-align-items-center is-mobile">
+                                            <div
+                                                className="column  is-narrow has-background-contrast"
+                                                style={{ borderRadius: '50%', height: '24px' }}
+                                            />
+                                            <div className="column is-narrow">
+                                                <h1 className="subtitle has-text-contrast has-text-centered">
+                                                    OCA DEX
+                                                </h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="column is-narrow">
+                                        <div className="columns is-flex is-align-items-center is-mobile">
+                                            <div
+                                                className="column  is-narrow has-background-white"
+                                                style={{ borderRadius: '50%', height: '24px' }}
+                                            />
+                                            <div className="column is-narrow">
+                                                <h1 className="subtitle has-text-white has-text-centered">
+                                                    Uniswap, PancakeSwap, HoneySwap
+                                                </h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <Table />
                     </div>
                 </section>
