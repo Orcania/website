@@ -31,12 +31,18 @@
             display: none;
         }
 
+        th{
+            // center elements
+            text-align: center;
+            
+        }
+
         tbody tr {
             border: 1px solid #dbdbdb;
 
-            &:last-child {
-                border: none !important;
-            }
+            // &:last-child {
+            //     border: none !important;
+            // }
 
             td {
                 display: block;

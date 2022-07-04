@@ -60,6 +60,14 @@ $corners: 'top', 'right', 'bottom', 'left';
     background: rgba(0, 0, 0, 0) !important;
 }
 
+.has-background-box{
+    background: rgba($primary, 0) !important;
+}
+
+.has-background-semi{
+    background: rgba($contrast, 0.05) !important;
+}
+
 .is-borderless {
     border: none !important;
 }
