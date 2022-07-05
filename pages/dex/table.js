@@ -66,8 +66,8 @@ const Table = () => {
                                 </span>
                                 <span> GAS Usage</span>
                             </th>
-                            <td className="ct-td-content">300 K - 1.5 Mn</td>
-                            <td className="has-text-contrast has-background-semi">49 K - 98 K</td>
+                            <td className="ct-td-content">300K - 1.5Mn</td>
+                            <td className="has-text-contrast has-background-semi">49K - 98K</td>
                         </tr>
                         <tr>
                             <th className="has-text-right has-text-white">

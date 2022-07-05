@@ -1,6 +1,7 @@
 import { getLayout as getPageTitleLayout } from 'src/layouts/page-title';
 import { getLayout as getMainLayout } from 'src/layouts/main';
 import Table from './table';
+import Image from 'next/image';
 
 const style = {
     // height: '100%'
@@ -190,21 +191,48 @@ const Dex = () => {
                                             style={{ borderRadius: '50%', height: '24px' }}
                                         />
                                         <div className="column is-narrow">
-                                            <h1 className="subtitle has-text-contrast has-text-centered">OCA DEX</h1>
+                                            <span className="is-flex is-align-items-center">
+                                                <h1 className="is-size-4 has-text-contrast">Orcania DEX&nbsp;</h1>
+                                                <figure className="image is-32x32">
+                                                    <Image layout="fill" src="/media/logos/oca-light.png" />
+                                                </figure>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="column is-narrow">
+                                <div className="column is-narrow pt-5">
                                     <div className="columns is-flex is-align-items-center is-mobile">
                                         <div
                                             className="column  is-narrow has-background-white"
                                             style={{ borderRadius: '50%', height: '24px' }}
                                         />
-                                        <div className="column is-narrow">
-                                            <h1 className="subtitle has-text-white has-text-centered">
-                                                Uniswap, PancakeSwap, HoneySwap
-                                            </h1>
+                                        <div className="columns is-mobile is-flex is-align-items-center is-gapless pl-3">
+                                            <div className="column is-narrow">
+                                                <span className="is-flex is-align-items-center">
+                                                    <h1 className="is-size-4 has-text-white">Uniswap&nbsp;</h1>
+                                                    <figure className="image is-32x32">
+                                                        <Image layout="fill" src="/media/logos/uniswap-logo.png" />
+                                                    </figure>
+                                                    <div className="pl-2" />
+                                                </span>
+                                            </div>
                                         </div>
+                                    </div>
+                                    <div className="column is-narrow ml-3">
+                                        <span className="is-flex is-align-items-center">
+                                            <h1 className="is-size-4 has-text-white">PancakeSwap&nbsp;</h1>
+                                            <figure className="image is-32x32">
+                                                <Image layout="fill" src="/media/logos/pancakeswap-logo.png" />
+                                            </figure>
+                                        </span>
+                                    </div>
+                                    <div className="column is-narrow ml-3">
+                                        <span className="is-flex is-align-items-center">
+                                            <h1 className="is-size-4 has-text-white">HoneySwap&nbsp;</h1>
+                                            <figure className="image is-32x32">
+                                                <Image layout="fill" src="/media/logos/honeyswap-logo.png" />
+                                            </figure>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
