@@ -12,10 +12,7 @@ module.exports = {
             chainId: 56,
             url: 'https://bsc-dataseed.binance.org/',
         },
-        POL: {
-            chainId: 137,
-            url: 'https://polygon-rpc.com/',
-        },
+
         // HNY: {
         //     chainId: 1666600000,
         //     url: 'https://api.harmony.one',
