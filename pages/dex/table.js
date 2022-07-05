@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const Table = () => {
     return (
         <div className="container" style={{ display: 'grid', placeItems: 'center' }}>
@@ -6,11 +8,43 @@ const Table = () => {
                     <thead>
                         <tr>
                             <th style={{ borderTop: '0px', borderLeft: '0px' }} />
-                            <th>
-                                <h1 className="subtitle has-text-white is-4"> Uniswap, PancakeSwap, HoneySwap </h1>
+                            <th style={{ display: 'table-cell', verticalAlign: 'middle' }}>
+                                <div className="is-flex is-align-items-center">
+                                    <div className="columns is-flex">
+                                        <div className="column is-narrow">
+                                            <span className="is-flex is-align-items-center has-text-white">
+                                                <figure className="image is-32x32">
+                                                    <Image layout="fill" src="/media/logos/uniswap-logo.png" />
+                                                </figure>
+                                                <h1 className="title is-4 has-text-white">Uniswap </h1>
+                                            </span>
+                                        </div>
+                                        <div className="column is-narrow">
+                                            <span className="is-flex is-align-items-center has-text-white">
+                                                <figure className="image is-32x32">
+                                                    <Image layout="fill" src="/media/logos/pancakeswap-logo.png" />
+                                                </figure>
+                                                <h1 className="title is-4 has-text-white">PancakeSwap</h1>
+                                            </span>
+                                        </div>
+                                        <div className="column is-narrow">
+                                            <span className="is-flex is-align-items-center has-text-white">
+                                                <figure className="image is-32x32">
+                                                    <Image layout="fill" src="/media/logos/honeyswap-logo.png" />
+                                                </figure>
+                                                <h1 className="title is-4 has-text-white">HoneySwap</h1>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
                             </th>
                             <th>
-                                <h1 className="subtitle is-4 has-text-contrast"> Orcania DEX </h1>
+                                <span className="is-flex is-align-items-center">
+                                    <figure className="image is-64x64">
+                                        <Image layout="fill" src="/media/logos/oca-light.png" />
+                                    </figure>
+                                    <h1 className="title is-3 has-text-contrast"> Orcania DEX </h1>
+                                </span>
                             </th>
                         </tr>
                     </thead>
