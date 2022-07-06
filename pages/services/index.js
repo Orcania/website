@@ -9,6 +9,7 @@ import {
     sliderSecondColumn,
     sliderThirdColumn,
 } from 'src/static/services/services-data';
+import Image from 'next/image';
 import TiltedSquareBox from './tilted-square-box';
 import styles from './styles.module.scss';
 import ContactUsBox from './contact-us-box';
@@ -25,7 +26,7 @@ const Services = () => {
             <IntroSection
                 title="Services"
                 subtitle="We offer a variety of services to help you get the most out of your business."
-                image="media/pages/vault/vault_about.svg"
+                image="/media/pages/bridge/bridge_decentralization.svg"
             />
             <section className="has-background-light">
                 <div className="head pt-6">
@@ -43,7 +44,12 @@ const Services = () => {
                                             className="box has-background-dark is-shadowless"
                                             rel="noopener noreferrer"
                                         >
-                                            <img src={item.logo} alt={item.alt} />
+                                            <Image
+                                                src={item.logo}
+                                                alt={item.alt}
+                                                width={sliderFirstColumn.width || 178}
+                                                height={sliderFirstColumn.height || 41}
+                                            />
                                         </a>
                                     </li>
                                 ))}
@@ -62,7 +68,7 @@ const Services = () => {
                                             className="box has-background-dark is-shadowless"
                                             rel="noopener noreferrer"
                                         >
-                                            <img src={item.logo} alt={item.alt} />
+                                            <Image src={item.logo} alt={item.alt} width={178} height={41} />
                                         </a>
                                     </li>
                                 ))}
@@ -72,7 +78,7 @@ const Services = () => {
 
                     <div id="infinite" className="highway-slider">
                         <div className="highway-barrier">
-                            <ul className="highway-lane phase2">
+                            <ul className="highway-lane">
                                 {sliderThirdColumn.map(item => (
                                     <li className="highway-car ml" key={item.id}>
                                         <a
@@ -81,7 +87,7 @@ const Services = () => {
                                             className="box has-background-dark is-shadowless"
                                             rel="noopener noreferrer"
                                         >
-                                            <img src={item.logo} alt={item.alt} />
+                                            <Image src={item.logo} alt={item.alt} width={178} height={41} />
                                         </a>
                                     </li>
                                 ))}
@@ -119,7 +125,7 @@ const Services = () => {
                 </div>
             </section>
             <ProjectsSection />
-            <section className="section has-background-primary2dark-v ">
+            <section className="section has-background-primary2dark-v" style={{ paddingBottom: '8rem' }}>
                 <div className="container">
                     <div className="columns" data-aos="fade-up">
                         <div className="column is-5">

@@ -50,8 +50,7 @@ const ProjectsSection = () => {
                     <div className="column is-8">
                         <h1 className="title is-size-1 has-text-dark">Our Projects</h1>
                         <h2 className="subtitle is-size-3 is-size-4-mobile has-text-dark pt-4 pb-6">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.
+                            We make every project feel personal because our clients matter.
                         </h2>
                     </div>
                 </div>
