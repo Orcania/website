@@ -115,7 +115,7 @@ const Table = () => {
                                 <span> Trading Tools</span>
                             </th>
                             <td className="ct-td-content">None</td>
-                            <td className="has-text-contrast has-background-semi">Advanced management tools</td>
+                            <td className="has-text-contrast has-background-semi">Advanced trading tools</td>
                         </tr>
                         {/* <tr>
                             <th className="has-text-right">Arbitrage</th>
