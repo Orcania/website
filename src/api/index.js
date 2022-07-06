@@ -1,13 +1,34 @@
-// import axios from 'axios';
+import axios from 'axios';
 
-// const endpoint = process.env.ENDPOINT1;
-// const endpoint1 = process.env.ENDPOINT;
+const { ENDPOINT } = process.env;
 
 const api = {
     get: {
         items: () => [{ id: 1 }, { id: 2 }, { id: 3 }],
+        getAllContacts: () => {
+            return axios({
+                method: 'get',
+                url: `${ENDPOINT}/contacts`,
+            });
+        },
     },
-    post: {},
+    post: {
+        postMail: ({ name, email, projectType, about, url }) => {
+            return axios({
+                method: 'post',
+                url: `${ENDPOINT}/contacts/apply`,
+                data: {
+                    contact: {
+                        name,
+                        email,
+                        projectType,
+                        about,
+                        url,
+                    },
+                },
+            });
+        },
+    },
     put: {},
     delete: {},
 };

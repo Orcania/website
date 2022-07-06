@@ -1,0 +1,52 @@
+.overlay-menu{
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    position: absolute;
+    background: rgba(0, 0, 0, 0.25);
+    top: 0;
+    left: 0;
+    width: 30%;
+    height: 100%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    z-index: 3;
+
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    -webkit-animation: fadeIn 1s ease-in-out;
+    -moz-animation: fadeIn 1s ease-in-out;
+    -o-animation: fadeIn 1s ease-in-out;
+    -ms-animation: fadeIn 1s ease-in-out;
+    animation: fadeIn 1s ease-in-out;
+
+
+    @media screen and (max-width: 1024px){
+        display: none;
+        
+    }
+
+}
+
+.closed-menu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    z-index: 3;
+
+    @media screen and (max-width: 1024px){
+        display: none;
+        
+    }
+}

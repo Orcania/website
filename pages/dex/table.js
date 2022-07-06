@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import Image from 'next/image';
 
 const Table = () => {
@@ -117,22 +118,6 @@ const Table = () => {
                             <td className="ct-td-content">None</td>
                             <td className="has-text-contrast has-background-semi">Advanced trading tools</td>
                         </tr>
-                        {/* <tr>
-                            <th className="has-text-right">Arbitrage</th>
-                            <td>Bounded to provided pairs</td>
-                            <td className="has-text-contrast has-background-semi">
-                                {' '}
-                                Unbounded to all cryptos on the DEX{' '}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th className="has-text-right">Refferal System</th>
-                            <td>None</td>
-                            <td className="has-text-contrast has-background-semi">
-                                {' '}
-                                A 5% gain and cashback referral system
-                            </td>
-                        </tr> */}
                     </tbody>
                 </table>
             </div>

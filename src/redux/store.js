@@ -8,6 +8,7 @@ import rootSaga from './sagas';
 import exampleReducer from './reducers/exampleReducer';
 import modalReducer from './reducers/modalReducer';
 import mintReducer from './reducers/mintReducer';
+import sliderDataReducer from './reducers/sliderDataReducer';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -15,6 +16,7 @@ const reducer = combineReducers({
     exampleReducer,
     modalReducer,
     mintReducer,
+    sliderDataReducer,
 });
 
 const store = createStore(reducer, applyMiddleware(thunk, sagaMiddleware));

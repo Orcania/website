@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import Link from 'next/link';
 
 const tokenomicsData = [
@@ -25,11 +26,10 @@ const tokenomicsData = [
                 This allocation will be used to fund the growth and development of the Orcania projects.
                 <br />
                 It will be used to cover salaries of Orcania team members working on Orcania projects, and cover
-                external expenses of certain projects' needs such as servers.
+                external expenses of certain projects&apos; needs such as servers.
                 <br />
-                Furthermore the Orcania team will utilize this allocation along side funds of its own to supply
-                liquidity on the Orcania DEX upon it's release, and hold events and competitions to encourage ecosystem
-                growth and engagement.
+                Furthermore the Orcania team will utilize this allocation along side funds of its own to supply&apos;s
+                release, and hold events and competitions to encourage ecosystem growth and engagement.
             </p>
         ),
         percentage: 15,

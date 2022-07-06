@@ -1,10 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 // import { baseURL, logoLight } from '../../../images';
 
 // import "./footer.scss";
 
 const Footer = () => {
     return (
-        <footer className={`footer has-background-light py-6`}>
+        <footer className="footer has-background-light py-6">
             <div className="container">
                 <div className="content has-text-left">
                     <div className="is-size-5 py-0 mb-0">
@@ -19,13 +20,13 @@ const Footer = () => {
                                 </h1>
                                 <a href="https://twitter.com/orcania_io" target="_blank" rel="noreferrer">
                                     <span className="icon has-text-dark is-size-3">
-                                        <i className="fab fa-twitter"></i>
+                                        <i className="fab fa-twitter" />
                                     </span>
                                 </a>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                 <a href="https://discord.gg/PH5DEQbKX7" target="_blank" rel="noreferrer">
                                     <span className="icon has-text-dark is-size-3">
-                                        <i className="fab fa-discord"></i>
+                                        <i className="fab fa-discord" />
                                     </span>
                                 </a>
                                 {/* <h1 className="subtitle has-text-dark is-5">
@@ -33,7 +34,7 @@ const Footer = () => {
                 </h1> */}
                             </div>
 
-                            <div className="column is-hidden-desktop" style={{ minHeight: ' 100px' }}></div>
+                            <div className="column is-hidden-desktop" style={{ minHeight: ' 100px' }} />
                             <div className="column is-3 p-0 footer-logo has-text-centered">
                                 <img src="media/logos/oca-light.png" alt="" />
                             </div>

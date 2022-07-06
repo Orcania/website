@@ -1,0 +1,61 @@
+@import 'src/scss/vars.scss';
+
+.tilted_box {
+    // make a square box that is tilted 45 degrees
+    // transform: rotate(45deg);
+
+    border-radius: 20px;
+
+    min-width: 250px;
+    aspect-ratio: 1;
+
+    position: relative;
+    // background-color: white;
+
+    // text center vertically
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    // cursor: pointer;
+
+    .box_content {
+        // position: absolute;
+
+        width: 50%;
+        height: 50%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 70.71%;
+        height: 70.71%;
+        background-color: $dark;
+
+        border-radius: 20px;
+
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%, -50%) rotate(45deg);
+        z-index: -1;
+
+        box-shadow: 10px 10px 4px #0085FF;
+
+        // transform: rotate(45deg);
+    }
+
+    // .text {
+    //     width: 60%;
+    //     position: absolute;
+    //     left: 50%;
+    //     transform: translateX(-50%);
+    // }
+}

@@ -8,6 +8,7 @@ $light: #dedede;
 $warning: #e4c000;
 $hsatpink: #ff00aa;
 $hsatblue: #00b2ff;
+$hblack: #000000;
 
 $hgra2: linear-gradient(135deg, $hsatpink 0%, rgba($hsatpink, 0) 25%, rgba($hsatblue, 0) 75%, $hsatblue 100%);
 $primary2dark: radial-gradient(88.89% 88.89% at 50% 50%, $primary 0%, #100f1e 100%);
@@ -25,6 +26,7 @@ $hcolors: (
     warning: $warning,
     hsatpink: $hsatpink,
     hsatblue: $hsatblue,
+    hblack: $hblack,
 );
 
 $hgras: (

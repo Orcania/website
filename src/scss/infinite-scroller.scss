@@ -40,14 +40,14 @@
 	}
 	&::before {
 		top:0;left:0;
-		background: linear-gradient(to right, rgba($dark,1) 0%, rgba(255,255,255,0) 100%);
+		// background: linear-gradient(to right, rgba($dark,1) 0%, rgba(255,255,255,0) 100%);
 		@media (max-width: 769px ){
 			display: none;
 		}
 	}
 	&::after {
 		top:0;right:0;
-		background: linear-gradient(to left, rgba($dark,1) 0%, rgba(255,255,255,0) 100%);
+		// background: linear-gradient(to left, rgba($dark,1) 0%, rgba(255,255,255,0) 100%);
 		@media (max-width: 769px ){
 			display: none;
 		}
@@ -71,6 +71,84 @@
 	ul.highway-lane.phase2{
 		li.highway-car {
 			animation-delay: 1.6s;
+		}
+	}
+}
+
+
+/* ~*~*~*~* SERVICES INFINITE SLIDER ~*~*~*~*~ */
+
+.highway-slider-services {
+
+	display:flex;
+	justify-content:center;
+	width:100%;
+	height:150px;
+	.highway-barrier-services {
+		overflow:hidden;
+		position:relative;
+	}
+	ul.highway-lane-services {
+		display:flex;
+		height:100%;
+		li.highway-car-services {
+			flex:1;
+			display:flex;
+			justify-content:center;
+			align-items:center;
+			// background:rgba(black, 0.5);
+			color:#fff;
+		}
+	}
+}
+@keyframes translateinfiniteservices {
+	100% { transform:translateX(calc(-250px * 6));  }
+}
+
+#infinite-services div.highway-barrier-services {
+	// background:#fff;
+	// box-shadow:0 3px 10px -3px rgba(0,0,0,0.3);
+	&::before,
+	&::after {
+		content: " ";
+		position:absolute;
+		z-index:9;
+		width:180px;
+		height:100%;
+	}
+	&::before {
+		top:0;left:0;
+		// background: linear-gradient(to right, rgba($dark,1) 0%, rgba(255,255,255,0) 100%);
+		@media (max-width: 769px ){
+			display: none;
+		}
+	}
+	&::after {
+		top:0;right:0;
+		// background: linear-gradient(to left, rgba($dark,1) 0%, rgba(255,255,255,0) 100%);
+		@media (max-width: 769px ){
+			display: none;
+		}
+	}
+	ul.highway-lane-services {
+		width:calc(250px * 12);
+		li.highway-car-services {
+			 width:250px;
+			 min-width: 250px;
+			animation:translateinfiniteservices 20s linear infinite;
+            .box{
+                display: grid;
+                place-items: center;
+                border-radius: 80px;
+                width: 90%;
+				height: 80px;
+            }
+		}
+	}
+
+	ul.highway-lane-services.phase2{
+		li.highway-car-services {
+			animation-delay: 1s;
 		}
 	}
 }

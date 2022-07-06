@@ -85,6 +85,7 @@ const PriceComponent = () => {
             const ocaMintProxy = new OcaMintProxy().read(chainId);
 
             const normalPriceBN = await ocaMintProxy.price();
+            // eslint-disable-next-line no-shadow
             const normalPrice = +new BigNumber(normalPriceBN)
                 .div(10 ** 18)
                 .toFixed(7)
@@ -101,6 +102,7 @@ const PriceComponent = () => {
             dispatch(set_price_bn(priceBN));
             setCurrency(currencies[chainId]);
         })();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [mintReducer.mintType, walletReducer.address, web3Reducer.initialized, walletReducer.chainId]);
 
     return (

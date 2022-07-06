@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 // import TimeLine from 'src/components/base/time-line';
 import { getLayout as getPageTitleLayout } from 'src/layouts/page-title';
 import { getLayout as getMainLayout } from 'src/layouts/main';
@@ -14,7 +15,7 @@ const Multichain = () => {
             <section className="hero is-fullheight has-background-primary2dark">
                 <div className="hero-body" style={{ overflow: 'hidden' }}>
                     <div className="container">
-                        <div className="py-6 is-hidden-desktop"></div>
+                        <div className="py-6 is-hidden-desktop" />
                         <div className="columns is-vcentered">
                             <div className="column has-text-centered-mobile" data-aos="fade-right">
                                 <h1 className="title has-text-light-purple is-2 mb-5">Orcania Multichain</h1>
@@ -23,8 +24,7 @@ const Multichain = () => {
                                 </h1>
 
                                 <br />
-                                {/*}<button className="button is-light-purple mb-3" style={{width: '150px'}}>Launch App</button>&nbsp;&nbsp;
-                                <button className="button is-light-purple mb-3" style={{width: '150px'}}>Nodes presale</button>&nbsp;&nbsp;*/}
+
                                 {/* <div className="buttons">
                   <a
                     href="https://drive.google.com/file/d/15-F4iFQh6kvUO9FTkNIjZ9sWu6GGZeL9/view?usp=sharing"
@@ -56,7 +56,7 @@ const Multichain = () => {
             </section>
 
             <section className="has-background-d2p2d ">
-                <div className="head pt-6"></div>
+                <div className="head pt-6" />
                 <div className="hero-body pb-6" style={{ overflow: 'hidden' }}>
                     <div className="block">
                         <div className="container">
@@ -149,13 +149,13 @@ const Multichain = () => {
                                         The OM is developer friendly and flexible, it allows developers to go beyond the
                                         limits of the blockchain they are building on. It allows developers to to use
                                         the OM and build on it using Solidity (EVM smart contracts language), so
-                                        developers don't have to learn new coding languages but only how to interact
-                                        with the OM. <br />
+                                        developers don&apos;t have to learn new coding languages but only how to
+                                        interact with the OM. <br />
                                         <br />
                                         The OM allows transfer of data across blockchains and interacts with certain
                                         functions on destined smart contracts. By customizing the content of these
                                         functions, and the data developers can utilize the OM for anything, bridging of
-                                        tokens and NFT's, inter blockchain smart contract interaction, multichain
+                                        tokens and NFT&apos;s, inter blockchain smart contract interaction, multichain
                                         protocols and market places and more
                                         <br />
                                         <br />
@@ -179,9 +179,9 @@ const Multichain = () => {
                                         cheap even on blockchains such as Ethereum.
                                         <br />
                                         <br />
-                                        The transaction fee of the multichain is payed with the multichain's governance
-                                        coin OCA (Orcania Coin), this fee is payed to validators, to cover their
-                                        expenses.
+                                        The transaction fee of the multichain is payed with the multichain&apos;s
+                                        governance coin OCA (Orcania Coin), this fee is payed to validators, to cover
+                                        their expenses.
                                         <br />
                                         <br />
                                         The helping hand protocol of the OM means that the more transactions that the
@@ -206,7 +206,7 @@ const Multichain = () => {
                     <h1 className="title is-3 has-text-primary has-text-centered mb-5">Roadmap</h1>
                 </div>
                 <br />
-                <div className="hero-body py-6 pt-1 px-1" style={{ position: 'relative', overflow: 'hidden' }}>
+                <div className="hero-body py-6 pt-1 px-1" style={{ position: &apos;relative', overflow: 'hidden' }}>
                     <TimeLine />
                 </div>
             </section> */}
@@ -222,32 +222,32 @@ const Multichain = () => {
 
             <section className="has-background-light is-last-section">
                 <div className="head pt-6">
-                    <h1 className="title is-3 has-text-contrast has-text-centered mb-6"></h1>
+                    {/* <h1 className="title is-3 has-text-contrast has-text-centered mb-6"></h1> */}
                 </div>
                 <div className="hero-body pb-6" style={{ overflow: 'hidden' }}>
                     <div className="container px-3">
                         <div className="columns">
                             <div className="column has-text-centered">
-                                <img src="media/pages/bridge/num1.png" />
+                                <img src="media/pages/bridge/num1.png" alt="" />
                                 <h1 className="title has-text-contrast has-text-centered is-4">Decentralized</h1>
                                 <p className="has-text-dark">Secured and run by many nodes </p>
                             </div>
                             <div className="column has-text-centered">
-                                <img src="media/pages/bridge/num2.png" />
+                                <img src="media/pages/bridge/num2.png" alt="" />
                                 <h1 className="title has-text-contrast has-text-centered is-4">Permissionless</h1>
                                 <p className="has-text-dark">
                                     Open for anyone to add any asset they want, transfer and develop{' '}
                                 </p>
                             </div>
                             <div className="column has-text-contrast has-text-centered">
-                                <img src="media/pages/bridge/num3.png" />
+                                <img src="media/pages/bridge/num3.png" alt="" />
                                 <h1 className="title has-text-contrast has-text-centered is-4">Cheap</h1>
                                 <p className="has-text-dark">
                                     Cheapest inter blockchain multichain ever with a fee less than 0.0001$
                                 </p>
                             </div>
                             <div className="column has-text-contrast has-text-centered">
-                                <img src="media/pages/bridge/num4.png" />
+                                <img src="media/pages/bridge/num4.png" alt="" />
                                 <h1 className="title has-text-contrast has-text-centered is-4">Instant</h1>
                                 <p className="has-text-dark">
                                     Transactions processed and finalized in less than 4 seconds

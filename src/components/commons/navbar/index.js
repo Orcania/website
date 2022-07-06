@@ -6,9 +6,9 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { DisconnectButton, useCelesteSelector, ConnectedWrapper, SwitchNetworkButton } from '@celeste-js/react';
+import { useCelesteSelector, ConnectedWrapper } from '@celeste-js/react';
 // import { providers } from '@celeste-js/core/dist/constants';
-import { useDispatch, useStore } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 // import './navbar.scss';
 
@@ -70,7 +70,7 @@ const Navbar = () => {
     useEffect(() => {
         // const elmnt = document.getElementById('__next');
         let oldScroll = 0;
-        window.addEventListener('scroll', function listener() {
+        window.addEventListener('scroll', () => {
             if (window.scrollY > 50) setBgColor(true);
             else setBgColor(false);
 
@@ -114,6 +114,7 @@ const Navbar = () => {
                     <div className="navbar-end">
                         <Link href="/home" passHref>
                             <a
+                                role="button"
                                 className={`navbar-item has-text-light  ${
                                     router.pathname === '/home' ? 'is-active' : ''
                                 }`}
@@ -129,6 +130,7 @@ const Navbar = () => {
 
                         <Link href="/token" passHref>
                             <a
+                                role="button"
                                 className={`navbar-item has-text-light  ${
                                     router.pathname === '/token' ? 'is-active' : ''
                                 }`}
@@ -144,6 +146,7 @@ const Navbar = () => {
 
                         <Link href="/multichain" passHref>
                             <a
+                                role="button"
                                 className={`navbar-item has-text-light  ${
                                     router.pathname === '/multichain' ? 'is-active' : ''
                                 }`}
@@ -159,6 +162,7 @@ const Navbar = () => {
 
                         <Link href="/dex" passHref>
                             <a
+                                role="button"
                                 className={`navbar-item has-text-light ${
                                     router.pathname === '/dex' ? 'is-active' : ''
                                 }`}
@@ -187,8 +191,9 @@ const Navbar = () => {
                             </a>
                         </Link> */}
 
-                        {/* <Link href="/services" passHref>
+                        <Link href="/services" passHref>
                             <a
+                                role="button"
                                 className={`navbar-item has-text-light ${
                                     router.pathname === '/services' ? 'is-active' : ''
                                 }`}
@@ -200,10 +205,11 @@ const Navbar = () => {
                                 &nbsp;
                                 <h1>Services</h1>
                             </a>
-                        </Link> */}
+                        </Link>
 
                         <Link href="/ico" passHref>
                             <a
+                                role="button"
                                 className={`navbar-item has-text-light  ${
                                     router.pathname === '/ico' ? 'is-active' : ''
                                 }`}
@@ -218,6 +224,7 @@ const Navbar = () => {
                         </Link>
                         <Link href="/referral-program" passHref>
                             <a
+                                role="button"
                                 className={`navbar-item has-text-light  ${
                                     router.pathname === '/referral-program' ? 'is-active' : ''
                                 }`}

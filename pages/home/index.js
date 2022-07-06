@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable @next/next/no-img-element */
 import brandLogos from 'src/static/home/brand-logos';
 import Link from 'next/link';
 import { partnerSection, partnerSectionSecondDivision } from 'src/static/home/partners-section';
@@ -6,6 +7,7 @@ import TeamCard from 'src/components/base/team-card';
 
 import { getLayout as getPageTitleLayout } from 'src/layouts/page-title';
 import { getLayout as getMainLayout } from 'src/layouts/main';
+// import InfiniteSlider from 'src/components/infinite-slider';
 
 const style = {
     // height: '100%',
@@ -108,8 +110,8 @@ const Home = () => {
                                     Our work
                                 </h1>
                                 <p className="has-text-light  has-text-distribute is-size-5">
-                                    Orcania is all about hard and smart work. We want what's best for the world and we
-                                    know that no dream can be fulfilled without an ambitious mind and a strong body
+                                    Orcania is all about hard and smart work. We want what&paos;s best for the world and
+                                    we know that no dream can be fulfilled without an ambitious mind and a strong body
                                     willing to give it all for the dream.
                                 </p>
                                 <br />
@@ -227,8 +229,8 @@ const Home = () => {
                     <div id="infinite" className="highway-slider">
                         <div className="highway-barrier">
                             <ul className="highway-lane">
-                                {partnerSection.map((item, index) => (
-                                    <li className="highway-car ml" key={index}>
+                                {partnerSection.map(item => (
+                                    <li className="highway-car ml" key={item.id}>
                                         <a
                                             href={item.link}
                                             target="_blank"
@@ -246,8 +248,8 @@ const Home = () => {
                     <div id="infinite" className="highway-slider">
                         <div className="highway-barrier">
                             <ul className="highway-lane phase2">
-                                {partnerSectionSecondDivision.map((item, index) => (
-                                    <li className="highway-car ml" key={index}>
+                                {partnerSectionSecondDivision.map(item => (
+                                    <li className="highway-car ml" key={item.id}>
                                         <a
                                             href={item.link}
                                             target="_blank"
@@ -281,7 +283,7 @@ const Home = () => {
                                         name="Edy Haddad"
                                         charge="Founder, Blockchain, software and smart contracts developer"
                                         imgsrc="media/pages/home/member1.png"
-                                        chargeIcon={<i className="fas fa-user-tie"></i>}
+                                        chargeIcon={<i className="fas fa-user-tie" />}
                                         socialmedia={
                                             <div>
                                                 <a
@@ -291,7 +293,7 @@ const Home = () => {
                                                     rel="noopener noreferrer"
                                                 >
                                                     <span className="icon hide">
-                                                        <i className="fab fa-linkedin-in"></i>
+                                                        <i className="fab fa-linkedin-in" />
                                                     </span>
                                                 </a>
                                                 &nbsp;
@@ -302,7 +304,7 @@ const Home = () => {
                                                     rel="noopener noreferrer"
                                                 >
                                                     <span className="icon">
-                                                        <i className="fab fa-twitter"></i>
+                                                        <i className="fab fa-twitter" />
                                                     </span>
                                                 </a>
                                                 &nbsp;
@@ -313,7 +315,7 @@ const Home = () => {
                                                     rel="noopener noreferrer"
                                                 >
                                                     <span className="icon">
-                                                        <i className="fab fa-telegram-plane"></i>
+                                                        <i className="fab fa-telegram-plane" />
                                                     </span>
                                                 </a>
                                                 &nbsp;
@@ -325,7 +327,7 @@ const Home = () => {
                                                     }}
                                                 >
                                                     <span className="icon">
-                                                        <i className="fab fa-discord"></i>
+                                                        <i className="fab fa-discord" />
                                                     </span>
                                                 </div>
                                                 &nbsp;
@@ -340,7 +342,7 @@ const Home = () => {
                                         name="Sebastian Madrid"
                                         charge="Web and DAPP dev"
                                         imgsrc="https://drive.google.com/uc?export=view&id=1TibjOvHroE9R9K0MT-T_Ejv6JccaS9YV"
-                                        chargeIcon={<i className="fas fa-code"></i>}
+                                        chargeIcon={<i className="fas fa-code" />}
                                         socialmedia={
                                             <div>
                                                 <a
@@ -350,7 +352,7 @@ const Home = () => {
                                                     rel="noopener noreferrer"
                                                 >
                                                     <span className="icon">
-                                                        <i className="fab fa-linkedin-in"></i>
+                                                        <i className="fab fa-linkedin-in" />
                                                     </span>
                                                 </a>
                                                 &nbsp;
@@ -361,7 +363,7 @@ const Home = () => {
                                                     rel="noopener noreferrer"
                                                 >
                                                     <span className="icon">
-                                                        <i className="fab fa-twitter"></i>
+                                                        <i className="fab fa-twitter" />
                                                     </span>
                                                 </a>
                                                 &nbsp;
@@ -372,7 +374,7 @@ const Home = () => {
                                                     rel="noopener noreferrer"
                                                 >
                                                     <span className="icon">
-                                                        <i className="fab fa-telegram-plane"></i>
+                                                        <i className="fab fa-telegram-plane" />
                                                     </span>
                                                 </a>
                                                 &nbsp;
@@ -383,7 +385,7 @@ const Home = () => {
                                                     style={{ display: 'inline-block' }}
                                                 >
                                                     <span className="icon">
-                                                        <i className="fab fa-discord"></i>
+                                                        <i className="fab fa-discord" />
                                                     </span>
                                                 </div>
                                                 &nbsp;
@@ -398,7 +400,7 @@ const Home = () => {
                                         name="Zero Two"
                                         charge="Hardware Manager / Testing helper"
                                         imgsrc="media/pages/home/member5.png"
-                                        chargeIcon={<i className="fa-solid fa-microchip"></i>}
+                                        chargeIcon={<i className="fa-solid fa-microchip" />}
                                         socialmedia={
                                             <div>
                                                 <a
@@ -408,7 +410,7 @@ const Home = () => {
                                                     rel="noopener noreferrer"
                                                 >
                                                     <span className="icon">
-                                                        <i className="fab fa-telegram-plane"></i>
+                                                        <i className="fab fa-telegram-plane" />
                                                     </span>
                                                 </a>
                                                 &nbsp;
@@ -419,7 +421,7 @@ const Home = () => {
                                                     style={{ display: 'inline-block' }}
                                                 >
                                                     <span className="icon">
-                                                        <i className="fab fa-discord"></i>
+                                                        <i className="fab fa-discord" />
                                                     </span>
                                                 </div>
                                                 &nbsp;
@@ -435,7 +437,7 @@ const Home = () => {
                                     name="Bechara Maalouf"
                                     charge="Web Developer"
                                     // imgsrc="media/pages/home/member6.jpeg"
-                                    chargeIcon={<i className="fas fa-code"></i>}
+                                    chargeIcon={<i className="fas fa-code" />}
                                     socialmedia={
                                         <div>
                                             <a
@@ -445,7 +447,7 @@ const Home = () => {
                                                 rel="noopener noreferrer"
                                             >
                                                 <span className="icon">
-                                                    <i className="fab fa-linkedin-in"></i>
+                                                    <i className="fab fa-linkedin-in" />
                                                 </span>
                                             </a>
                                             &nbsp;
@@ -456,7 +458,7 @@ const Home = () => {
                                                 rel="noopener noreferrer"
                                             >
                                                 <span className="icon">
-                                                    <i className="fab fa-twitter"></i>
+                                                    <i className="fab fa-twitter" />
                                                 </span>
                                             </a>
                                             &nbsp;
@@ -467,7 +469,7 @@ const Home = () => {
                                                 rel="noopener noreferrer"
                                             >
                                                 <span className="icon">
-                                                    <i className="fab fa-telegram-plane"></i>
+                                                    <i className="fab fa-telegram-plane" />
                                                 </span>
                                             </a>
                                             &nbsp;
@@ -478,7 +480,7 @@ const Home = () => {
                                                 style={{ display: 'inline-block' }}
                                             >
                                                 <span className="icon">
-                                                    <i className="fab fa-discord"></i>
+                                                    <i className="fab fa-discord" />
                                                 </span>
                                             </div>
                                             &nbsp;
@@ -502,7 +504,7 @@ const Home = () => {
                                         name="Full Professor Youakim Badr"
                                         charge="Advisor"
                                         imgsrc="media/pages/home/member3.png"
-                                        chargeIcon={<i className="fas fa-chalkboard-teacher"></i>}
+                                        chargeIcon={<i className="fas fa-chalkboard-teacher" />}
                                         socialmedia={
                                             <div>
                                                 <a
@@ -512,7 +514,7 @@ const Home = () => {
                                                     rel="noopener noreferrer"
                                                 >
                                                     <span className="icon">
-                                                        <i className="fab fa-linkedin-in"></i>
+                                                        <i className="fab fa-linkedin-in" />
                                                     </span>
                                                 </a>
                                                 &nbsp;
@@ -523,7 +525,7 @@ const Home = () => {
                                                     rel="noopener noreferrer"
                                                 >
                                                     <span className="icon">
-                                                        <i className="fas fa-globe"></i>
+                                                        <i className="fas fa-globe" />
                                                     </span>
                                                 </a>
                                                 &nbsp;
@@ -548,7 +550,7 @@ const Home = () => {
                                     <TeamCard
                                         name="Glomp"
                                         charge="Graphic designer"
-                                        chargeIcon={<i className="fas fa-paint-brush"></i>}
+                                        chargeIcon={<i className="fas fa-paint-brush" />}
                                     />
                                 </div>
                             </div>
@@ -557,7 +559,7 @@ const Home = () => {
                                     <TeamCard
                                         name="Rusty"
                                         charge="Graphic designer"
-                                        chargeIcon={<i className="fas fa-paint-brush"></i>}
+                                        chargeIcon={<i className="fas fa-paint-brush" />}
                                     />
                                 </div>
                             </div>
@@ -578,9 +580,9 @@ const Home = () => {
                             <h1 className="title is-4 has-text-light-purple">Where do you want to go?</h1>
                             <p className="has-text-light  has-text-distriute is-size-5">
                                 As we progress and grow, our goals continue to grow with us. We do our best to bring the
-                                improvements we want to see in the world of cryptos and it's community, we strive our
-                                hardest to offer the most efficient of technologies. Our projects and plans grow with
-                                us, and we'll keep on growing.
+                                improvements we want to see in the world of cryptos and it&apos;s community, we strive
+                                our hardest to offer the most efficient of technologies. Our projects and plans grow
+                                with us, and we&apos;ll keep on growing.
                             </p>
                         </div>
 

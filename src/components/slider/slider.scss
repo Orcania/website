@@ -1,0 +1,48 @@
+@import 'src/scss/vars.scss';
+
+.slider-img{
+    position: relative;
+    width: 220px;
+    height: 190px;
+    // overflow: hidden;
+    transition: all .5s ease-in-out;
+    opacity: .8;
+    &:hover{
+        transform: scale(1.1);
+        // -moz-transition: opacity .25s ease-in-out;
+        // -webkit-transition: opacity .25s ease-in-out;
+        // transition: opacity 1.25s ease-in-out;
+        opacity: 1;
+
+    }
+
+    @media screen and (max-width: 1024px){
+        width: 160px;
+        height: 130px;
+    }
+
+}
+
+.splide__arrow{
+
+    &.splide__arrow--prev{
+        left: -4rem;        
+    }
+
+    &.splide__arrow--next{
+        right: -3rem;
+    }
+
+    background: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.589);
+    &:hover{
+      background: transparent;
+    //   box-shadow:
+    //       0 0 7px  $dark,
+    //       0 0 15px $dark,
+    //       0 0 20px $dark,
+    //       0 0 25px $dark,
+    }
+    
+    
+}
