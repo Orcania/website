@@ -33,11 +33,11 @@ const Services = () => {
                     <h1 className="title is-3 has-text-primary has-text-centered mb-6">Supported Blockchains</h1>
                 </div>
                 <div className="hero-body pb-6 px-0" style={{ overflow: 'hidden' }}>
-                    <div id="infinite" className="highway-slider">
-                        <div className="highway-barrier">
-                            <ul className="highway-lane">
+                    <div id="infinite-services" className="highway-slider-services">
+                        <div className="highway-barrier-services">
+                            <ul className="highway-lane-services">
                                 {sliderFirstColumn.map(item => (
-                                    <li className="highway-car ml" key={item.id}>
+                                    <li className="highway-car-services ml" key={item.id}>
                                         <a
                                             href={item.link}
                                             target="_blank"
@@ -57,11 +57,11 @@ const Services = () => {
                         </div>
                     </div>
 
-                    <div id="infinite" className="highway-slider">
-                        <div className="highway-barrier">
-                            <ul className="highway-lane phase2">
+                    <div id="infinite-services" className="highway-slider-services">
+                        <div className="highway-barrier-services">
+                            <ul className="highway-lane-services phase2">
                                 {sliderSecondColumn.map(item => (
-                                    <li className="highway-car ml" key={item.id}>
+                                    <li className="highway-car-services ml" key={item.id}>
                                         <a
                                             href={item.link}
                                             target="_blank"
@@ -76,11 +76,11 @@ const Services = () => {
                         </div>
                     </div>
 
-                    <div id="infinite" className="highway-slider">
-                        <div className="highway-barrier">
-                            <ul className="highway-lane">
+                    <div id="infinite-services" className="highway-slider-services">
+                        <div className="highway-barrier-services">
+                            <ul className="highway-lane-services">
                                 {sliderThirdColumn.map(item => (
-                                    <li className="highway-car ml" key={item.id}>
+                                    <li className="highway-car-services ml" key={item.id}>
                                         <a
                                             href={item.link}
                                             target="_blank"

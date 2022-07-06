@@ -143,15 +143,15 @@ let copyOfFirstColumn = [];
 let copyOfSecondColumn = [];
 let copyOfThirdColumn = [];
 
-for (let i = 0; i < 10; i += 1) {
+for (let i = 0; i < 30; i += 1) {
     copyOfFirstColumn = [...copyOfFirstColumn, ...sliderFirstColumn];
 }
 
-for (let i = 0; i < 10; i += 1) {
+for (let i = 0; i < 30; i += 1) {
     copyOfSecondColumn = [...copyOfSecondColumn, ...sliderSecondColumn];
 }
 
-for (let i = 0; i < 10; i += 1) {
+for (let i = 0; i < 40; i += 1) {
     copyOfThirdColumn = [...copyOfThirdColumn, ...sliderThirdColumn];
 }
 
