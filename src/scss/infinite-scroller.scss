@@ -102,7 +102,7 @@
 	}
 }
 @keyframes translateinfiniteservices {
-	100% { transform:translateX(calc(-250px * 8));  }
+	100% { transform:translateX(calc(-250px * 6));  }
 }
 
 #infinite-services div.highway-barrier-services {
@@ -131,7 +131,7 @@
 		}
 	}
 	ul.highway-lane-services {
-		width:calc(250px * 8);
+		width:calc(250px * 12);
 		li.highway-car-services {
 			 width:250px;
 			 min-width: 250px;
