@@ -15,7 +15,7 @@ const Table = () => {
                                         <div className="column is-narrow">
                                             <span className="is-flex is-align-items-center has-text-white">
                                                 <figure className="image is-32x32">
-                                                    <Image layout="fill" src="/media/logos/uniswap-logo.png" />
+                                                    <Image width={32} height={32} src="/media/logos/uniswap-logo.png" />
                                                 </figure>
                                                 <h1 className="title is-4 has-text-white">Uniswap </h1>
                                             </span>
@@ -23,7 +23,11 @@ const Table = () => {
                                         <div className="column is-narrow">
                                             <span className="is-flex is-align-items-center has-text-white">
                                                 <figure className="image is-32x32">
-                                                    <Image layout="fill" src="/media/logos/pancakeswap-logo.png" />
+                                                    <Image
+                                                        width={32}
+                                                        height={32}
+                                                        src="/media/logos/pancakeswap-logo.png"
+                                                    />
                                                 </figure>
                                                 <h1 className="title is-4 has-text-white">PancakeSwap</h1>
                                             </span>
@@ -31,7 +35,11 @@ const Table = () => {
                                         <div className="column is-narrow">
                                             <span className="is-flex is-align-items-center has-text-white">
                                                 <figure className="image is-32x32">
-                                                    <Image layout="fill" src="/media/logos/honeyswap-logo.png" />
+                                                    <Image
+                                                        width={32}
+                                                        height={32}
+                                                        src="/media/logos/honeyswap-logo.png"
+                                                    />
                                                 </figure>
                                                 <h1 className="title is-4 has-text-white">HoneySwap</h1>
                                             </span>
@@ -42,7 +50,7 @@ const Table = () => {
                             <th>
                                 <span className="is-flex is-align-items-center">
                                     <figure className="image is-64x64">
-                                        <Image layout="fill" src="/media/logos/oca-light.png" />
+                                        <Image width={64} height={64} src="/media/logos/oca-light.png" />
                                     </figure>
                                     <h1 className="title is-3 has-text-contrast"> Orcania DEX </h1>
                                 </span>

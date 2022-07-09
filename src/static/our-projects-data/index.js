@@ -7,7 +7,7 @@ const ourProjectsData = [
         title: 'OCA-DEX',
         description:
             'The Orcania DEX is the first ever DEFI 2.0 DEX aimed at low gas swaps regardless of the swap pair, low DEX fees, increased locked liquidity stability, and unbounded trading flexibility.',
-        link: 'https://oca-dex-testing-boba.netlify.app/swap',
+        link: 'https://orcania-dex.netlify.app/home',
         discord: 'https://discord.gg/M25Rcdsj',
         twitter: 'https://twitter.com/orcania_io',
     },

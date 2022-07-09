@@ -128,7 +128,7 @@ const Services = () => {
             <section className="section has-background-primary2dark-v" style={{ paddingBottom: '8rem' }}>
                 <div className="container">
                     <div className="columns" data-aos="fade-up">
-                        <div className="column is-5">
+                        <div className="column is-6">
                             <h1 className="title is-size-1 has-text-white">Have a project? We would love to help.</h1>
                         </div>
                     </div>

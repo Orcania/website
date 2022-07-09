@@ -22,7 +22,7 @@ const animateCSS = (element, animation, prefix = 'animate__') =>
     });
 
 const ProjectsSection = () => {
-    const [overlayMenu, setOverlayMenu] = useState(false);
+    const [overlayMenu, setOverlayMenu] = useState(true);
 
     const [burgerMenu, setBurgerMenu] = useState(false);
 

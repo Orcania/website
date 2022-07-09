@@ -42,7 +42,7 @@ const Dex = () => {
                                                 rel="noreferrer noopener"
                                                 className="button is-fullwidth is-rounded has-text-light-purple has-background-primary-o-5 has-border-2-light-purple-o-10 is-shadowless mint-button"
                                             >
-                                                <span className="is-size-5">Test on Boba</span>
+                                                <span className="is-size-5">Test The DEX</span>
                                             </a>
                                         </div>
                                     </div>
