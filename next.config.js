@@ -1,5 +1,5 @@
 module.exports = {
-    reactStrictMode: true,
+    reactStrictMode: false,
     env: {
         FONT_AWESOME_KEY: '8d70729523',
         ENDPOINT: 'https://zerotwo.art',

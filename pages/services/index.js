@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { getLayout as getPageTitleLayout } from 'src/layouts/page-title';
 import { getLayout as getMainLayout } from 'src/layouts/main';
+import Slider from 'src/components/commons/slider';
 import IntroSection from 'src/components/intro-section';
 import { useRef } from 'react';
 import {
@@ -9,13 +10,21 @@ import {
     sliderSecondColumn,
     sliderThirdColumn,
 } from 'src/static/services/services-data';
-import Image from 'next/image';
 import TiltedSquareBox from './tilted-square-box';
 import styles from './styles.module.scss';
 import ContactUsBox from './contact-us-box';
 import ProjectsSection from './our-projects-section';
 
 const { columns_container, second_column } = styles;
+
+let items1 = [...sliderFirstColumn, ...sliderFirstColumn, ...sliderFirstColumn];
+items1 = items1.map((item, i) => ({ ...item, id: i }));
+
+let items2 = [...sliderSecondColumn, ...sliderSecondColumn, ...sliderSecondColumn];
+items2 = items2.map((item, i) => ({ ...item, id: i }));
+
+let items3 = [...sliderThirdColumn, ...sliderThirdColumn, ...sliderThirdColumn];
+items3 = items3.map((item, i) => ({ ...item, id: i }));
 
 const Services = () => {
     const firstColumn = useRef(null);
@@ -32,68 +41,12 @@ const Services = () => {
                 <div className="head pt-6">
                     <h1 className="title is-3 has-text-primary has-text-centered mb-6">Supported Blockchains</h1>
                 </div>
-                <div className="hero-body pb-6 px-0" style={{ overflow: 'hidden' }}>
-                    <div id="infinite-services" className="highway-slider-services">
-                        <div className="highway-barrier-services">
-                            <ul className="highway-lane-services">
-                                {sliderFirstColumn.map(item => (
-                                    <li className="highway-car-services ml" key={item.id}>
-                                        <a
-                                            href={item.link}
-                                            target="_blank"
-                                            className="box has-background-dark is-shadowless"
-                                            rel="noopener noreferrer"
-                                        >
-                                            <Image
-                                                src={item.logo}
-                                                alt={item.alt}
-                                                width={sliderFirstColumn.width || 178}
-                                                height={sliderFirstColumn.height || 41}
-                                            />
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div id="infinite-services" className="highway-slider-services">
-                        <div className="highway-barrier-services">
-                            <ul className="highway-lane-services phase2">
-                                {sliderSecondColumn.map(item => (
-                                    <li className="highway-car-services ml" key={item.id}>
-                                        <a
-                                            href={item.link}
-                                            target="_blank"
-                                            className="box has-background-dark is-shadowless"
-                                            rel="noopener noreferrer"
-                                        >
-                                            <Image src={item.logo} alt={item.alt} width={178} height={41} />
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div id="infinite-services" className="highway-slider-services">
-                        <div className="highway-barrier-services">
-                            <ul className="highway-lane-services">
-                                {sliderThirdColumn.map(item => (
-                                    <li className="highway-car-services ml" key={item.id}>
-                                        <a
-                                            href={item.link}
-                                            target="_blank"
-                                            className="box has-background-dark is-shadowless"
-                                            rel="noopener noreferrer"
-                                        >
-                                            <Image src={item.logo} alt={item.alt} width={178} height={41} />
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
+                <div className="py-6">
+                    <Slider items={items1} dir="l" />
+                    <br />
+                    <Slider items={items2} dir="r" />
+                    <br />
+                    <Slider items={items3} dir="l" />
                 </div>
             </section>
 
@@ -101,7 +54,7 @@ const Services = () => {
                 <div className="container">
                     <div className="columns has-text-centered" data-aos="fade-up">
                         <div className="column">
-                            <h1 className="title is-size-1 has-text-light-purple">Our Services</h1>
+                            <h1 className="title is-size-3 has-text-light-purple">Our Services</h1>
                         </div>
                     </div>
 

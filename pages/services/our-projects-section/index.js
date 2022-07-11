@@ -48,8 +48,8 @@ const ProjectsSection = () => {
             <div className="container">
                 <div className="columns is-centered has-text-centered">
                     <div className="column is-8">
-                        <h1 className="title is-size-1 has-text-dark">Our Projects</h1>
-                        <h2 className="subtitle is-size-3 is-size-4-mobile has-text-dark pt-4 pb-6">
+                        <h1 className="title is-size-3 has-text-dark">Our Projects</h1>
+                        <h2 className="subtitle is-size-4 is-size-5-mobile has-text-dark pt-4 pb-6">
                             We make every project feel personal because our clients matter.
                         </h2>
                     </div>
