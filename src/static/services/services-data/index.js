@@ -3,7 +3,7 @@ const servicesData = [
         id: 1,
         title: 'NFT Development',
         subtitle:
-            'Full stack development of your NFT project with the latest most advanced technology in the crypto space.',
+            'We hold the record for most efficient and most flexible contracts in the NFT space with the cheapest minting fees ever and highest development flexibility.',
         icon: 'fa-solid fa-hexagon-vertical-nft',
     },
     {
