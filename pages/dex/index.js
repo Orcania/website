@@ -78,7 +78,7 @@ const Dex = () => {
                                         About
                                     </h1>
                                     <p className="has-text-light  has-text-distriute is-size-5">
-                                        The Orcania DEX is a DEFI 2.0 DEX aimed at low gas swaps regardless of the swap
+                                        The Orcania DEX is a DEFI 2.0 DEX with low gas swaps regardless of the swap
                                         pair, low DEX fees, increased locked liquidity stability, and unbounded trading
                                         flexibility.
                                         <br />
