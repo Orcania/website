@@ -68,14 +68,17 @@ const Dex = () => {
                                         About
                                     </h1>
                                     <p className="has-text-light  has-text-distriute is-size-5">
-                                        The Orcania DEX is a nonprofit multichain DEFI 2.0 DEX aimed at low gas swaps
-                                        regardless of the swap pair, low DEX fees, increasing locked liquidity
-                                        stability, and unbounded trading flexibility. The DEX will be using the Orcania
-                                        Multichain infrastructure to allow funds across all blockchains to interact with
-                                        it. Orcania DEX was built with the aim of revolutionizing decentralized finance
-                                        and decentralized trading, and we believe the steps to achieve that is through
-                                        low trading fees, low gas usage and gas fees, self-sustaining liquidity, and
-                                        trading flexibility. This is what the DEX works towards.
+                                        The Orcania DEX is a DEFI 2.0 DEX aimed at low gas swaps regardless of the swap
+                                        pair, low DEX fees, increased locked liquidity stability, and unbounded trading
+                                        flexibility.
+                                        <br />
+                                        <br />
+                                        Orcania DEX was built with the aim of revolutionizing decentralized finance and
+                                        decentralized trading, and making it suitable for retail and institutional users
+                                        alike. We believe the steps to achieve that is through low trading fees that can
+                                        compete with CEXs, low gas usage and gas fees that wouldn&apos;t affect the
+                                        trade, self-sustaining liquidity for long term continuity, and trading
+                                        flexibility for all cryptos on the DEX.
                                     </p>
                                 </div>
                                 <div className="column has-text-centered" data-aos="fade-right">
@@ -98,8 +101,7 @@ const Dex = () => {
                                         contracts with no back doors or administrative permissions for anyone.
                                         <br />
                                         <br />
-                                        The DEX is permissionless and allows anyone to use it with no limits or
-                                        restrictions.
+                                        The DEX is permissionless and anyone can use it with no limits or restrictions.
                                     </p>
                                 </div>
                             </div>
@@ -109,15 +111,17 @@ const Dex = () => {
                             <div className="columns ">
                                 <div className="column" data-aos="fade-up">
                                     <h1 className="title has-line-text contrast is-3 has-text-contrast has-text-centered">
-                                        {' '}
-                                        Self Sustaining Liquidity{' '}
+                                        Middle Crypto Protocol
                                     </h1>
                                     <p className="has-text-light  has-text-distriute is-size-5">
-                                        The Orcania DEX like any other DEX relies on users to provide the majority of
-                                        the liquidity for cryptos to allow flexible trading. However, the DEX also
-                                        builds up it&apos;s own liquidity as time passes by, making it less reliant on
-                                        users for liquidity and allowing for flexible trading at all times for all
-                                        cryptos on the DEX.
+                                        All liquidity on the DEX is provided in one liquidity pair ‘Token-OCA’, making
+                                        OCA the middle crypto between all cryptos and allowing for flexible unlimited
+                                        trading across all tokens, by offering a joined link for them all.
+                                        <br />
+                                        <br />
+                                        No new OCA is ever minted for any token, OCA has a hardcoded max supply of
+                                        250Mil per blockchain, and any user that wants to add Token-OCA liquidity have
+                                        to buy OCA.
                                     </p>
                                 </div>
                                 <div className="column has-text-centered" data-aos="fade-right">
@@ -133,17 +137,21 @@ const Dex = () => {
                                 </div>
                                 <div className="column" data-aos="fade-up">
                                     <h1 className="title has-line-text contrast is-3 has-text-contrast has-text-centered">
-                                        Orcania Expanding Liquidity Protocol
+                                        Expanding Liquidity Protocol
                                     </h1>
                                     <p className="has-text-light  has-text-distriute is-size-5">
-                                        The DEX focuses on building self-sustaining liquidity, and this is what the
-                                        expanding liquidity protocol focuses on. When users are adding liquidity to the
-                                        DEX, 0.01% of the liquidity is fed to the DEX as locked liquidity, and while
-                                        users can make back that 0.01% in less than a day through DEX fees, it remains a
-                                        huge contribution to the liquidity of the DEX and builds a long term sustaining
-                                        liquidity. The locked liquidity fairly shares the rewards of DEX fees with other
-                                        liquidity providers, resulting in the increase of locked liquidity the more and
-                                        more trades there are on the DEX.
+                                        The Orcania DEX, like any other DEX, relies on users to provide the majority of
+                                        the liquidity for cryptos to allow flexible trading.
+                                        <br />
+                                        <br />
+                                        However, the DEX also applies a very small fee of 0.01% on added liquidity, that
+                                        fee is fed as locked liquidity to the DEX and fairly shares the rewards of DEX
+                                        fees with other liquidity providers.
+                                        <br />
+                                        <br />
+                                        This allows the DEX to build up its own liquidity as time passes by, making it
+                                        less reliant on users for liquidity and allowing for flexible trading at all
+                                        times for all cryptos on the DEX.
                                     </p>
                                 </div>
                             </div>
@@ -152,8 +160,7 @@ const Dex = () => {
                             <div className="columns ">
                                 <div className="column" data-aos="fade-up">
                                     <h1 className="title has-line-text contrast is-3 has-text-contrast has-text-centered">
-                                        {' '}
-                                        Trading Flexibility{' '}
+                                        Trading Flexibility
                                     </h1>
                                     <p className="has-text-light  has-text-distriute is-size-5">
                                         The Orcania DEX offers the smoothest of trading experience, allowing users to
