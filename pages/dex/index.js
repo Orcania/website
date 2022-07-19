@@ -37,6 +37,16 @@ const Dex = () => {
                                         </div>
                                         <div className="column">
                                             <a
+                                                href="https://drive.google.com/file/d/1LXtY0DleEK8Muup-BC7IVBdlXIayX9t2/view?usp=sharing"
+                                                target="_blank"
+                                                rel="noreferrer noopener"
+                                                className="button is-fullwidth is-rounded has-text-light-purple has-background-primary-o-5 has-border-2-light-purple-o-10 is-shadowless mint-button"
+                                            >
+                                                <span className="is-size-5">Pitch deck</span>
+                                            </a>
+                                        </div>
+                                        <div className="column">
+                                            <a
                                                 href="https://oca-dex-testing-boba.netlify.app/"
                                                 target="_blank"
                                                 rel="noreferrer noopener"
