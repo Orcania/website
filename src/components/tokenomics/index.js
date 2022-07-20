@@ -63,7 +63,7 @@ const Tokenomics = props => {
         fill: {
             opacity: 0.8,
         },
-        colors: ['#FF775F', '#23DCF5', '#8A3FFC', '#16C784', '#3861FB', '#c4003e'],
+        colors: ['#23213b', '#3e45bd'],
         tooltip: {
             enabled: true,
             followCursor: false,

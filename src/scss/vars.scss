@@ -9,6 +9,7 @@ $warning: #e4c000;
 $hsatpink: #ff00aa;
 $hsatblue: #00b2ff;
 $hblack: #000000;
+$hdark2: #39284f;
 
 $hgra2: linear-gradient(135deg, $hsatpink 0%, rgba($hsatpink, 0) 25%, rgba($hsatblue, 0) 75%, $hsatblue 100%);
 $primary2dark: radial-gradient(88.89% 88.89% at 50% 50%, $primary 0%, #100f1e 100%);
@@ -16,6 +17,7 @@ $dark2primary-v: linear-gradient(180deg, $dark 0%, $primary 250.85%);
 $primary2dark-v: linear-gradient(180deg, $primary 0%, $dark 100%);
 $d2p2d: linear-gradient(270deg, #23213b 0%, #432f4d 48.85%, #23213b 100%);
 $primary2dark-box: radial-gradient(50% 50% at 50% 50%, #633778 0%, #23213b 100%);
+$hgra1: linear-gradient(0deg, rgba(#ac53cf, 1) 0%, rgba(#82419e, 1) 100%);
 
 $hcolors: (
     primary: $primary,
@@ -27,6 +29,7 @@ $hcolors: (
     hsatpink: $hsatpink,
     hsatblue: $hsatblue,
     hblack: $hblack,
+    hdark2: $hdark2,
 );
 
 $hgras: (
@@ -36,6 +39,7 @@ $hgras: (
     dark2primary-v: $dark2primary-v,
     primary2dark-v: $primary2dark-v,
     primary2dark-box: $primary2dark-box,
+    hgra1: $hgra1,
 );
 
 $z-index-glasspanel: 100;
