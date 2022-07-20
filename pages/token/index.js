@@ -1,9 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
+import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+
 import { getLayout as getPageTitleLayout } from 'src/layouts/page-title';
 import { getLayout as getMainLayout } from 'src/layouts/main';
-import { useRouter } from 'next/router';
 import Tokenomics from 'src/components/tokenomics';
+
+import { utilitiesData } from 'src/static/token-page-data';
 
 const style = {
     // height: '100%'
@@ -42,7 +46,7 @@ const Token = () => {
                                                 router.push('/ico');
                                             }}
                                         >
-                                            Mint
+                                            Buy
                                         </button>
                                     </div>
                                 </div>
@@ -51,7 +55,7 @@ const Token = () => {
                             </div>
 
                             <div className="column" data-aos="flip-left">
-                                <figure className="image is-square" style={{ transform: 'scale(0.8)' }}>
+                                <figure className="image is-square" style={{ transform: 'scale(0.5)' }}>
                                     <img src="media/pages/token/token_logo.svg" alt="" />
                                 </figure>
                             </div>
@@ -201,7 +205,7 @@ const Token = () => {
                             <br />
                             <br />
 
-                            <div className="columns is-reverse">
+                            <div className="columns is-reverse is-hidden">
                                 <div
                                     className="column"
                                     data-aos="fade-left"
@@ -298,7 +302,7 @@ const Token = () => {
                                     <h1 className=" subtitle has-text-center has-text-light-purple">
                                         Deployment Blockchains
                                     </h1>
-                                    <p className="has-text-white has-text-center">Ethereum - BSC - Polygon - Harmony</p>
+                                    <p className="has-text-white has-text-center">Ethereum - BSC</p>
                                 </div>
                             </div>
                             <div className="column has-text-centered" data-aos="fade-up">
@@ -353,122 +357,61 @@ const Token = () => {
                 </div>
             </section> */}
 
-            <section className="has-background-light">
+            <section className="has-background-d2p2d is-last-section pb-6 " style={{}}>
                 <div className="head pt-6">
-                    <h1 className="title is-3 has-text-primary has-text-centered mb-6">Utilities</h1>
+                    <h1 className="title is-3 has-text-contrast has-text-centered mb-6 ">Utilities</h1>
                     <div className="hero-body pb-6" style={{ overflow: 'hidden' }}>
                         <div className="container px-3">
                             <div className="columns">
-                                <div className="column">
-                                    <div className="box has-background-primary2dark-v py-6" style={{ height: '100%' }}>
-                                        <div style={{ display: 'grid', placeItems: 'center' }}>
-                                            <div
-                                                className="has-background-light-purple"
-                                                style={{
-                                                    width: '128px',
-                                                    height: '128px',
-                                                    borderRadius: '50%',
-                                                    display: 'grid',
-                                                    placeItems: 'center',
-                                                }}
-                                            >
-                                                <img src="media/pages/home/exchange-home.png" alt="" width="90" />
+                                {utilitiesData.map(item => (
+                                    <div className="column" key={item.id}>
+                                        <div className="box-wrapper has-border-radius-10" style={{ height: '100%' }}>
+                                            <div className="box has-background-dark py" style={{ height: '100%' }}>
+                                                <div style={{ display: 'grid', placeItems: 'center' }}>
+                                                    <div
+                                                        className="has-background-"
+                                                        style={{
+                                                            width: '128px',
+                                                            height: '128px',
+                                                            borderRadius: '50%',
+                                                            display: 'grid',
+                                                            placeItems: 'center',
+                                                        }}
+                                                    >
+                                                        <Image src={item.logo} alt="" width={100} height={100} />
+                                                    </div>
+                                                </div>
+                                                <br />
+                                                <h1 className="subtitle has-text-white has-text-centered is-3">
+                                                    {item.title}
+                                                </h1>
+                                                <ul className="px-5 mb-5" style={{ listStyle: 'disc', color: 'white' }}>
+                                                    {item.list.map(subitem => (
+                                                        <li className="mb-3" key={subitem.id}>
+                                                            <h1 className="subtitle has-text-white is-5">
+                                                                {subitem.description}
+                                                            </h1>
+                                                        </li>
+                                                    ))}
+                                                    {/* <li>
+                                                        <h1 className="subtitle has-text-white is-5">
+                                                            Liquidity token of the Orcania DEX
+                                                        </h1>
+                                                    </li> 
+                                                    <br />
+                                                    */}
+                                                </ul>
                                             </div>
                                         </div>
-                                        <br />
-                                        <h1 className="subtitle has-text-white has-text-centered is-3">DEX</h1>
-                                        <ul className="px-5" style={{ listStyle: 'disc', color: 'white' }}>
-                                            <li>
-                                                {/* TODO: Need an icon for DEX */}
-                                                <h1 className="subtitle has-text-white is-5">
-                                                    Middle crypto of the Orcania DEX
-                                                </h1>
-                                            </li>
-                                            <br />
-                                        </ul>
                                     </div>
-                                </div>
-                                <div className="column">
-                                    <div className="box has-background-primary2dark-v py-6" style={{ height: '100%' }}>
-                                        <div style={{ display: 'grid', placeItems: 'center' }}>
-                                            <div
-                                                className="has-background-light-purple"
-                                                style={{
-                                                    width: '128px',
-                                                    height: '128px',
-                                                    borderRadius: '50%',
-                                                    display: 'grid',
-                                                    placeItems: 'center',
-                                                }}
-                                            >
-                                                <img
-                                                    src="https://drive.google.com/uc?export=view&id=1_a6a0G54WcGo09taAIE7RFqr_fGvfR_s"
-                                                    alt=""
-                                                    width="100"
-                                                />
-                                            </div>
-                                        </div>
-                                        <br />
-                                        <h1 className="subtitle has-text-white has-text-centered is-3">Multichain</h1>
-                                        <ul className="px-5" style={{ listStyle: 'disc', color: 'white' }}>
-                                            <li>
-                                                <h1 className="subtitle has-text-white is-5">
-                                                    Staking, governance and security for the Orcania Multichain
-                                                </h1>
-                                            </li>{' '}
-                                            <br />
-                                            <li>
-                                                <h1 className="subtitle has-text-white is-5">
-                                                    Fees payment on the Orcania Multichain
-                                                </h1>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div className="column">
-                                    <div className="box has-background-primary2dark-v py-6" style={{ height: '100%' }}>
-                                        <div style={{ display: 'grid', placeItems: 'center' }}>
-                                            <div
-                                                className="has-background-light-purple"
-                                                style={{
-                                                    width: '128px',
-                                                    height: '128px',
-                                                    borderRadius: '50%',
-                                                    display: 'grid',
-                                                    placeItems: 'center',
-                                                }}
-                                            >
-                                                <img
-                                                    src="https://drive.google.com/uc?export=view&id=1N3-_dYnGpKzyHRsqsFY1fPpca8uPnRCM"
-                                                    alt=""
-                                                    width="80"
-                                                />
-                                            </div>
-                                        </div>
-                                        <br />
-                                        <h1 className="subtitle has-text-white has-text-centered is-3">Chain</h1>
-                                        <ul className="px-5" style={{ listStyle: 'disc', color: 'white' }}>
-                                            <li>
-                                                <h1 className="subtitle has-text-white is-5">
-                                                    Staking, governance and security for the Orcania Chain
-                                                </h1>
-                                            </li>{' '}
-                                            <br />
-                                            <li>
-                                                <h1 className="subtitle has-text-white is-5">
-                                                    Fees payment on the Orcania Chain
-                                                </h1>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                ))}
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section className="has-background-d2p2d is-last-section">
+            {/* <section className="has-background-d2p2d is-last-section is-hidden">
                 <div className="head pt-6">
                     <h1 className="title is-3 has-text-contrast has-text-centered mb-6">F . A . Q</h1>
                 </div>
@@ -505,7 +448,7 @@ const Token = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
         </div>
     );
 };
