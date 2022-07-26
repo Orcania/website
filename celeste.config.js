@@ -6,17 +6,12 @@ module.exports = {
     rpcs: {
         ETH: {
             chainId: 1,
-            url: 'https://speedy-nodes-nyc.moralis.io/3379a8269aa940b8ced12344/eth/mainnet',
+            url: 'https://mainnet.infura.io/v3/fa471aa86d124cde87836175143616f6',
         },
         BSC: {
             chainId: 56,
             url: 'https://bsc-dataseed.binance.org/',
         },
-
-        // HNY: {
-        //     chainId: 1666600000,
-        //     url: 'https://api.harmony.one',
-        // },
     },
     smartContracts: [
         { key: 'OCAMINT', abi: ocamint },
