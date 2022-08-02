@@ -115,8 +115,8 @@ const MintPage = () => {
                                                     <img src="media/icons/dex.png" alt="" />
                                                 </figure>
                                             </div>
-                                            <h1 className="subtitle  has-text-light-purple has-text-centered is-4">
-                                                DEFI 2.0 DEX
+                                            <h1 className="subtitle  has-text-light-purple has-text-centered is-5">
+                                                OCA DEFI 2.0 DEX
                                             </h1>
                                         </div>
                                         <div className="column">
@@ -125,8 +125,8 @@ const MintPage = () => {
                                                     <img src="media/icons/multichain.png" alt="" />
                                                 </figure>
                                             </div>
-                                            <h1 className="subtitle  has-text-light-purple has-text-centered is-4">
-                                                Multichain
+                                            <h1 className="subtitle  has-text-light-purple has-text-centered is-5">
+                                                OCA Multichain
                                             </h1>
                                         </div>
                                         <div className="column">
@@ -135,7 +135,7 @@ const MintPage = () => {
                                                     <img src="media/icons/blockchain.png" alt="" />
                                                 </figure>
                                             </div>
-                                            <h1 className="subtitle  has-text-light-purple has-text-centered is-4">
+                                            <h1 className="subtitle  has-text-light-purple has-text-centered is-5">
                                                 OCA Chain
                                             </h1>
                                         </div>
