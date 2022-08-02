@@ -13,77 +13,16 @@
 		"type": "event"
 	},
 	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "manager",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "bool",
-				"name": "state",
-				"type": "bool"
-			}
-		],
-		"name": "SetManager",
-		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address[]",
-				"name": "users",
-				"type": "address[]"
-			}
-		],
-		"name": "addToWhiteList",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "uint256",
 				"name": "price",
 				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "trafPrice",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "wlPrice",
-				"type": "uint256"
 			}
 		],
-		"name": "changeData",
+		"name": "changePrice",
 		"outputs": [],
 		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "user",
-				"type": "address"
-			}
-		],
-		"name": "manager",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -122,37 +61,6 @@
 	{
 		"inputs": [
 			{
-				"internalType": "address[]",
-				"name": "users",
-				"type": "address[]"
-			}
-		],
-		"name": "removeFromWhiteList",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "user",
-				"type": "address"
-			},
-			{
-				"internalType": "bool",
-				"name": "state",
-				"type": "bool"
-			}
-		],
-		"name": "setManager",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
 				"internalType": "address",
 				"name": "user",
 				"type": "address"
@@ -161,45 +69,6 @@
 		"name": "setNewOwner",
 		"outputs": [],
 		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "trafMint",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "trafPrice",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "user",
-				"type": "address"
-			}
-		],
-		"name": "whiteListed",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -228,7 +97,7 @@
 				"type": "address"
 			},
 			{
-				"internalType": "address payable",
+				"internalType": "address",
 				"name": "to",
 				"type": "address"
 			},
@@ -241,26 +110,6 @@
 		"name": "withdrawERC20",
 		"outputs": [],
 		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "wlMint",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "wlPrice",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
 		"type": "function"
 	},
 	{
