@@ -86,11 +86,6 @@ const MintPage = () => {
                 .toFixed(7)
                 .toString();
 
-            console.log('==========');
-            console.log('totalBN', totalBN);
-            console.log('balanceBN', balanceBN);
-            console.log('totalDec ');
-
             if (totalDec > balanceDec) setInsufficientBalance(true);
             else setInsufficientBalance(false);
         })();
