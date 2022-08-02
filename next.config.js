@@ -18,4 +18,13 @@ module.exports = {
             },
         ];
     },
+
+    async rewrites() {
+        return [
+            {
+                source: '/referral-program',
+                destination: process.env.NODE_ENV === 'production' ? '/404' : '/referral-program',
+            },
+        ];
+    },
 };

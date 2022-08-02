@@ -222,7 +222,7 @@ const Navbar = () => {
                                 <h1>Ico</h1>
                             </a>
                         </Link>
-                        <Link href="/referral-program" passHref>
+                        {/* <Link href="/referral-program" passHref>
                             <a
                                 role="button"
                                 className={`navbar-item has-text-light  ${
@@ -236,7 +236,7 @@ const Navbar = () => {
                                 &nbsp;
                                 <h1>Refer a friend</h1>
                             </a>
-                        </Link>
+                        </Link> */}
                         {router.pathname === '/mint' ? (
                             <ConnectedWrapper
                                 disconnectedComponent={
