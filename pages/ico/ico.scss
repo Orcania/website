@@ -21,7 +21,7 @@
     border: 2px solid $light-purple !important;
     color: $light-purple !important;
 
-    &:hover {
+    &:hover:enabled {
         background: $light-purple !important;
         border: 2px solid $light-purple !important;
         color: $dark !important;

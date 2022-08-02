@@ -20,7 +20,7 @@ const MintButton = props => {
 
     const dispatch = useDispatch();
 
-    const { amount, disabled } = props;
+    const { amount, disabled, insufficientBalance } = props;
 
     const [mintType, setMintType] = useState('regular');
     const [loadingType, setLoadingType] = useState(true);
@@ -101,7 +101,7 @@ const MintButton = props => {
                     onClick={onMintClick}
                     disabled={disabled}
                 >
-                    Buy
+                    {insufficientBalance ? 'Insufficient balance' : 'Buy'}
                 </button>
             </NetworkWrapper>
         </ConnectedWrapper>

@@ -33,6 +33,7 @@ const MintPage = () => {
     const { mintReducer } = useSelector(state => state);
     const [amount, setAmount] = useState(1);
     const [totalPrice, setTotalPrice] = useState();
+    const [insufficientBalance, setInsufficientBalance] = useState(false);
 
     const handleIncreaseClick = () => {
         setAmount(+amount + 1);
@@ -60,6 +61,7 @@ const MintPage = () => {
 
         if (amount === '' || amount === 0) {
             setTotalPrice(0);
+            setInsufficientBalance(false);
             return;
         }
 
@@ -76,6 +78,18 @@ const MintPage = () => {
             .toString();
 
         setTotalPrice(`${totalDec} ${currencies[walletReducer.chainId]}`);
+
+        (async () => {
+            const balanceBN = await web3Reducer.web3.eth.getBalance(walletReducer.address);
+            const balanceDec = +BigNumber(balanceBN)
+                .div(10 ** 18)
+                .toFixed(7)
+                .toString();
+
+            if (totalDec > balanceDec) setInsufficientBalance(true);
+            else setInsufficientBalance(false);
+        })();
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [amount, walletReducer.address, walletReducer.chainId, web3Reducer.initialized, mintReducer.priceBN]);
 
@@ -184,7 +198,11 @@ const MintPage = () => {
                                 </ConnectedWrapper>
 
                                 <section className="mb-6">
-                                    <MintButton amount={amount} disabled={amount === '' || amount < 1} />
+                                    <MintButton
+                                        amount={amount}
+                                        disabled={amount === '' || amount < 1 || insufficientBalance}
+                                        insufficientBalance={insufficientBalance}
+                                    />
                                     <br />
                                     <ConnectedWrapper>
                                         <NetworkWrapper>
