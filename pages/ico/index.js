@@ -2,8 +2,6 @@
 /* eslint-disable jsx-a11y/interactive-supports-focus */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable @next/next/no-img-element */
-import { useRouter } from 'next/router';
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import BigNumber from 'bignumber.js';
@@ -23,8 +21,7 @@ import AddTokenToWallet from './add-token-to-wallet';
 const currencies = {
     1: 'ETH',
     56: 'BNB',
-    137: 'MATIC',
-    1666600000: 'ONE',
+    28: 'ETH',
 };
 
 const MintPage = () => {
@@ -36,10 +33,6 @@ const MintPage = () => {
     const { mintReducer } = useSelector(state => state);
     const [amount, setAmount] = useState(1);
     const [totalPrice, setTotalPrice] = useState();
-
-    const [referralMint, setReferralMint] = useState(false);
-
-    const { query } = useRouter();
 
     const handleIncreaseClick = () => {
         setAmount(+amount + 1);
@@ -86,13 +79,6 @@ const MintPage = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [amount, walletReducer.address, walletReducer.chainId, web3Reducer.initialized, mintReducer.priceBN]);
 
-    useEffect(() => {
-        // check if referral address is valid and only contains hex characters with 0x prefix
-        if (query.referral && query.referral.match(/^0x[0-9a-fA-F]*$/) && query.referral.length === 42) {
-            setReferralMint(true);
-        }
-    }, [query.referral]);
-
     return (
         <div className="has-background-primary2dark mb-0">
             <div className="container px-5" style={{ paddingBottom: '8rem', paddingTop: '8rem' }}>
@@ -116,7 +102,7 @@ const MintPage = () => {
                                     </p>
                                 </section>
                                 <section className="mb-6">
-                                    <div style={{ display: 'grid', placeItems: 'center' }}>
+                                    <div>
                                         <PriceComponent />
                                     </div>
                                 </section>
@@ -198,12 +184,7 @@ const MintPage = () => {
                                 </ConnectedWrapper>
 
                                 <section className="mb-6">
-                                    <MintButton
-                                        amount={amount}
-                                        disabled={amount === '' || amount < 1}
-                                        referralMint={referralMint}
-                                        referralAddress={query.referral}
-                                    />
+                                    <MintButton amount={amount} disabled={amount === '' || amount < 1} />
                                     <br />
                                     <ConnectedWrapper>
                                         <NetworkWrapper>
@@ -215,7 +196,7 @@ const MintPage = () => {
                                     <br />
                                     <AddTokenToWallet />
 
-                                    <ConnectedWrapper>
+                                    {/* <ConnectedWrapper>
                                         <Link href="/referral-program" passHref>
                                             <a className="has-text-white has-text-centered">
                                                 <h1>
@@ -223,7 +204,7 @@ const MintPage = () => {
                                                 </h1>
                                             </a>
                                         </Link>
-                                    </ConnectedWrapper>
+                                    </ConnectedWrapper> */}
                                 </section>
                             </div>
                             <div className="column is-1 is-hidden-mobile" />

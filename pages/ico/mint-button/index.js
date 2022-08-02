@@ -20,7 +20,7 @@ const MintButton = props => {
 
     const dispatch = useDispatch();
 
-    const { amount, disabled, referralMint: isReferralMint, referralAddress } = props;
+    const { amount, disabled } = props;
 
     const [mintType, setMintType] = useState('regular');
     const [loadingType, setLoadingType] = useState(true);
@@ -31,18 +31,6 @@ const MintButton = props => {
         switch (mintType) {
             case 'regular':
                 await defaultMint(amount);
-                break;
-
-            case 'referral':
-                await referralMint(amount, referralAddress);
-                break;
-
-            case 'wl':
-                await wlMint(amount);
-                break;
-
-            case 'traf':
-                await trafMint(amount);
                 break;
 
             default:
@@ -81,42 +69,6 @@ const MintButton = props => {
             dispatch(set_mint_type('regular'));
             return;
         }
-
-        (async () => {
-            // 1. check if network is eth mainnet
-            if (+walletReducer.chainId === 1) {
-                // 1.2 check if user is traf holder
-                const trafRead = new TrafProxy().read();
-
-                const balance = await trafRead.balanceOf(walletReducer.address);
-
-                if (balance > 0) {
-                    setMintType('traf');
-                    dispatch(set_mint_type('traf'));
-                    return;
-                }
-            }
-
-            // 2. check if user is wl
-            const oca_mint_proxy = new OcaMintProxy();
-
-            const { chainId } = walletReducer;
-
-            const oca_mint_proxy_read = oca_mint_proxy.read(chainId);
-
-            const isWl = await oca_mint_proxy_read.whiteListed(walletReducer.address);
-
-            if (isWl) {
-                setMintType('wl');
-                dispatch(set_mint_type('wl'));
-            } else if (isReferralMint) {
-                setMintType('referral');
-                dispatch(set_mint_type('regular'));
-            } else {
-                setMintType('regular');
-                dispatch(set_mint_type('regular'));
-            }
-        })();
 
         setLoadingType(false);
         // eslint-disable-next-line react-hooks/exhaustive-deps

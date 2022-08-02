@@ -22,16 +22,7 @@ const defaultMint = async amount => {
     const ocaMint = ocaMintProxy.write(chainId);
 
     try {
-        if (+chainId === 137) {
-            await ocaMint.mint(
-                { amount: amountBN },
-                {
-                    from: walletReducer.address,
-                    gasPrice: '50000000000',
-                    maxPriorityFeePerGas: '50000000000',
-                }
-            );
-        } else await ocaMint.mint({ amount: amountBN }, { from: walletReducer.address });
+        await ocaMint.mint({ amount: amountBN }, { from: walletReducer.address });
 
         NotificationsStore.addNotification(
             successNotification('Successful mint', `You minted ${amount} OCA successfully`)
