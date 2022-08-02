@@ -14,7 +14,7 @@ module.exports = {
             url: 'https://bsc-dataseed.binance.org/',
         },
         BOBA: {
-            chainId: 28,
+            chainId: 288,
             url: 'https://mainnet.boba.network/',
         },
     },
@@ -33,12 +33,12 @@ module.exports = {
         OCAMINT: {
             1: '0xb90A6769414cB32234915e25a38b842287067532',
             56: '0xb90A6769414cB32234915e25a38b842287067532',
-            28: '0xb90A6769414cB32234915e25a38b842287067532',
+            288: '0xb90A6769414cB32234915e25a38b842287067532',
         },
         OCA: {
             1: '0x3f8C3b9F543910F611585E3821B00af0617580A7',
             56: '0x3f8C3b9F543910F611585E3821B00af0617580A7',
-            28: '0x3f8C3b9F543910F611585E3821B00af0617580A7',
+            288: '0x3f8C3b9F543910F611585E3821B00af0617580A7',
         },
 
         // OCA_REFERRAL_MINT: {

@@ -39,7 +39,7 @@ const priceMethods = {
 const currencies = {
     1: 'ETH',
     56: 'BNB',
-    28: 'ETH',
+    288: 'ETH',
 };
 
 const chains = ['media/chain-logos/eth.svg', 'media/chain-logos/boba.svg', 'media/chain-logos/bsc.svg'];
