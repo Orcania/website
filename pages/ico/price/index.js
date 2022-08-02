@@ -57,8 +57,6 @@ const defaultCurrency = 'USD';
 const PriceComponent = () => {
     const { walletReducer, web3Reducer } = useCelesteSelector(state => state);
 
-    console.log('web3Reducer', web3Reducer);
-
     const { mintReducer } = useSelector(state => state);
 
     const dispatch = useDispatch();
