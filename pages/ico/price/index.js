@@ -57,6 +57,8 @@ const defaultCurrency = 'USD';
 const PriceComponent = () => {
     const { walletReducer, web3Reducer } = useCelesteSelector(state => state);
 
+    console.log('web3Reducer', web3Reducer);
+
     const { mintReducer } = useSelector(state => state);
 
     const dispatch = useDispatch();
@@ -113,14 +115,16 @@ const PriceComponent = () => {
     }, [mintReducer.mintType, walletReducer.address, web3Reducer.initialized, walletReducer.chainId]);
 
     useEffect(() => {
-        if (walletReducer.address === null || !web3Reducer.initialized || walletReducer.chainId === null) {
+        if (!web3Reducer.readonly_initialized) {
             return;
         }
 
-        (async () => {
-            const OcaSC = new OcaMintProxy().read(walletReducer.chainId);
+        const chain = walletReducer.chainId || 1;
 
-            const amountLeftBN = await OcaSC.balanceOf(addressBook.OCAMINT[walletReducer.chainId]);
+        (async () => {
+            const OcaSC = new OcaMintProxy().read(chain);
+
+            const amountLeftBN = await OcaSC.balanceOf(addressBook.OCAMINT[chain]);
 
             const amountLeftt = +new BigNumber(amountLeftBN)
                 .div(10 ** 18)
@@ -132,7 +136,7 @@ const PriceComponent = () => {
             setAmountLeft(amountLeftFormatted);
         })();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [walletReducer.chainId]);
+    }, [walletReducer.chainId, walletReducer.address, web3Reducer.readonly_initialized]);
 
     return (
         <div className="columns">
