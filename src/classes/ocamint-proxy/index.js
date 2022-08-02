@@ -17,14 +17,18 @@ const OcaMintProxy = () => {
                     const price = await OCA_MINT_READ.methods.price().call();
                     return price;
                 },
-                wlPrice: async () => {
-                    const wlPrice = await OCA_MINT_READ.methods.wlPrice().call();
-                    return wlPrice;
+                balanceOf: async mintingContract => {
+                    const balance = await OCA_MINT_READ.methods.balanceOf(mintingContract).call();
+                    return balance;
                 },
-                trafPrice: async () => {
-                    const trafPrice = await OCA_MINT_READ.methods.trafPrice().call();
-                    return trafPrice;
-                },
+                // wlPrice: async () => {
+                //     const wlPrice = await OCA_MINT_READ.methods.wlPrice().call();
+                //     return wlPrice;
+                // },
+                // trafPrice: async () => {
+                //     const trafPrice = await OCA_MINT_READ.methods.trafPrice().call();
+                //     return trafPrice;
+                // },
                 whiteListed: async address => {
                     const whiteListed = await OCA_MINT_READ.methods.whiteListed(address).call();
                     return whiteListed;
@@ -85,46 +89,46 @@ const OcaMintProxy = () => {
                         }
                     });
                 },
-                wlMint: async ({ amount }, { from, gasPrice = null, maxPriorityFeePerGas = null }) => {
-                    const tx = await OCAMINT.methods.wlMint();
+                //     wlMint: async ({ amount }, { from, gasPrice = null, maxPriorityFeePerGas = null }) => {
+                //         const tx = await OCAMINT.methods.wlMint();
 
-                    const data = {
-                        from,
-                        value: amount,
-                    };
+                //         const data = {
+                //             from,
+                //             value: amount,
+                //         };
 
-                    if (gasPrice !== null) data.gasPrice = gasPrice;
-                    if (maxPriorityFeePerGas !== null) data.maxPriorityFeePerGas = maxPriorityFeePerGas;
+                //         if (gasPrice !== null) data.gasPrice = gasPrice;
+                //         if (maxPriorityFeePerGas !== null) data.maxPriorityFeePerGas = maxPriorityFeePerGas;
 
-                    return new Promise((res, rej) => {
-                        try {
-                            const txRes = tx.send(data);
-                            res(txRes);
-                        } catch (e) {
-                            rej(e);
-                        }
-                    });
-                },
-                trafMint: async ({ amount }, { from, gasPrice = null, maxPriorityFeePerGas = null }) => {
-                    const tx = await OCAMINT.methods.trafMint();
+                //         return new Promise((res, rej) => {
+                //             try {
+                //                 const txRes = tx.send(data);
+                //                 res(txRes);
+                //             } catch (e) {
+                //                 rej(e);
+                //             }
+                //         });
+                //     },
+                //     trafMint: async ({ amount }, { from, gasPrice = null, maxPriorityFeePerGas = null }) => {
+                //         const tx = await OCAMINT.methods.trafMint();
 
-                    const data = {
-                        from,
-                        value: amount,
-                    };
+                //         const data = {
+                //             from,
+                //             value: amount,
+                //         };
 
-                    if (gasPrice !== null) data.gasPrice = gasPrice;
-                    if (maxPriorityFeePerGas !== null) data.maxPriorityFeePerGas = maxPriorityFeePerGas;
+                //         if (gasPrice !== null) data.gasPrice = gasPrice;
+                //         if (maxPriorityFeePerGas !== null) data.maxPriorityFeePerGas = maxPriorityFeePerGas;
 
-                    return new Promise((res, rej) => {
-                        try {
-                            const txRes = tx.send(data);
-                            res(txRes);
-                        } catch (e) {
-                            rej(e);
-                        }
-                    });
-                },
+                //         return new Promise((res, rej) => {
+                //             try {
+                //                 const txRes = tx.send(data);
+                //                 res(txRes);
+                //             } catch (e) {
+                //                 rej(e);
+                //             }
+                //         });
+                //     },
             };
         },
     };
