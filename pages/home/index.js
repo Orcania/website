@@ -110,7 +110,7 @@ const Home = () => {
                                     Our work
                                 </h1>
                                 <p className="has-text-light  has-text-distribute is-size-5">
-                                    Orcania is all about hard and smart work. We want what&paos;s best for the world and
+                                    Orcania is all about hard and smart work. We want what&apos;s best for the world and
                                     we know that no dream can be fulfilled without an ambitious mind and a strong body
                                     willing to give it all for the dream.
                                 </p>
