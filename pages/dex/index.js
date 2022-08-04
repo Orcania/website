@@ -55,6 +55,16 @@ const Dex = () => {
                                                 <span className="is-size-5">Test The DEX</span>
                                             </a>
                                         </div>
+                                        <div className="column">
+                                            <a
+                                                href="https://oca-dex-testing-boba.netlify.app/"
+                                                target="_blank"
+                                                rel="noreferrer noopener"
+                                                className="button is-fullwidth is-rounded has-text-light-purple has-background-primary-o-5 has-border-2-light-purple-o-10 is-shadowless mint-button"
+                                            >
+                                                <span className="is-size-5">Buy Oca</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
