@@ -88,7 +88,7 @@ const Multichain = () => {
 
                             <div className="columns is-reverse is-vcentered">
                                 <div className="column has-text-centered" data-aos="fade-left">
-                                    <img src="media/pages/bridge/bridge_decentralization.svg" alt="" width="500px" />
+                                    <img src="media/pages/vault/vault_banner.svg" alt="" width="500px" />
                                 </div>
                                 <div className="column" data-aos="fade-up">
                                     <h1 className="title has-line-text contrast is-3 has-text-contrast has-text-centered">

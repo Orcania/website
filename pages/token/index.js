@@ -317,7 +317,7 @@ const Token = () => {
                                 <div className="box has-background-dark2primary-v ">
                                     <h1 className=" subtitle has-text-center has-text-light-purple">Address</h1>
                                     <p className="has-text-white has-text-center">
-                                        0x8AeB42F7b4204C956c51907C89639E3446a787Ea
+                                        0x3f8C3b9F543910F611585E3821B00af0617580A7
                                     </p>
                                 </div>
                             </div>
