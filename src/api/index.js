@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const { ENDPOINT } = process.env;
+const { ENDPOINT, MINT_ENDPOINT } = process.env;
 
 const api = {
     get: {
@@ -9,6 +9,12 @@ const api = {
             return axios({
                 method: 'get',
                 url: `${ENDPOINT}/contacts`,
+            });
+        },
+        partnerHolder: ({ user, chainSymbol }) => {
+            return axios({
+                method: 'get',
+                url: `${MINT_ENDPOINT}/partnerHolder/?user=${user}&blockchain=${chainSymbol}`,
             });
         },
     },
