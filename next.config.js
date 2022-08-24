@@ -3,8 +3,7 @@ module.exports = {
     env: {
         FONT_AWESOME_KEY: '8d70729523',
         ENDPOINT: 'https://zerotwo.art',
-        // MINT_ENDPOINT: 'https://icoserver.orcania.io',
-        MINT_ENDPOINT: 'http://193.176.87.163:8080',
+        MINT_ENDPOINT: 'https://icoserver.orcania.io',
     },
     async redirects() {
         return [
