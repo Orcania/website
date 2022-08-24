@@ -30,16 +30,20 @@ function nFormatter(num, digits) {
 
 const mintTypes = {
     regular: '',
+    wl: 'You are White Listed !!',
+    partner: 'You are a partner Holder !!',
 };
 
 const priceMethods = {
     regular: 'price',
+    wl: 'whiteListPrice',
+    partner: 'partnerPrice',
 };
 
 const currencies = {
     1: 'ETH',
-    56: 'BNB',
-    288: 'ETH',
+    97: 'BNB',
+    28: 'ETH',
 };
 
 const chains = ['media/chain-logos/eth.svg', 'media/chain-logos/boba.svg', 'media/chain-logos/bsc.svg'];
@@ -51,6 +55,18 @@ const defaultPrice = +BigNumber(100000000000000000)
 
 const priceTemplates = {
     regular: (normalPrice, price) => price,
+    wl: (normalPrice, price) => (
+        <>
+            <del className="mr-2">{normalPrice}</del> <br />
+            <span style={{ color: '#45ff73' }}>{price}</span>
+        </>
+    ),
+    partner: (normalPrice, price) => (
+        <>
+            <del className="mr-2">{normalPrice}</del> <br />
+            <span style={{ color: '#45ff73' }}>{price}</span>
+        </>
+    ),
 };
 const defaultCurrency = 'USD';
 
@@ -65,6 +81,8 @@ const PriceComponent = () => {
     const [currency, setCurrency] = useState(defaultCurrency);
     const [amountLeft, setAmountLeft] = useState('0');
 
+    console.log('walletReducer', mintTypes[mintReducer.mintType]);
+
     // calc price for currenct connected chain id
     useEffect(() => {
         if (walletReducer.address === null || !web3Reducer.initialized) {
@@ -76,8 +94,8 @@ const PriceComponent = () => {
 
         if (
             !Object.values(rpcs)
-                .map(rpc => rpc.chainId)
-                .includes(walletReducer.chainId)
+                .map(rpc => +rpc.chainId)
+                .includes(+walletReducer.chainId)
         ) {
             setNormalPrice(defaultPrice);
             setPrice(defaultPrice);
@@ -89,13 +107,13 @@ const PriceComponent = () => {
         const { chainId } = walletReducer;
 
         (async () => {
-            const ocaMintProxy = new OcaMintProxy().read(chainId);
+            const ocaMintProxy = new OcaMintProxy(chainId).read();
 
             const normalPriceBN = await ocaMintProxy.price();
             // eslint-disable-next-line no-shadow
             const normalPrice = +new BigNumber(normalPriceBN)
                 .div(10 ** 18)
-                .toFixed(7)
+                .toFixed(18)
                 .toString();
 
             const priceBN = await ocaMintProxy[priceMethods[mintReducer.mintType]]();
@@ -112,25 +130,30 @@ const PriceComponent = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [mintReducer.mintType, walletReducer.address, web3Reducer.initialized, walletReducer.chainId]);
 
+    // cacl amount left to mint
     useEffect(() => {
         if (!web3Reducer.readonly_initialized) {
             return;
         }
 
-        const chain = walletReducer.chainId || 1;
+        let chain = walletReducer.chainId || 28;
+
+        if (
+            !Object.values(rpcs)
+                .map(rpc => +rpc.chainId)
+                .includes(+chain)
+        ) {
+            chain = 28;
+        }
 
         (async () => {
-            const OcaSC = new OcaMintProxy().read(chain);
-
-            const amountLeftBN = await OcaSC.balanceOf(addressBook.OCAMINT[chain]);
-
+            const OcaSC = new OcaMintProxy(chain).read();
+            const amountLeftBN = await OcaSC.balanceOf(addressBook[`OCAMINT_${chain}`]);
             const amountLeftt = +new BigNumber(amountLeftBN)
                 .div(10 ** 18)
                 .toFixed(7)
                 .toString();
-
             const amountLeftFormatted = nFormatter(amountLeftt, 2);
-
             setAmountLeft(amountLeftFormatted);
         })();
         // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -14,27 +14,27 @@ module.exports = {
         //     chainId: 56,
         //     url: 'https://bsc-dataseed.binance.org/',
         // },
-        // BOBA: {
-        //     chainId: 288,
-        //     url: 'https://mainnet.boba.network/',
-        // },
-        BSC: {
-            chainId: '97',
-            url: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
+        BOBAT: {
+            chainId: '28',
+            url: 'https://rinkeby.boba.network/',
         },
+        // BSC: {
+        //     chainId: '97',
+        //     url: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
+        // },
     },
     smartContracts: [
         {
-            key: 'OCAMINT',
-            abi: ocamint,
-            address: '0xF2f0E6C71808f2488C42Fb3516FF4eDeaD091030',
-        },
-        { key: 'TRAF', abi: erc721 },
-        {
             key: 'OCA',
             abi: oca,
-            address: '0xDb040e2d107A1409D6f82D189713b8F412526997',
+            address: '0x0B047EDd7DB1D2764116bA3396d537b5a5c9973C',
         },
+        {
+            key: 'OCAMINT',
+            abi: ocamint,
+            address: '0xdA623E9bC9bD69089d1e94a1d980846465f2A2BD',
+        },
+        { key: 'TRAF', abi: erc721 },
 
         // { key: 'OCA_REFERRAL_MINT', abi: oca_referral_mint },
         // { key: 'DEX_FETCH', abi: dex_fetch, address: '' },
@@ -45,9 +45,11 @@ module.exports = {
     addressBook: {
         ZERO: '0x0000000000000000000000000000000000000000',
 
-        OCA_97: '0xDb040e2d107A1409D6f82D189713b8F412526997',
+        OCA_28: '0x0B047EDd7DB1D2764116bA3396d537b5a5c9973C',
 
-        OCAMINT_97: '0xF2f0E6C71808f2488C42Fb3516FF4eDeaD091030',
+        OCAMINT_28: '0xdA623E9bC9bD69089d1e94a1d980846465f2A2BD',
+
+        NFT_28: '0x236a2F17ee9286549db91832aAb167c3c4113ca5',
         // OCA_REFERRAL_MINT: {
         //     1: '0x4E61b3C4aCD2C0Aac19cdf28c8D0e4036a2e5338',
         //     56: '0xB965a6429dfeE72CD0d5EBd00a7D0820bFCca94C',

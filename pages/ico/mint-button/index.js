@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
-import { ConnectedWrapper, NetworkWrapper, useCelesteSelector } from '@celeste-js/react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { ConnectedWrapper, NetworkWrapper, useCelesteSelector } from '@celeste-js/react';
 
 import { rpcs } from 'celeste.config.js';
 
@@ -8,7 +9,8 @@ import { open_modal, set_mint_type } from 'src/redux/actions';
 
 import OcaMintProxy from 'src/classes/ocamint-proxy';
 import TrafProxy from 'src/classes/traf-proxy';
-import { useEffect, useState } from 'react';
+
+import api from 'src/api';
 
 import defaultMint from './default-mint';
 import referralMint from './referral-mint';
@@ -63,12 +65,66 @@ const MintButton = props => {
 
         if (
             !Object.values(rpcs)
-                .map(rpc => rpc.chainId)
-                .includes(walletReducer.chainId)
+                .map(rpc => +rpc.chainId)
+                .includes(+walletReducer.chainId)
         ) {
             dispatch(set_mint_type('regular'));
+            console.log('nokas');
             return;
         }
+
+        (async () => {
+            // 1. check if network is eth mainnet
+            // if (+walletReducer.chainId === 1) {
+            //     // 1.2 check if user is traf holder
+            //     const trafRead = new TrafProxy().read();
+
+            //     const balance = await trafRead.balanceOf(walletReducer.address);
+
+            //     if (balance > 0) {
+            //         setMintType('traf');
+            //         dispatch(set_mint_type('traf'));
+            //         return;
+            //     }
+            // }
+
+            // 1. check if user is wl
+            const { chainId } = walletReducer;
+            const oca_mint_proxy = new OcaMintProxy(chainId);
+
+            const oca_mint_proxy_read = oca_mint_proxy.read(chainId);
+
+            const isWl = await oca_mint_proxy_read.whiteListed(walletReducer.address);
+
+            if (isWl) {
+                setMintType('wl');
+                dispatch(set_mint_type('wl'));
+                return;
+            }
+
+            // 2. check if user is partner holder
+            try {
+                const res = await api.get.partnerHolder({ user: walletReducer.address, chainId });
+
+                if (res.data.success) {
+                    setMintType('partner');
+                    dispatch(set_mint_type('partner'));
+                    return;
+                }
+            } catch (err) {
+                // do nothing
+            }
+
+            setMintType('regular');
+            dispatch(set_mint_type('regular'));
+            // } else if (isReferralMint) {
+            //     setMintType('referral');
+            //     dispatch(set_mint_type('regular'));
+            // } else {
+            //     setMintType('regular');
+            //     dispatch(set_mint_type('regular'));
+            // }
+        })();
 
         setLoadingType(false);
         // eslint-disable-next-line react-hooks/exhaustive-deps

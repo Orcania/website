@@ -43,7 +43,7 @@ const OcaMintProxy = chainId => {
 
             const { web3 } = web3Reducer;
 
-            const OCAMINT = new web3.eth.Contract(ocamintABI, addressBook.OCAMINT[chainId]);
+            const OCAMINT = new web3.eth.Contract(ocamintABI, addressBook[`OCAMINT_${chainId}`]);
 
             // const OCA_REFERRAL_MINT = new web3.eth.Contract(ocaReferralMintABI, addressBook.OCA_REFERRAL_MINT[chainId]);
 
