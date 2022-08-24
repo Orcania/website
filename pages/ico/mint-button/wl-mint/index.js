@@ -7,37 +7,28 @@ import { Store as NotificationsStore } from 'react-notifications-component';
 import { successNotification, errorNotification } from 'src/static/notifications';
 
 const wlMint = async amount => {
-    const ocaMintProxy = new OcaMintProxy();
-
     const { walletReducer } = celesteStore.getState();
 
     const { chainId } = walletReducer;
+    const ocaMintProxy = new OcaMintProxy(chainId);
 
-    const ocamint_onlyread = ocaMintProxy.read(chainId);
+    const ocamint_onlyread = ocaMintProxy.read();
 
-    const price = await ocamint_onlyread.wlPrice();
+    const price = await ocamint_onlyread.whiteListPrice();
 
     const amountBN = BigNumber(price).times(+amount);
 
     // mint
-    const ocaMint = ocaMintProxy.write(chainId);
+    const ocaMint = ocaMintProxy.write();
 
     try {
-        if (+chainId === 137)
-            await ocaMint.wlMint(
-                { amount: amountBN },
-                {
-                    from: walletReducer.address,
-                    gasPrice: '50000000000',
-                    maxPriorityFeePerGas: '50000000000',
-                }
-            );
-        else await ocaMint.wlMint({ amount: amountBN }, { from: walletReducer.address });
+        await ocaMint.whiteListMint({ amount: amountBN }, { from: walletReducer.address });
+
         NotificationsStore.addNotification(
             successNotification('Successful mint', `You minted ${amount} OCA successfully`)
         );
     } catch (error) {
-        NotificationsStore.addNotification(errorNotification('Error', error.message));
+        NotificationsStore.addNotification(errorNotification('Failed tx', error.message));
     }
 };
 

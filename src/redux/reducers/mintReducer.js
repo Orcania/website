@@ -1,10 +1,11 @@
 /* eslint-disable default-param-last */
 
-import { SET_MINT_TYPE, SET_PRICE_BN } from '../constants';
+import { SET_MINT_TYPE, SET_PARTNER_ADDRESS, SET_PRICE_BN } from '../constants';
 
 const defaultState = {
     mintType: 'regular',
     priceBN: '0',
+    partnerAddress: '',
 };
 
 const reducer = (state = defaultState, action) => {
@@ -19,6 +20,12 @@ const reducer = (state = defaultState, action) => {
             return {
                 ...state,
                 priceBN: action.payload,
+            };
+
+        case SET_PARTNER_ADDRESS:
+            return {
+                ...state,
+                partnerAddress: action.payload,
             };
 
         default:

@@ -5,7 +5,7 @@ import { ConnectedWrapper, NetworkWrapper, useCelesteSelector } from '@celeste-j
 
 import { rpcs } from 'celeste.config.js';
 
-import { open_modal, set_mint_type } from 'src/redux/actions';
+import { open_modal, set_mint_type, set_partner_address } from 'src/redux/actions';
 
 import OcaMintProxy from 'src/classes/ocamint-proxy';
 import TrafProxy from 'src/classes/traf-proxy';
@@ -15,13 +15,13 @@ import api from 'src/api';
 import defaultMint from './default-mint';
 import referralMint from './referral-mint';
 import wlMint from './wl-mint';
-import trafMint from './traf-mint';
+import partnerMint from './partnet-mint';
 
 const MintButton = props => {
     const { walletReducer, web3Reducer } = useCelesteSelector(state => state);
 
     const dispatch = useDispatch();
-
+    const { mintReducer } = useSelector(state => state);
     const { amount, disabled, insufficientBalance } = props;
 
     const [mintType, setMintType] = useState('regular');
@@ -33,6 +33,14 @@ const MintButton = props => {
         switch (mintType) {
             case 'regular':
                 await defaultMint(amount);
+                break;
+
+            case 'wl':
+                await wlMint(amount);
+                break;
+
+            case 'partner':
+                await partnerMint(amount, mintReducer.partnerAddress);
                 break;
 
             default:
@@ -69,7 +77,6 @@ const MintButton = props => {
                 .includes(+walletReducer.chainId)
         ) {
             dispatch(set_mint_type('regular'));
-            console.log('nokas');
             return;
         }
 
@@ -105,10 +112,10 @@ const MintButton = props => {
             // 2. check if user is partner holder
             try {
                 const res = await api.get.partnerHolder({ user: walletReducer.address, chainId });
-
                 if (res.data.success) {
                     setMintType('partner');
                     dispatch(set_mint_type('partner'));
+                    dispatch(set_partner_address(res.data.data));
                     return;
                 }
             } catch (err) {
