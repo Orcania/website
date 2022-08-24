@@ -81,8 +81,6 @@ const PriceComponent = () => {
     const [currency, setCurrency] = useState(defaultCurrency);
     const [amountLeft, setAmountLeft] = useState('0');
 
-    console.log('walletReducer', mintTypes[mintReducer.mintType]);
-
     // calc price for currenct connected chain id
     useEffect(() => {
         if (walletReducer.address === null || !web3Reducer.initialized) {
