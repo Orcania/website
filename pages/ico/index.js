@@ -21,7 +21,7 @@ import AddTokenToWallet from './add-token-to-wallet';
 const currencies = {
     1: 'ETH',
     97: 'BNB',
-    28: 'ETH',
+    288: 'ETH',
 };
 
 const MintPage = () => {

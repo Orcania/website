@@ -43,7 +43,7 @@ const priceMethods = {
 const currencies = {
     1: 'ETH',
     97: 'BNB',
-    28: 'ETH',
+    288: 'ETH',
 };
 
 const chains = ['media/chain-logos/eth.svg', 'media/chain-logos/boba.svg', 'media/chain-logos/bsc.svg'];
@@ -134,14 +134,14 @@ const PriceComponent = () => {
             return;
         }
 
-        let chain = walletReducer.chainId || 28;
+        let chain = walletReducer.chainId || 1;
 
         if (
             !Object.values(rpcs)
                 .map(rpc => +rpc.chainId)
                 .includes(+chain)
         ) {
-            chain = 28;
+            chain = 1;
         }
 
         (async () => {
@@ -151,6 +151,7 @@ const PriceComponent = () => {
                 .div(10 ** 18)
                 .toFixed(7)
                 .toString();
+
             const amountLeftFormatted = nFormatter(amountLeftt, 2);
             setAmountLeft(amountLeftFormatted);
         })();
