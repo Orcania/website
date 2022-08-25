@@ -1,6 +1,8 @@
+/* eslint-disable prefer-destructuring */
 import axios from 'axios';
 
-const { ENDPOINT } = process.env;
+const ENDPOINT = process.env.ENDPOINT;
+const MINT_ENDPOINT = process.env.MINT_ENDPOINT;
 
 const api = {
     get: {
@@ -9,6 +11,12 @@ const api = {
             return axios({
                 method: 'get',
                 url: `${ENDPOINT}/contacts`,
+            });
+        },
+        partnerHolder: ({ user, chainId }) => {
+            return axios({
+                method: 'get',
+                url: `${MINT_ENDPOINT}/partnerHolder/?user=${user}&blockchain=${chainId}`,
             });
         },
     },

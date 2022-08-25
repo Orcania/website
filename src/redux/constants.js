@@ -10,6 +10,7 @@ export const CLOSE_MODAL = 'CLOSE_MODAL';
 /* *~~*~~*~~*~~*~~* MINT REDUCER *~~*~~*~~*~~*~~* */
 export const SET_MINT_TYPE = 'SET_MINT_TYPE';
 export const SET_PRICE_BN = 'SET_PRICE_BN';
+export const SET_PARTNER_ADDRESS = 'SET_PARTNER_ADDRESS';
 
 /* *~~*~~*~~*~~*~~* SLIDER DATA *~~*~~*~~*~~*~~* */
 export const SET_SLIDER_DESCRIPTION = 'SET_SLIDER_DESCRIPTION';

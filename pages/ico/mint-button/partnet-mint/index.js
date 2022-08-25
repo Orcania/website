@@ -1,19 +1,20 @@
+import BigNumber from 'bignumber.js';
+
 import OcaMintProxy from 'src/classes/ocamint-proxy';
 
 import { store as celesteStore } from '@celeste-js/store';
 import { Store as NotificationsStore } from 'react-notifications-component';
 import { successNotification, errorNotification } from 'src/static/notifications';
-import BigNumber from 'bignumber.js';
 
-const defaultMint = async amount => {
+const partnerMint = async (amount, partnerAdress) => {
     const { walletReducer } = celesteStore.getState();
-
     const { chainId } = walletReducer;
+
     const ocaMintProxy = new OcaMintProxy(chainId);
 
     const ocamint_onlyread = ocaMintProxy.read();
 
-    const price = await ocamint_onlyread.price();
+    const price = await ocamint_onlyread.partnerPrice();
 
     const amountBN = BigNumber(price).times(+amount);
 
@@ -21,7 +22,7 @@ const defaultMint = async amount => {
     const ocaMint = ocaMintProxy.write();
 
     try {
-        await ocaMint.mint({ amount: amountBN }, { from: walletReducer.address });
+        await ocaMint.partnerMint({ amount: amountBN, partnerAdress }, { from: walletReducer.address });
 
         NotificationsStore.addNotification(
             successNotification('Successful mint', `You minted ${amount} OCA successfully`)
@@ -31,4 +32,4 @@ const defaultMint = async amount => {
     }
 };
 
-export default defaultMint;
+export default partnerMint;
