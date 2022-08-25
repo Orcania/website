@@ -42,7 +42,7 @@ const priceMethods = {
 
 const currencies = {
     1: 'ETH',
-    97: 'BNB',
+    56: 'BNB',
     288: 'ETH',
 };
 
