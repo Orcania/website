@@ -20,7 +20,7 @@ import AddTokenToWallet from './add-token-to-wallet';
 
 const currencies = {
     1: 'ETH',
-    97: 'BNB',
+    56: 'BNB',
     288: 'ETH',
 };
 
