@@ -8,7 +8,7 @@ module.exports = {
     rpcs: {
         ETH: {
             chainId: '1',
-            url: 'https://mainnet.infura.io/v3/fa471aa86d124cde87836175143616f6',
+            url: 'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
         },
         BSC: {
             chainId: '56',
