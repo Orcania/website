@@ -12,7 +12,7 @@ const style = {
 };
 
 const Multichain = () => {
-    const [videoVisible, setVideoVisible] = useState(true);
+    const [videoVisible, setVideoVisible] = useState(false);
 
     return (
         <div style={style}>
@@ -119,7 +119,7 @@ const Multichain = () => {
                                             className="has-ratio"
                                             width="100%"
                                             height="100%"
-                                            src="https://www.youtube.com/embed/APl2u2iqmQE"
+                                            src="https://www.youtube.com/embed/sEk4qIwh7Ww"
                                             frameBorder="0"
                                             allowFullScreen
                                             title="video"
@@ -144,7 +144,7 @@ const Multichain = () => {
                     <iframe
                         width="100%"
                         height="100%"
-                        src="https://www.youtube.com/embed/APl2u2iqmQE?autoplay=1&mute=1&enablejsapi=1&loop=1&controls=0&playlist=APl2u2iqmQE"
+                        src="https://www.youtube.com/embed/sEk4qIwh7Ww?autoplay=1&mute=1&enablejsapi=1&loop=1&controls=0"
                         title="YouTube video player"
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
