@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 // import TimeLine from 'src/components/base/time-line';
+import { useState } from 'react';
+
 import { getLayout as getPageTitleLayout } from 'src/layouts/page-title';
 import { getLayout as getMainLayout } from 'src/layouts/main';
 
@@ -10,6 +12,8 @@ const style = {
 };
 
 const Multichain = () => {
+    const [videoVisible, setVideoVisible] = useState(false);
+
     return (
         <div style={style}>
             <section className="hero is-fullheight has-background-primary2dark">
@@ -53,6 +57,110 @@ const Multichain = () => {
                         </div>
                     </div>
                 </div>
+            </section>
+
+            <section
+                className=" is-fullheight has-background-dark py-0"
+                style={{ height: '100vh', position: 'relative' }}
+            >
+                <div
+                    className="body is-flex container px-0 is-justify-content-center is-align-items-center"
+                    style={{ height: '100%', zIndex: '10' }}
+                >
+                    <div className="is-flex is-flex-direction-column is-align-items-center">
+                        <h1 className="title is-3 primary has-text-white has-text-centered-mobile mb-5">
+                            About The Multichain
+                        </h1>
+                        <button
+                            className="unstyled-button subtitle is-3 has-text-white has-text-centered"
+                            onClick={() => setVideoVisible(!videoVisible)}
+                            type="button"
+                        >
+                            <span className="icon">
+                                <i className="far fa-play-circle" />
+                            </span>
+                        </button>
+                    </div>
+                    {videoVisible ? (
+                        <div
+                            className="has-background-"
+                            style={{
+                                position: 'absolute',
+                                top: '0',
+                                width: '100%',
+                                height: '100%',
+                                background: 'rgba(black, 0.5)',
+                                zIndex: '15',
+                            }}
+                        >
+                            <div
+                                className="container py-6 px-6 is-flex is-align-items-center is-justify-content-center"
+                                style={{ height: '100%' }}
+                            >
+                                <div
+                                    style={{
+                                        width: '100%',
+                                        aspectRatio: '16/9',
+                                    }}
+                                >
+                                    <button
+                                        className="unstyled-button"
+                                        onClick={() => setVideoVisible(!videoVisible)}
+                                        type="button"
+                                    >
+                                        <span className="icon has-text-white">
+                                            <i className="far fa-angle-left" />
+                                        </span>
+                                        <span className="subtitle has-text-white">go back</span>
+                                    </button>
+                                    <br /> <br />
+                                    <fiure className="image is-16by9">
+                                        <iframe
+                                            className="has-ratio"
+                                            width="100%"
+                                            height="100%"
+                                            src="https://www.youtube.com/embed/sEk4qIwh7Ww"
+                                            frameBorder="0"
+                                            allowFullScreen
+                                            title="video"
+                                        />
+                                    </fiure>
+                                </div>
+                            </div>
+                        </div>
+                    ) : null}
+                </div>
+
+                <div
+                    className=""
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        position: 'absolute',
+                        top: '0',
+                        left: '0',
+                    }}
+                >
+                    <iframe
+                        width="100%"
+                        height="100%"
+                        src="https://www.youtube.com/embed/sEk4qIwh7Ww?autoplay=1&mute=1&enablejsapi=1&loop=1&controls=0"
+                        title="YouTube video player"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                    />
+                </div>
+                <div
+                    className="has-background-hgras has-bg-blur-2"
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        position: 'absolute',
+                        top: '0',
+                        left: '0',
+                    }}
+                />
             </section>
 
             <section className="has-background-d2p2d ">

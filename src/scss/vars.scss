@@ -18,6 +18,7 @@ $primary2dark-v: linear-gradient(180deg, $primary 0%, $dark 100%);
 $d2p2d: linear-gradient(270deg, #23213b 0%, #432f4d 48.85%, #23213b 100%);
 $primary2dark-box: radial-gradient(50% 50% at 50% 50%, #633778 0%, #23213b 100%);
 $hgra1: linear-gradient(0deg, rgba(#ac53cf, 1) 0%, rgba(#82419e, 1) 100%);
+$hgras: linear-gradient(0deg, rgba(#00e4a2, 0.2) 0%, rgba(#82419e, 0.2) 100%);
 
 $hcolors: (
     primary: $primary,
@@ -40,6 +41,7 @@ $hgras: (
     primary2dark-v: $primary2dark-v,
     primary2dark-box: $primary2dark-box,
     hgra1: $hgra1,
+    hgras: $hgras,
 );
 
 $z-index-glasspanel: 100;

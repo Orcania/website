@@ -43,6 +43,26 @@ function MyApp({ Component, pageProps }) {
         <>
             <Head>
                 <title>{appName}</title>
+
+                <meta name="description" content="Bulding the future of blockchain technology" />
+
+                <meta property="og:image" content="https://myurl.com/ogImage.png" />
+                <meta property="og:title" content="Orcania" />
+                <meta property="og:description" content="Bulding the future of blockchain technology" />
+                <meta
+                    property="og:image"
+                    content="https://drive.google.com/uc?export=view&id=1T5XAdT6zYvdK0UzscoBBS1G1VsdXSOeh"
+                />
+
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta property="twitter:domain" content="orcania.io" />
+                <meta property="twitter:url" content="https://orcania.io/home" />
+                <meta name="twitter:title" content="Orcania" />
+                <meta name="twitter:description" content="Bulding the future of blockchain technology" />
+                <meta
+                    name="twitter:image"
+                    content="https://drive.google.com/uc?export=view&id=1T5XAdT6zYvdK0UzscoBBS1G1VsdXSOeh"
+                />
             </Head>
             <Script src={`https://kit.fontawesome.com/${FONT_AWESOME_KEY}.js`} />
             <Provider store={store}>
