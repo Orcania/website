@@ -413,7 +413,7 @@ const Multichain = () => {
 
                         <div className="box has-background-dark has-shadow mb-6" data-aos="fade-left">
                             <h1 className="title is-4 has-text-light-purple">
-                                Will the Multichain link blockchains other than Ethereum, BSC, Polygon, and Harmony ?
+                                Will the Multichain link blockchains other than Ethereum, BSC, Polygon, and Boba ?
                             </h1>
                             <p className="has-text-light is-size-5">
                                 The Orcania Multichain aims at linking more blockchains that can help build a wider
