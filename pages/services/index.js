@@ -86,7 +86,7 @@ const Services = () => {
                         </div>
                     </div>
                     <div className="columns">
-                        <div className="column">
+                        <div className="column px-1">
                             <ContactUsBox />
                         </div>
                     </div>
