@@ -431,64 +431,6 @@ const Home = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="column has-text-centered" style={{ display: 'grid', placeItems: 'center' }}>
-                            <div style={{ width: '300px' }} data-aos="fade-up">
-                                <TeamCard
-                                    name="Bechara Maalouf"
-                                    charge="Web Developer"
-                                    // imgsrc="media/pages/home/member6.jpeg"
-                                    chargeIcon={<i className="fas fa-code" />}
-                                    socialmedia={
-                                        <div>
-                                            <a
-                                                className="has-text-white"
-                                                href="https://www.linkedin.com/in/bechara-maalouf-920645200"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <span className="icon">
-                                                    <i className="fab fa-linkedin-in" />
-                                                </span>
-                                            </a>
-                                            &nbsp;
-                                            <a
-                                                className="has-text-white"
-                                                href="https://twitter.com/BecharaxMaalouf"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <span className="icon">
-                                                    <i className="fab fa-twitter" />
-                                                </span>
-                                            </a>
-                                            &nbsp;
-                                            <a
-                                                className="has-text-white"
-                                                href="https://t.me/TiredZone"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <span className="icon">
-                                                    <i className="fab fa-telegram-plane" />
-                                                </span>
-                                            </a>
-                                            &nbsp;
-                                            <div
-                                                className="has-text-white"
-                                                href=""
-                                                data-tooltip="TiredZone#4106"
-                                                style={{ display: 'inline-block' }}
-                                            >
-                                                <span className="icon">
-                                                    <i className="fab fa-discord" />
-                                                </span>
-                                            </div>
-                                            &nbsp;
-                                        </div>
-                                    }
-                                />
-                            </div>
-                        </div>
                     </div>
 
                     <br />

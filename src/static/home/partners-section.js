@@ -16,6 +16,12 @@ const templatePartnerSecondDiv = [
     { id: 3, link: 'https://www.chaoticdjs.com/', logo: 'media/partners/chaotic_djs.png', alt: 'Chaoctic DJs' },
 
     { id: 4, link: 'https://cryptoland.io/', logo: 'media/partners/crypto-coin.png', alt: 'CryptoLand' },
+    {
+        id: 5,
+        link: 'https://www.royalfalcon.club/',
+        logo: 'media/partners/rfc.png',
+        alt: 'The Space',
+    },
 ];
 
 let partnerSection = [];
