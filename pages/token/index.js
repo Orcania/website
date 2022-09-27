@@ -56,7 +56,7 @@ const Token = () => {
 
                             <div className="column" data-aos="flip-left">
                                 <figure className="image is-square" style={{ transform: 'scale(0.5)' }}>
-                                    <img src="media/pages/token/token_logo.svg" alt="" />
+                                    <img src="media/pages/token/token_logo.png" alt="" />
                                 </figure>
                             </div>
                         </div>
