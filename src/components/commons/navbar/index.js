@@ -91,10 +91,12 @@ const Navbar = () => {
         >
             <div className="container">
                 <div href="https://www.orcania.io" className="navbar-brand  py-2">
-                    <a className="navbar-item">
-                        <img src="media/logos/orcania.png" alt="Orcania Logo" width={32} height={32} />
-                        <h1 className="title is-5 has-text-white mb-0">&nbsp; Orcania</h1>
-                    </a>
+                    <Link href="/home" passHref>
+                        <a className="navbar-item">
+                            <img src="media/logos/orcania.png" alt="Orcania Logo" width={48} height={48} />
+                            <h1 className="title is-5 has-text-white mb-0">&nbsp; Orcania</h1>
+                        </a>
+                    </Link>
 
                     <a
                         role="button"
