@@ -46,7 +46,8 @@ const currencies = {
     288: 'ETH',
 };
 
-const chains = ['media/chain-logos/eth.svg', 'media/chain-logos/boba.svg', 'media/chain-logos/bsc.svg'];
+// const chains = ['media/chain-logos/eth.svg', 'media/chain-logos/boba.svg', 'media/chain-logos/bsc.svg'];
+const chains = ['media/chain-logos/eth.svg'];
 
 const defaultPrice = +BigNumber(100000000000000000)
     .div(10 ** 18)
