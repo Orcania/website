@@ -10,14 +10,14 @@ module.exports = {
             chainId: '1',
             url: 'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
         },
-        BSC: {
-            chainId: '56',
-            url: 'https://bsc-dataseed.binance.org/',
-        },
-        BOBA: {
-            chainId: '288',
-            url: 'https://mainnet.boba.network/',
-        },
+        // BSC: {
+        //     chainId: '56',
+        //     url: 'https://bsc-dataseed.binance.org/',
+        // },
+        // BOBA: {
+        //     chainId: '288',
+        //     url: 'https://mainnet.boba.network/',
+        // },
         // BOBAT: {
         //     chainId: '28',
         //     url: 'https://rinkeby.boba.network/',
