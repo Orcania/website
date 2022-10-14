@@ -12,3 +12,16 @@
 .has-shadow {
     box-shadow: 0 5px rgba(239, 208, 255, 0.5) !important;
 }
+
+.chainstainer {
+    @media screen and (max-width: 768px) {
+        align-items: center;
+    }
+}
+
+.chainimgtainer {
+    @media screen and (max-width: 768px) {
+        display: grid !important;
+        place-items: center;
+    }
+}

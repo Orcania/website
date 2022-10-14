@@ -27,30 +27,33 @@ const Home = () => {
                                 <h1 className="subtitle has-text-white is-4">
                                     Building the future of blockchain technology
                                 </h1>
-                                <div
-                                    className="columns is-mobile has-background is-centered-a is-multiline"
-                                    style={{ width: '80%' }}
-                                >
-                                    {brandLogos.slice(0, 6).map(e => (
-                                        <div className="column is-mobile" key={e.id}>
-                                            <figure className="image is-32x32 ">
-                                                <img src={e.logo} alt="" />
-                                            </figure>
-                                        </div>
-                                    ))}
+                                <div className="is-flex is-flex-direction-column chainstainer">
+                                    <div
+                                        className="columns is-mobile has-background is-centered-a is-multiline"
+                                        style={{ width: '80%' }}
+                                    >
+                                        {brandLogos.slice(0, 6).map(e => (
+                                            <div className="column is-4-touch chainimgtainer" key={e.id}>
+                                                <figure className="image is-32x32 ">
+                                                    <img src={e.logo} alt="" />
+                                                </figure>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div
+                                        className="columns is-mobile has-background is-centered-a is-multiline"
+                                        style={{ width: '80%' }}
+                                    >
+                                        {brandLogos.slice(6, 12).map(e => (
+                                            <div className="column is-4-touch chainimgtainer" key={e.id}>
+                                                <figure className="image is-32x32 ">
+                                                    <img src={e.logo} alt="" />
+                                                </figure>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
-                                <div
-                                    className="columns is-mobile has-background is-centered-a is-multiline"
-                                    style={{ width: '80%' }}
-                                >
-                                    {brandLogos.slice(6, 12).map(e => (
-                                        <div className="column is-mobile" key={e.id}>
-                                            <figure className="image is-32x32 ">
-                                                <img src={e.logo} alt="" />
-                                            </figure>
-                                        </div>
-                                    ))}
-                                </div>
+
                                 <br />
                             </div>
 
