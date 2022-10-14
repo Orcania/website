@@ -358,7 +358,7 @@ const Home = () => {
                                                 &nbsp;
                                                 <a
                                                     className="has-text-white"
-                                                    href="https://twitter.com/GeenKt"
+                                                    href="https://twitter.com/loque_orcania"
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                 >

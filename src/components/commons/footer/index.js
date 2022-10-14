@@ -18,7 +18,7 @@ const Footer = () => {
                                 <h1 className="subtitle has-text-dark is-5">
                                     © Copyright Orcania. All Rights Reserved
                                 </h1>
-                                <a href="https://twitter.com/orcania_io" target="_blank" rel="noreferrer">
+                                <a href="https://twitter.com/Orcaniaio" target="_blank" rel="noreferrer">
                                     <span className="icon has-text-dark is-size-3">
                                         <i className="fab fa-twitter" />
                                     </span>
