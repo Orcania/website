@@ -269,7 +269,7 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className="has-background-light">
+            <section className="has-background-light is-hidden">
                 <div className="head pt-6 mb-6">
                     <div className="container pt-6">
                         <h1 className="title is-3 has-line-text primary has-text-primary has-text-centered mb-5">
