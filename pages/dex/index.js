@@ -38,7 +38,7 @@ const Dex = () => {
                                        
                                         <div className="column">
                                             <a
-                                                href="https://oca-dex-testing-boba.netlify.app/"
+                                                href="https://main--orcania-dex.netlify.app/swap"
                                                 target="_blank"
                                                 rel="noreferrer noopener"
                                                 className="button is-fullwidth is-rounded has-text-light-purple has-background-primary-o-5 has-border-2-light-purple-o-10 is-shadowless mint-button"
@@ -48,7 +48,7 @@ const Dex = () => {
                                         </div>
                                         <div className="column">
                                             <a
-                                                href="https://main--orcania-dex.netlify.app/swap"
+                                                href="https://orcania.io/ico"
                                                 target="_blank"
                                                 rel="noreferrer noopener"
                                                 className="button is-fullwidth is-rounded has-text-light-purple has-background-primary-o-5 has-border-2-light-purple-o-10 is-shadowless mint-button"
