@@ -57,12 +57,12 @@ const Home = () => {
                                 <br />
                             </div>
 
-                            <div className="column">
+                            <div className="column is-flex is-justify-content-center">
                                 <img
-                                    src="media/pages/home/orcania-welcome-screen.gif"
+                                    src="media/logos/orcania.png"
                                     alt=""
                                     data-aos="fade-left"
-                                    width="auto"
+                                    width="300"
                                     height="auto"
                                     style={{
                                         backgroundColor: 'transparent',
