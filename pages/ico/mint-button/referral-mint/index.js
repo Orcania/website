@@ -1,6 +1,6 @@
 import OcaMintProxy from 'src/classes/ocamint-proxy';
 
-import { store as celesteStore } from '@celeste-js/store';
+import { store as celesteStore } from '@celestejs/store';
 import { Store as NotificationsStore } from 'react-notifications-component';
 import { successNotification, errorNotification } from 'src/static/notifications';
 import BigNumber from 'bignumber.js';

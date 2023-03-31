@@ -7,7 +7,7 @@ import { start_close_modal } from 'src/redux/actions';
 import wallets from 'src/static/wallets-list';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { ConnectButton } from '@celeste-js/react';
+import { ConnectButton } from '@celestejs/react';
 
 import styles from './styles.module.scss';
 

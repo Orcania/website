@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from 'react';
-import { ConnectedWrapper, useCelesteSelector } from '@celeste-js/react';
+import { ConnectedWrapper, useCelesteSelector } from '@celestejs/react';
 import { Store as NotificationStore } from 'react-notifications-component';
 import { useDispatch } from 'react-redux';
 

@@ -5,7 +5,7 @@ import BigNumber from 'bignumber.js';
 
 import { rpcs, addressBook } from 'celeste.config';
 
-import { ConnectedWrapper, NetworkWrapper, useCelesteSelector } from '@celeste-js/react';
+import { ConnectedWrapper, NetworkWrapper, useCelesteSelector } from '@celestejs/react';
 
 import OcaMintProxy from 'src/classes/ocamint-proxy';
 import { set_price_bn } from 'src/redux/actions';
