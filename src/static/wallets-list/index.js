@@ -1,4 +1,4 @@
-import { providers } from '@celeste-js/core/dist/constants';
+import { providers } from '@celestejs/core/dist/constants';
 
 const wallets = [
     {

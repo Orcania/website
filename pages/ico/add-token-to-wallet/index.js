@@ -3,7 +3,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { ConnectedWrapper, NetworkWrapper, useCelesteSelector } from '@celeste-js/react';
+import { ConnectedWrapper, NetworkWrapper, useCelesteSelector } from '@celestejs/react';
 
 import { addressBook } from 'celeste.config';
 

@@ -1,6 +1,6 @@
 // import celesteOptions from 'src/components/celeste/celesteOptions';
 
-import { store as celesteStore } from '@celeste-js/store';
+import { store as celesteStore } from '@celestejs/store';
 import ocamintABI from 'src/static/abis/ocamint.json';
 // import ocaReferralMintABI from 'src/static/abis/oca_mint_referral.json';
 

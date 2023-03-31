@@ -6,8 +6,8 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { useCelesteSelector, ConnectedWrapper } from '@celeste-js/react';
-// import { providers } from '@celeste-js/core/dist/constants';
+import { useCelesteSelector, ConnectedWrapper } from '@celestejs/react';
+// import { providers } from '@celestejs/core/dist/constants';
 import { useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 // import './navbar.scss';

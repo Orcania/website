@@ -1,6 +1,6 @@
 // import celesteOptions from 'src/components/celeste/celesteOptions';
 
-import { store as celesteStore } from '@celeste-js/store';
+import { store as celesteStore } from '@celestejs/store';
 
 const trafProxy = () => {
     return {

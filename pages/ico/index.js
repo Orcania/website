@@ -11,7 +11,7 @@ import { getLayout as getMainLayout } from 'src/layouts/main';
 
 // import useCountdown from 'src/hooks/useCountdown';
 
-import { ConnectedWrapper, NetworkWrapper, useCelesteSelector } from '@celeste-js/react';
+import { ConnectedWrapper, NetworkWrapper, useCelesteSelector } from '@celestejs/react';
 import PriceComponent from './price';
 import MintButton from './mint-button';
 import AddTokenToWallet from './add-token-to-wallet';
